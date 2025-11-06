@@ -58,7 +58,9 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(TypeLine());
 
         }else{
+            //close text box
         gameObject.SetActive(false);
+        //Character walking away animation
         characterAnimator.SetTrigger("DialogueDone");
         }
     }
