@@ -131,34 +131,25 @@ public class DialogueController : MonoBehaviour
         int delta = isA ? node.repDeltaA : node.repDeltaB;
         owner?.ApplyReputation(npc.type, delta);
 
+        // int next = 0;
+
+        
+
         // Branch next index
-        int next = isA ? node.nextIfA : node.nextIfB;
-        if (Valid(next))
-        {
-            index = next;
-            StartTypingNode();
-        }
-        else
-        {
-            EndDialogue();
-        }
-    }
+        string next = isA ? node.nextIfA : node.nextIfB;
+        
+            GoThroughDialogue(next);
+            // StartTypingNode();
+    
+     }
 
     private void Advance()
     {
-        var node = npc.dialogue[index];
-        int next = node.nextIndex;
-        if (Valid(next))
-        {
-            index = next;
-            StartTypingNode();
-          
-
-        }
-        else
-        {
-            EndDialogue();
-        }
+        var currentNode = npc.dialogue[index];
+        
+        
+            GoThroughDialogue(currentNode.goTo);
+            
     }
 
     private bool Valid(int i) => (i >= 0 && i < npc.dialogue.Length);
@@ -168,5 +159,24 @@ public class DialogueController : MonoBehaviour
         gameObject.SetActive(false); // hide the text box
         // optionally trigger a “post dialogue” animation:
         // owner.CharacterAnimator.SetTrigger("Outro");
+    }
+
+    private void GoThroughDialogue(string goTo){
+        //this finds the dialogue node that you are wanting to go to based on name
+            for(int i = 0; i < npc.dialogue.Length ; i++){
+                // [i] is index of dialogue you are currently looking at
+                DialogueNode nextNode = npc.dialogue[i];
+                if(goTo == nextNode.nodeName){
+                    index = i;
+                    break;
+                }
+                if(i == npc.dialogue.Length - 1){
+                    Debug.Log("Not found in array...");
+                    EndDialogue();
+                    return;
+                }
+            }
+            StartTypingNode();
+
     }
 }

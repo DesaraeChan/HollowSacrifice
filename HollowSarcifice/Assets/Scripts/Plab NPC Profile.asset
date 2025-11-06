@@ -16,16 +16,8 @@ MonoBehaviour:
   type: 0
   portraitOrSprite: {fileID: 21300000, guid: 5f83d9d871047804eb637d6579c7b527, type: 3}
   dialogue:
-  - text: Hello, this is line 1!
-    nextIndex: 0
-    hasChoice: 0
-    choiceAText: 
-    choiceBText: 
-    repDeltaA: 0
-    repDeltaB: 0
-    nextIfA: 0
-    nextIfB: 0
-  - text: Hello, this is line 2!
+  - nodeName: Bob
+    text: Hello, this is line 1!
     nextIndex: 1
     hasChoice: 0
     choiceAText: 
@@ -34,17 +26,32 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 0
     nextIfB: 0
-  - text: Hello, this is line with choice options :0
+    goTo: Sammy
+  - nodeName: Sammy
+    text: Hello, this is line 2!
     nextIndex: 2
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 0
+    nextIfB: 0
+    goTo: Dialogue 3
+  - nodeName: Dialogue 3
+    text: Hello, this is line with choice options :0
+    nextIndex: 3
     hasChoice: 1
     choiceAText: Option A (good)
     choiceBText: Option B (bad)
     repDeltaA: 1
     repDeltaB: -1
-    nextIfA: 3
-    nextIfB: 4
-  - text: You picked option A
-    nextIndex: -1
+    nextIfA: Option A
+    nextIfB: Option B
+    goTo: Dialogue 4
+  - nodeName: Option A
+    text: You picked option A
+    nextIndex: 4
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -52,8 +59,10 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 0
     nextIfB: 0
-  - text: You picked option B
-    nextIndex: -1
+    goTo: Dialogue 2
+  - nodeName: Option B
+    text: You picked option B
+    nextIndex: 5
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -61,4 +70,5 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 0
     nextIfB: 0
+    goTo: Sammy
   startingReputation: 0
