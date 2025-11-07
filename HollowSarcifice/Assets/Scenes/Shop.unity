@@ -510,7 +510,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1377,7 +1377,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1320943806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1844,7 +1844,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Option A
+  m_text: '
 
 '
   m_isRightToLeft: 0
@@ -2118,7 +2118,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option B
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2756,7 +2756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2145516899
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2834,8 +2834,8 @@ MonoBehaviour:
   choicePanel: {fileID: 1999246401}
   choiceAButton: {fileID: 162657502}
   choiceBButton: {fileID: 2074213363}
-  choiceAText: {fileID: 1798822700}
-  choiceBText: {fileID: 1798822700}
+  choiceAText: {fileID: 1589095541}
+  choiceBText: {fileID: 1899193669}
   textSpeed: 0.03
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

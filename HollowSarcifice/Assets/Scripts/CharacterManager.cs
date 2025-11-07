@@ -17,6 +17,50 @@ public class CharacterManager : MonoBehaviour
     private bool busy;
 
 
+// --- ADDITIONS (safe chain without editing existing methods) ---
+
+// Optional guard so we don't double-fire outro begin (call from DialogueController when last line ends)
+private bool outroFired = false;
+public void OnOutroBeginSafe()
+{
+    if (outroFired) return;
+    outroFired = true;
+
+    // Hide UI and trigger exit
+    if (textBox != null) textBox.SetActive(false);
+    if (characterAnimator != null)
+        characterAnimator.SetTrigger("DialogueDone");
+}
+
+public void OnOutroComplete_ActivateNextOnly()
+{
+    // mark this NPC no longer busy and hide it
+    busy = false;
+    gameObject.SetActive(false);
+
+    // wake next NPC (its Start() will run now and call BeginNPC(currentNPC))
+    if (nextManager != null && nextManager.gameObject != null)
+    {
+        nextManager.gameObject.SetActive(true);
+    }
+}
+
+// (Optional) If you ever want an event that both activates AND starts the next one
+// without relying on its Start(), you can hook to this instead.
+public void OnOutroComplete_ActivateAndStartNext()
+{
+    busy = false;
+    gameObject.SetActive(false);
+
+    if (nextManager != null && nextManager.gameObject != null)
+    {
+        nextManager.gameObject.SetActive(true);
+        // WARNING: If nextManager's Start() also calls BeginNPC, you'll double-start.
+        // Use this only if you've disabled auto-start on the next manager.
+        nextManager.BeginNPC(nextManager.currentNPC);
+    }
+}
+
     void Awake()
     {
         // Fallback so you don't forget to assign in Inspector
