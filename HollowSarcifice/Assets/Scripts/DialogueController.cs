@@ -55,17 +55,7 @@ public class DialogueController : MonoBehaviour
         }
 
 
-
-        // textComponent.text = string.Empty;
-        // if (speakerName) speakerName.text = profile.displayName;
-
-        // index = 0;
-        // choicePanel.SetActive(false);
-        // waitingForClick = false;
-        // waitingForChoice = false;
-
-        // StartTypingNode();
-    }
+   }
 
 private void OnEnable()
 {
@@ -180,8 +170,6 @@ private void BeginInternal()
         int delta = isA ? node.repDeltaA : node.repDeltaB;
         owner?.ApplyReputation(npc.type, delta);
 
-        // int next = 0;
-
         
 
         // Branch next index
@@ -203,13 +191,6 @@ private void BeginInternal()
 
     private bool Valid(int i) => (i >= 0 && i < npc.dialogue.Length);
 
-    private void EndDialogue()
-    {
-        gameObject.SetActive(false); // hide the text box
-        owner.characterAnimator.SetTrigger("DialogueDone"); //play leaving
-        
-    }
-
     private void GoThroughDialogue(string goTo){
         //this finds the dialogue node that you are wanting to go to based on name
             for(int i = 0; i < npc.dialogue.Length ; i++){
@@ -221,7 +202,7 @@ private void BeginInternal()
                 }
                 if(i == npc.dialogue.Length - 1){
                     Debug.Log("Not found in array...");
-                    EndDialogue();
+                    owner.OnOutroBeginSafe();
                     return;
                 }
             }

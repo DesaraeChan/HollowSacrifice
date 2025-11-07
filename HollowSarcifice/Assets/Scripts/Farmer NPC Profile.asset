@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
   displayName: Farmer
   type: 1
-  portraitOrSprite: {fileID: 21300000, guid: 5f83d9d871047804eb637d6579c7b527, type: 3}
+  portraitSprite: {fileID: 0}
   dialogue:
   - nodeName: Dialogue 1
     text: Im a farmer
-    hasChoice: 0
-    choiceAText: 
-    choiceBText: 
-    repDeltaA: 0
-    repDeltaB: 0
+    hasChoice: 1
+    choiceAText: Option A
+    choiceBText: Option B
+    repDeltaA: 1
+    repDeltaB: -1
     nextIfA: 
     nextIfB: 
     goTo: Dialogue 2

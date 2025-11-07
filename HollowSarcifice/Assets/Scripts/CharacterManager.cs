@@ -82,26 +82,6 @@ public void OnOutroComplete_ActivateNextOnly()
         CharacterIntro(); 
     }
 
-
-// public void OnOutroComplete(){
-//         // 1) Release busy on THIS manager
-//         gameObject.SetActive(false);
-//         busy = false;
-
-//         // 2) Start the NEXT manager (NOT this one)
-//         if (nextManager != null && this.gameObject ==null)
-//         {
-//             nextManager.gameObject.SetActive(true);             // ensure NPC2 is active
-//             nextManager.BeginNPC(nextManager.currentNPC);       // start NPC2
-//         }
-
-//         // 3) Optionally hide this NPC after leaving
-        
-//     }
-
-        
-
-
     void CharacterIntro()
     {
         if (characterAnimator == null)
