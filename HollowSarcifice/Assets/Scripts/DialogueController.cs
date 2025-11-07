@@ -19,6 +19,11 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private float textSpeed = 0.1f;
 
     private NPCProfile npc;
+    private NPCProfile pendingProfile;
+    private GameState pendingState;
+    private CharacterManager pendingOwner;
+    private bool hasPending;
+
     private GameState gameState;
     private CharacterManager owner;
     private int index;
@@ -35,20 +40,64 @@ public class DialogueController : MonoBehaviour
 
     public void Begin(NPCProfile profile, GameState gs, CharacterManager ownerMgr)
     {
-        npc = profile;
-        owner = ownerMgr;
-        gameState = gs;
+        //basically, this is called immediately, but since textbox is hidden it crashes
+        //so to avoid this, store the call info
 
-        textComponent.text = string.Empty;
-        if (speakerName) speakerName.text = profile.displayName;
+        //saving parameters for later
+        pendingProfile = profile;
+        pendingState = gs;
+        pendingOwner = ownerMgr;
+        hasPending = true;
 
-        index = 0;
-        choicePanel.SetActive(false);
-        waitingForClick = false;
-        waitingForChoice = false;
+        //if already active and enabled, start immediately
+        if (isActiveAndEnabled){
+            BeginInternal();
+        }
 
-        StartTypingNode();
+
+
+        // textComponent.text = string.Empty;
+        // if (speakerName) speakerName.text = profile.displayName;
+
+        // index = 0;
+        // choicePanel.SetActive(false);
+        // waitingForClick = false;
+        // waitingForChoice = false;
+
+        // StartTypingNode();
     }
+
+private void OnEnable()
+{
+    // if Begin was called while inactive, start now
+    //OnEnable() runs every time the obj becomes active in the scene
+
+    //Does it have pending dialogue request (lines left to say?) and is it enabled
+    //If yes, start the coroutine from begininternal()
+    if (hasPending && isActiveAndEnabled)
+        BeginInternal(); //now you can start the coroutine
+}
+
+private void BeginInternal()
+{
+    //this  uses stored pending data from Begin
+    hasPending = false;
+
+    npc       = pendingProfile;
+    gameState = pendingState;
+    owner     = pendingOwner;
+
+    index = 0;
+    waitingForClick  = false;
+    waitingForChoice = false;
+
+    if (speakerName) speakerName.text = npc.displayName;
+    choicePanel.SetActive(false);
+    textComponent.text = string.Empty;
+
+    // SAFE now to start typing (this component is enabled on an active GO)
+    StartTypingNode();
+}
 
 
     private void Update()
@@ -157,8 +206,8 @@ public class DialogueController : MonoBehaviour
     private void EndDialogue()
     {
         gameObject.SetActive(false); // hide the text box
-        // optionally trigger a “post dialogue” animation:
-        // owner.CharacterAnimator.SetTrigger("Outro");
+        owner.characterAnimator.SetTrigger("DialogueDone"); //play leaving
+        
     }
 
     private void GoThroughDialogue(string goTo){

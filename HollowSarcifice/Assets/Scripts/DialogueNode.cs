@@ -7,7 +7,7 @@ public class DialogueNode
     public string nodeName = "Dialogue 1";
 
     [TextArea] public string text;          // line to type
-    public int nextIndex = -1;              // next node if no choice; -1 ends
+   // public int nextIndex = -1;              // next node if no choice; -1 ends
 
     public bool hasChoice;
     public string choiceAText;

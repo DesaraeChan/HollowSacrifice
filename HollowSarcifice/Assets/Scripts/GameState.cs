@@ -26,4 +26,6 @@ public class GameState : ScriptableObject
     }
 
     public void AddRep(CharacterType t, int delta) => SetRep(t, GetRep(t) + delta);
+
+    
 }
