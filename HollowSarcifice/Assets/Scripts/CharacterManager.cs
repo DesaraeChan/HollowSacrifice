@@ -16,11 +16,9 @@ public class CharacterManager : MonoBehaviour
   
     private bool busy;
 
-
-// --- ADDITIONS (safe chain without editing existing methods) ---
-
 // Optional guard so we don't double-fire outro begin (call from DialogueController when last line ends)
 private bool outroFired = false;
+
 public void OnOutroBeginSafe()
 {
     if (outroFired) return;
@@ -42,22 +40,6 @@ public void OnOutroComplete_ActivateNextOnly()
     if (nextManager != null && nextManager.gameObject != null)
     {
         nextManager.gameObject.SetActive(true);
-    }
-}
-
-// (Optional) If you ever want an event that both activates AND starts the next one
-// without relying on its Start(), you can hook to this instead.
-public void OnOutroComplete_ActivateAndStartNext()
-{
-    busy = false;
-    gameObject.SetActive(false);
-
-    if (nextManager != null && nextManager.gameObject != null)
-    {
-        nextManager.gameObject.SetActive(true);
-        // WARNING: If nextManager's Start() also calls BeginNPC, you'll double-start.
-        // Use this only if you've disabled auto-start on the next manager.
-        nextManager.BeginNPC(nextManager.currentNPC);
     }
 }
 
@@ -101,21 +83,21 @@ public void OnOutroComplete_ActivateAndStartNext()
     }
 
 
-public void OnOutroComplete(){
-        // 1) Release busy on THIS manager
-        gameObject.SetActive(false);
-        busy = false;
+// public void OnOutroComplete(){
+//         // 1) Release busy on THIS manager
+//         gameObject.SetActive(false);
+//         busy = false;
 
-        // 2) Start the NEXT manager (NOT this one)
-        if (nextManager != null && this.gameObject ==null)
-        {
-            nextManager.gameObject.SetActive(true);             // ensure NPC2 is active
-            nextManager.BeginNPC(nextManager.currentNPC);       // start NPC2
-        }
+//         // 2) Start the NEXT manager (NOT this one)
+//         if (nextManager != null && this.gameObject ==null)
+//         {
+//             nextManager.gameObject.SetActive(true);             // ensure NPC2 is active
+//             nextManager.BeginNPC(nextManager.currentNPC);       // start NPC2
+//         }
 
-        // 3) Optionally hide this NPC after leaving
+//         // 3) Optionally hide this NPC after leaving
         
-    }
+//     }
 
         
 
@@ -133,6 +115,12 @@ public void OnOutroComplete(){
         Debug.Log("[CharacterManager] SetTrigger(Character_Enter) fired.");
         
     }
+
+    public void IntroComplete() //this is related to the event in the animation 
+{
+    textBox.SetActive(true);
+    dialogue.Begin(currentNPC, gameState, this);  // OK: controller will start in OnEnable if needed
+}
 
     public void ApplyReputation(CharacterType t, int delta)
     {
@@ -153,23 +141,6 @@ public void OnOutroComplete(){
         Debug.LogError("[CM] Dialogue or currentNPC is null.");
     }
 }
-
-public void IntroComplete() //this is related to the event in the animation 
-{
-    textBox.SetActive(true);
-    dialogue.Begin(currentNPC, gameState, this);  // OK: controller will start in OnEnable if needed
-}
-
-// public void OnOutroBegin(){
-//    busy = false;
-//     seqIndex++;
-//     if (seqIndex < sequence.Length){
-//         BeginNPC(sequence[seqIndex]);
-//     }else{
-//         Debug.Log("Sequence finished");
-//     }
-
-// }
 
 }
     
