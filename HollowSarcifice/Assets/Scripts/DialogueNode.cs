@@ -3,7 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class DialogueNode
 {
-    //Basically, all dialogue choices are linear and the way you display them is by a number index
+   
     public string nodeName = "Dialogue 1";
 
     [TextArea] public string text;          // line to type

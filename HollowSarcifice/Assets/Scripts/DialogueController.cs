@@ -31,6 +31,11 @@ public class DialogueController : MonoBehaviour
     private bool waitingForClick;
     private bool waitingForChoice;
 
+    private string startNodeOverride; //opt start node name
+
+    private bool interactionEnabled = true;
+    public bool hasSold = false;
+
     // Input (new system)
     private bool PressedThisFrame =>
         (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame); 
@@ -57,6 +62,33 @@ public class DialogueController : MonoBehaviour
 
    }
 
+   public void BeginFromNode(NPCProfile profile, GameState gs, CharacterManager ownerMgr, string nodeName)
+{
+    startNodeOverride = nodeName;
+    Begin(profile, gs, ownerMgr);   // reuse your pending/OnEnable path
+}
+
+
+   // Returns the linear next node name, or null if current node had choices.
+public string PeekNextNodeName()
+{
+    if (npc == null || npc.dialogue == null || index < 0 || index >= npc.dialogue.Length)
+        return null;
+
+    var node = npc.dialogue[index];
+    if (node.hasChoice) return null; // ambiguous branch
+    return node.goTo;
+}
+
+// Optional: where are we now?
+public string CurrentNodeName()
+{
+    if (npc == null || npc.dialogue == null || index < 0 || index >= npc.dialogue.Length)
+        return null;
+    return npc.dialogue[index].nodeName;
+}
+
+
 private void OnEnable()
 {
     // if Begin was called while inactive, start now
@@ -77,7 +109,25 @@ private void BeginInternal()
     gameState = pendingState;
     owner     = pendingOwner;
 
+    //default start
     index = 0;
+
+    //default to 0, but if an override node name was provided, jump to it (dif text box)
+    if (!string.IsNullOrEmpty(startNodeOverride)){
+
+        int idx = FindNodeIndex(startNodeOverride);
+        startNodeOverride = null; //use override
+        if (idx >= 0) { 
+            index = idx;
+            
+        } else{
+            gameObject.SetActive(false);
+            owner.OnOutroBeginSafe();
+            return;
+        }
+    }
+
+   // index = 0;
     waitingForClick  = false;
     waitingForChoice = false;
 
@@ -89,9 +139,59 @@ private void BeginInternal()
     StartTypingNode();
 }
 
+// small helper to find a node by name
+private int FindNodeIndex(string nodeName)
+{
+    for (int i = 0; i < npc.dialogue.Length; i++)
+        if (npc.dialogue[i].nodeName == nodeName) return i;
+    return -1;
+}
+
+public void SetInteractionEnabled(bool enabled)
+{
+    interactionEnabled = enabled;
+
+    // If we’re locking input, hide choices so the user can’t click them
+    if (!interactionEnabled && choicePanel) choicePanel.SetActive(false);
+}
+
+// Jump straight to a node by name and start typing it
+public void JumpToNode(string nodeName)
+{
+    if (npc?.dialogue == null) return;
+
+    for (int i = 0; i < npc.dialogue.Length; i++)
+    {
+        if (npc.dialogue[i].nodeName == nodeName)
+        {
+            index = i;
+            StartTypingNode();
+            return;
+        }
+    }
+
+    Debug.LogWarning($"[Dialogue] JumpToNode: '{nodeName}' not found.");
+}
+
 
     private void Update()
     {
+        //if (!interactionEnabled) return;
+
+        // Block clicks while locked
+    if (!interactionEnabled) 
+    {
+        // TEMPORARY TEST, PRESSING E GOES TO THE LAST LINE AFTER YOU SOLD ITEMS
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            hasSold = true;
+            Debug.Log("[Dialogue] Item sold! hasSold = true");
+            owner.OnItemSold();
+        }
+        return;
+    }
+
+
         if (waitingForChoice) return;
 
         if (PressedThisFrame)
@@ -191,22 +291,62 @@ private void BeginInternal()
 
     private bool Valid(int i) => (i >= 0 && i < npc.dialogue.Length);
 
-    private void GoThroughDialogue(string goTo){
-        //this finds the dialogue node that you are wanting to go to based on name
-            for(int i = 0; i < npc.dialogue.Length ; i++){
-                // [i] is index of dialogue you are currently looking at
-                DialogueNode nextNode = npc.dialogue[i];
-                if(goTo == nextNode.nodeName){
-                    index = i;
-                    break;
-                }
-                if(i == npc.dialogue.Length - 1){
-                    Debug.Log("Not found in array...");
-                    owner.OnOutroBeginSafe();
-                    return;
-                }
-            }
-            StartTypingNode();
+    // private void GoThroughDialogue(string goTo){
+    //     //this finds the dialogue node that you are wanting to go to based on name
+    //         for(int i = 0; i < npc.dialogue.Length ; i++){
+    //             // [i] is index of dialogue you are currently looking at
+    //             DialogueNode nextNode = npc.dialogue[i];
+                
+    //             if(goTo == nextNode.nodeName){
+    //                 index = i;
+    //                 break;
+    //             } if (goTo == "AskForItem") // <-- use your actual node name
+    //             {
+    //                 Debug.Log("AskForItem reached");
+    //             owner.SwitchToAskFromNext();   // or owner.ShowAskForItemFromNext();
+    //             return;                        // stop this controller; the item box will take over
+    //             }
 
+    //             if(i == npc.dialogue.Length - 1){
+    //                 Debug.Log("Not found in array...");
+    //                 owner.OnOutroBeginSafe();
+    //                 return;
+    //             }
+    //         }
+    //         StartTypingNode();
+
+    // }
+
+    private void GoThroughDialogue(string goTo)
+{
+    // find the target node by name
+    for (int i = 0; i < npc.dialogue.Length; i++)
+    {
+        DialogueNode nextNode = npc.dialogue[i];
+
+        if (nextNode.nodeName == goTo)
+        {
+            // SPECIAL HANDOFF: if this target is the AskForItem node,
+            // hide the main box and show the item box instead.
+            if (goTo == "AskForItem") // <-- your special node name
+            {
+                Debug.Log("Switching to item dialogue box");
+                owner.SwitchToAskFromNext();          // or owner.ShowAskForItemFromNext();
+                return;                                // stop this controller (no StartTypingNode)
+            }
+
+            // normal path: advance main dialogue to this node
+            index = i;
+            StartTypingNode();
+            return;
+        }
     }
+
+    // not found end
+    Debug.Log("Not found in array...");
+    owner.OnOutroBeginSafe();
+}
+
+
+
 }

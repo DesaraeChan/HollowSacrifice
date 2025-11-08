@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
   displayName: Plab
   type: 0
-  portraitOrSprite: {fileID: 21300000, guid: 5f83d9d871047804eb637d6579c7b527, type: 3}
+  portraitSprite: {fileID: 0}
   dialogue:
   - nodeName: Bob
     text: Hello, this is line 1!
-    nextIndex: 1
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -29,7 +28,6 @@ MonoBehaviour:
     goTo: Sammy
   - nodeName: Sammy
     text: Hello, this is line 2!
-    nextIndex: 2
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -40,7 +38,6 @@ MonoBehaviour:
     goTo: Dialogue 3
   - nodeName: Dialogue 3
     text: Hello, this is line with choice options :0
-    nextIndex: 3
     hasChoice: 1
     choiceAText: Option A (good)
     choiceBText: Option B (bad)
@@ -51,7 +48,6 @@ MonoBehaviour:
     goTo: Dialogue 4
   - nodeName: Option A
     text: You picked option A
-    nextIndex: 4
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -59,10 +55,9 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 0
     nextIfB: 0
-    goTo: Dialogue 2
+    goTo: AskForItem
   - nodeName: Option B
     text: You picked option B
-    nextIndex: 5
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -70,5 +65,27 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 0
     nextIfB: 0
-    goTo: Sammy
+    goTo: AskForItem
+  - nodeName: AskForItem
+    text: I'm asking for item now
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 0
+    nextIfB: 0
+    goTo: Bob
+  - nodeName: AfterSale
+    text: 'Sale has finished now
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 0
+    nextIfB: 0
+    goTo: END
   startingReputation: 0
