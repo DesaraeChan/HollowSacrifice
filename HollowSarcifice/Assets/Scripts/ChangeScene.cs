@@ -11,7 +11,7 @@ public class ChangeScene : MonoBehaviour
     }
 
 
-    public IEnumerator _ChangeScene()
+    public IEnumerator _ChangeScene2D()
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
@@ -21,8 +21,9 @@ public class ChangeScene : MonoBehaviour
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void GoToSceneTwo()
+    public void SceneOutside()
     {
-        StartCoroutine(_ChangeScene());
+        StartCoroutine(_ChangeScene2D());
     }
+
 }
