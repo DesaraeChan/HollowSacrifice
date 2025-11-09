@@ -14,6 +14,11 @@ public class ShopManager : MonoBehaviour
 
    [SerializeField] private InventoryManager inventoryManager;
 
+   [SerializeField] private TMP_Text totalText; //shows running money total
+   [SerializeField] private Button sellButton;
+
+    [SerializeField] private ItemSlot[] itemSlots;
+
 
    private void Start(){
 
@@ -37,34 +42,120 @@ public class ShopManager : MonoBehaviour
     }
    }
 
-public void TrySellItem(ItemSO itemSO, int price)
-{
-    if (itemSO == null)
-    {
-        Debug.LogError("[ShopManager] TrySellItem: itemSO is null.");
-        return;
-    }
+// public void TrySellItem(ItemSO itemSO, int price)
+// {
+//     if (itemSO == null)
+//     {
+//         Debug.LogError("[ShopManager] TrySellItem: itemSO is null.");
+//         return;
+//     }
 
-    if (inventoryManager == null)
-    {
-        Debug.LogError("[ShopManager] TrySellItem: inventoryManager is null. Assign it in the Inspector.");
-        return;
-    }
+//     if (inventoryManager == null)
+//     {
+//         Debug.LogError("[ShopManager] TrySellItem: inventoryManager is null. Assign it in the Inspector.");
+//         return;
+//     }
 
     
-    int finalPrice = itemSO.price;
+//     int finalPrice = itemSO.price;
 
-    Debug.Log($"The item name is {itemSO.itemName} and price is {finalPrice}");
+//     Debug.Log($"The item name is {itemSO.itemName} and price is {finalPrice}");
 
-    inventoryManager.money += finalPrice;
+//     inventoryManager.money += finalPrice;
 
-    if (inventoryManager.moneyText != null)
-        inventoryManager.moneyText.text = inventoryManager.money.ToString();
-    else
-        Debug.LogWarning("[ShopManager] moneyText is null; assign the TMP/Text field on the InventoryManager.");
+//     if (inventoryManager.moneyText != null)
+//         inventoryManager.moneyText.text = inventoryManager.money.ToString();
+//     else
+//         Debug.LogWarning("[ShopManager] moneyText is null; assign the TMP/Text field on the InventoryManager.");
+// }
+
+ public void RecalculateTotal()
+{
+    int total = 0;
+    bool any = false;
+
+    foreach (var slot in itemSlots)
+    {
+        if (slot != null && slot.CurrentItem != null && slot.CurrentItem.itemSO != null)
+        {
+            total += slot.CurrentItem.itemSO.price;
+            any = true;
+        }
+    }
+
+    if (totalText) totalText.text = $"Total: ${total}";
+    if (sellButton) sellButton.interactable = any;
 }
 
+
+    // Optional: keep single-item path if you still call it
+    public void TrySellItem(ItemSO itemSO, int price)
+    {
+        if (itemSO == null || inventoryManager == null) return;
+
+        inventoryManager.money += price;
+        if (inventoryManager.moneyText)
+            inventoryManager.UpdateMoneyUI();
+    }
+
+    private bool selling; // guard against double firing
+
+public void SellAllInSlots()
+{
+    if (selling) return;     // prevent double click/double listeners
+    selling = true;
+
+    Debug.Log("[Sell] Button pressed");
+
+    // Recompute from slots so we use a fresh, correct total
+    int localTotal = 0;
+    var soldItems = new List<DragDrop>();
+
+    foreach (var slot in itemSlots)
+    {
+        if (slot == null) continue;
+
+        var item = slot.CurrentItem;
+        if (item != null && item.itemSO != null)
+        {
+            Debug.Log($"[Sell] Found item {item.itemSO.itemName} ${item.itemSO.price}");
+            localTotal += item.itemSO.price;
+            soldItems.Add(item);
+        }
+    }
+     Debug.Log($"[Sell] Computed localTotal = ${localTotal}");
+
+    // Apply money once
+    if (localTotal > 0 && inventoryManager != null)
+    {
+        inventoryManager.money += localTotal;
+            inventoryManager.UpdateMoneyUI();
+             Debug.Log($"[Sell] Added ${localTotal} to player's money. New balance: ${inventoryManager.money}");
 }
+else
+{
+    Debug.LogWarning("[Sell] No valid total or inventoryManager not assigned.");
+}
+    
+
+    // Clear the slots once, don’t call per-item sell functions here
+    foreach (var slot in itemSlots)
+    {
+        if (slot == null) continue;
+        var item = slot.CurrentItem;
+        if (item != null)
+        {
+            slot.ClearIfThis(item);      // remove reference from slot
+            item.gameObject.SetActive(false); // or Destroy(item.gameObject); or return to shelf
+        }
+    }
+
+    // Refresh UI
+    RecalculateTotal(); // will show Total: $0 and disable button if you set that logic there
+    selling = false;
+}
+}
+
 
 //gives access to System namespace (same as using system at the top of script)
 //Serializable means that we will be able to see this in the inspector
@@ -74,3 +165,4 @@ public class ShopItems{
     public ItemSO itemSO;
     public int price;
 }
+

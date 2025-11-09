@@ -9,6 +9,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private ShopManager shopManager;
     public RectTransform Rect { get; private set; }
 
+
     private CanvasGroup cg;
     
     //position of obj before you touch it
@@ -17,6 +18,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // set by ItemSlot
     public bool WasDropped { get; set; }
     public RectTransform CurrentSlot { get; set; }
+
+    public ItemSlot CurrentItemSlot { get; set; }
 
     //item stats stuff
     public ItemSO itemSO;
@@ -41,7 +44,11 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         // update player's money value
         //play the customer's last line of dialogue
 
-        shopManager.TrySellItem(itemSO, itemSO.price);
+       if(!shopManager || !itemSO){
+        return;
+       }
+       shopManager.TrySellItem(itemSO, itemSO.price);
+       shopManager.SellAllInSlots();
 
     }
 
@@ -60,6 +67,11 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     {
         WasDropped = false;
         cg.blocksRaycasts = false;   // allows slot to detect item/ item to get grabbed
+
+        if (CurrentItemSlot != null){
+            CurrentItemSlot.ClearIfThis(this);
+            CurrentItemSlot = null;
+        }
     }
     public void OnDrag(PointerEventData e)
     {

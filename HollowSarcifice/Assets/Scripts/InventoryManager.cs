@@ -3,16 +3,29 @@ using TMPro;
 
 public class InventoryManager : MonoBehaviour
 {
+    [Header("Player Money")]
+    public int money;                     // the actual player money value
+    public TMP_Text moneyText;            // UI text showing the money
 
-    public int money;
-    public TMP_Text moneyText;
-    private ShopItems shopItems;
+    private void Start()
+    {
+        // Initialize the UI text when the game starts
+        if (moneyText != null)
+        {
+            moneyText.text = money.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("[InventoryManager] moneyText is not assigned in the Inspector!");
+        }
+    }
 
-void Start(){
-    if (moneyText){
-        moneyText.text = money.ToString();
+    public void UpdateMoneyUI()
+    {
+        // Call this anytime the money value changes
+        if (moneyText != null)
+        {
+            moneyText.text = money.ToString();
+        }
     }
 }
-
-    }
-   
