@@ -7,7 +7,8 @@ public class ItemSO : ScriptableObject
     public string itemName;
     [TextArea] public string itemDescription;
     public Sprite icon;
+    public int price;
 
-    public bool isMoney;
+    
     
 }
