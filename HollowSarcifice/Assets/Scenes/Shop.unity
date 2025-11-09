@@ -1224,7 +1224,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5218829, y: 1.5218829, z: 1.5218829}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1056243158}
+  - {fileID: 1173292677}
   m_Father: {fileID: 514061051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1283,6 +1285,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DragDrop
   canvas: {fileID: 65564850}
+  itemSO: {fileID: 0}
+  itemNameText: {fileID: 0}
+  priceText: {fileID: 0}
+  itemImage: {fileID: 0}
 --- !u!225 &326431773
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1498,9 +1504,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.7728349, y: 1.7728349, z: 1.7728349}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1056243158}
-  - {fileID: 1173292677}
+  m_Children: []
   m_Father: {fileID: 514061051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1559,10 +1563,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   canvas: {fileID: 65564850}
-  itemSO: {fileID: 0}
-  itemNameText: {fileID: 0}
-  priceText: {fileID: 0}
-  itemImage: {fileID: 0}
 --- !u!1 &772331213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,14 +1680,14 @@ RectTransform:
   m_GameObject: {fileID: 1056243157}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.56406826, y: 0.56406826, z: 0.56406826}
+  m_LocalScale: {x: 0.6570807, y: 0.6570807, z: 0.6570807}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709035935}
+  m_Father: {fileID: 326431769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 31.3, y: 58.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1056243159
@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Soup
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1719,8 +1719,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2089,14 +2089,14 @@ RectTransform:
   m_GameObject: {fileID: 1173292676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.56406826, y: 0.56406826, z: 0.56406826}
+  m_LocalScale: {x: 0.6570807, y: 0.6570807, z: 0.6570807}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 709035935}
+  m_Father: {fileID: 326431769}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000030517578, y: 0}
+  m_AnchoredPosition: {x: 34.4, y: -59}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1173292678
@@ -2119,7 +2119,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 'Price
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2128,8 +2130,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2287,10 +2289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   canvas: {fileID: 65564850}
-  itemSO: {fileID: 0}
-  itemNameText: {fileID: 0}
-  priceText: {fileID: 0}
-  itemImage: {fileID: 0}
 --- !u!1 &1246360314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,10 +3727,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   canvas: {fileID: 65564850}
-  itemSO: {fileID: 0}
-  itemNameText: {fileID: 0}
-  priceText: {fileID: 0}
-  itemImage: {fileID: 0}
 --- !u!1 &2066432647
 GameObject:
   m_ObjectHideFlags: 0

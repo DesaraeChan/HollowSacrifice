@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 
 public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -14,6 +16,25 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     // set by ItemSlot
     public bool WasDropped { get; set; }
     public RectTransform CurrentSlot { get; set; }
+
+    
+    public ItemSO itemSO;
+    public TMP_Text itemNameText;
+    public TMP_Text priceText;
+    public Image itemImage;
+
+    private int price;
+
+    public void Initialize(ItemSO newItemSO, int price){
+        //fill the slot with new info
+        itemSO = newItemSO;
+        itemImage.sprite = itemSO.icon;
+        itemNameText.text = itemSO.itemName;
+        this.price = price;
+        priceText.text = price.ToString();
+
+    }
+
 
     void Awake()
     {

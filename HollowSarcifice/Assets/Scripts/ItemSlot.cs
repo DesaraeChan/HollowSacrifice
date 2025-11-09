@@ -1,28 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class ItemSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] private Canvas canvas; // same canvas as UI
-
-    public ItemSO itemSO;
-    public TMP_Text itemNameText;
-    public TMP_Text priceText;
-    public Image itemImage;
-
-    private int price;
-
-    public void Initialize(ItemSO newItemSO, int price){
-        //fill the slot with new info
-        itemSO = newItemSO;
-        itemImage.sprite = itemSO.icon;
-        itemNameText.text = itemSO.itemName;
-        this.price = price;
-        priceText.text = price.ToString();
-
-    }
 
 
     public void OnDrop(PointerEventData e)

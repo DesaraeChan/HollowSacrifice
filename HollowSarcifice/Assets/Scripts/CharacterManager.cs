@@ -26,6 +26,7 @@ public class CharacterManager : MonoBehaviour
 // Optional guard so we don't double-fire outro begin (call from DialogueController when last line ends)
 private bool outroFired = false;
 
+//this function starts the outro once the last node is reached
 public void OnOutroBeginSafe()
 {
     if (outroFired) return;
@@ -37,6 +38,8 @@ public void OnOutroBeginSafe()
         characterAnimator.SetTrigger("DialogueDone");
 }
 
+
+//this function sets the next NPC manager to active and starts it from Start() function
 public void OnOutroComplete_ActivateNextOnly()
 {
     // mark this NPC no longer busy and hide it
