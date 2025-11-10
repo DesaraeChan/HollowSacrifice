@@ -11,6 +11,7 @@ public class ShowWindowImage : MonoBehaviour
     void Start()
     {
         Canvas = GetComponentInParent<Canvas>();
+        
         UpdateVisuals();
         if (uiImage != null)
         {

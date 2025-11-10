@@ -20,18 +20,14 @@ public class DayManager : MonoBehaviour
 
     public void NextDay()
     {
-        if (unlockDay)
-        {
-            Debug.Log("Its time to go to work");
-            return;
-        }
         unlockDay = true;
         currentDay++;
 
         Debug.Log("Day advanced to: " + currentDay);
 
-   
+
         FindFirstObjectByType<ShowWindowImage>(FindObjectsInactive.Include).UpdateVisuals();
+        FindFirstObjectByType<OpenMoneyMenu>(FindObjectsInactive.Include).CloseFinancial();;
     }
 
     public void UnlockNextDay()
