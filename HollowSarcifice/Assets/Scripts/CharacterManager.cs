@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour
 
     [Header("This NPC")]
     [SerializeField] private NPCProfile currentNPC;
+    public NPCProfile CurrentNPC => currentNPC;
 
     [Header("Next in Chain")]
     [SerializeField] private CharacterManager nextManager; //next NPC manager goes here
@@ -22,6 +23,8 @@ public class CharacterManager : MonoBehaviour
 
   
     private bool busy;
+
+   // public CharacterType CurrentType => currentNPC.type;
     
 
 // Optional guard so we don't double-fire outro begin (call from DialogueController when last line ends)
@@ -79,6 +82,23 @@ public void OnOutroComplete_ActivateNextOnly()
         if (shop!=null) shop.Initialize(this);
     }
 
+    public void OnItemsSoldResult(int repDelta, string gotoNodeIfAny)
+{
+    // 1) Apply reputation if there is a delta
+    if (repDelta != 0 && currentNPC != null)
+        ApplyReputation(currentNPC.type, repDelta);
+
+    // 2) Choose the post-sale node
+    string targetNode =
+        !string.IsNullOrEmpty(gotoNodeIfAny) ? gotoNodeIfAny :
+        (repDelta < 0 ? "Positive"
+        : repDelta > 0 ? "Negative"
+        : "Neutral");
+
+    // 3) Jump back to main dialogue at the chosen node
+    SwitchBackToMainAt(targetNode);
+}
+
     public void BeginNPC(NPCProfile npc)
     {
         if (busy) { Debug.LogWarning("Begin NPC ignored: busy"); return; }
@@ -135,26 +155,6 @@ public void OnOutroComplete_ActivateNextOnly()
     }
 }
 
-// // 1) Hide main, show ask box starting at the *next* node after the current line.
-// public void SwitchToAskFromNext()
-// {
-//     // Turn OFF the main box first so it stops reading clicks/coroutines.
-//     if (dialogueBox) dialogueBox.SetActive(false);
-
-//     // Decide where the ask box should start.
-//     string nextNode = mainDialogue.PeekNextNodeName();
-//     if (string.IsNullOrEmpty(nextNode))
-//     {
-//         // If the current node had a choice or there is no next, you can:
-//         // - choose a fixed node name, or
-//         // - pick one of your branches explicitly
-//         nextNode = "AskForItem"; // fallback to a known node
-//     }
-
-//     if (askForItemBox) askForItemBox.SetActive(true);
-//     askDialogue.BeginFromNode(currentNPC, gameState, this, nextNode);
-// }
-
 public void SwitchToAskFromNext()
 {
     if (dialogueBox) dialogueBox.SetActive(false);
@@ -170,14 +170,6 @@ public void SwitchToAskFromNext()
 
     // IMPORTANT: lock input so player can't advance until sale happens
     askDialogue.SetInteractionEnabled(false);
-}
-
-public void OnItemSold()
-{
-    // Re-enable input and jump the item box to the final node
-   // askDialogue.SetInteractionEnabled(true);
-   // askDialogue.JumpToNode("LastLine");  // goes to the line after selling
-    SwitchBackToMainAt("AfterSale");
 }
 
 

@@ -87,5 +87,21 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 0
     nextIfB: 0
+    goTo: 
+  - nodeName: Positive
+    text: 'I LOVE SOUP
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 0
+    nextIfB: 0
     goTo: END
   startingReputation: 0
+  npcprefs:
+  - category: 0
+    repDelta: 5
+    nextNode: Positive

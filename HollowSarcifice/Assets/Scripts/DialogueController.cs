@@ -178,20 +178,6 @@ public void JumpToNode(string nodeName)
     {
         if (!interactionEnabled) return;
 
-        // Block clicks while locked
-    if (!interactionEnabled) 
-    {
-        // TEMPORARY TEST, PRESSING E GOES TO THE LAST LINE AFTER YOU SOLD ITEMS
-        if (hasSold == true)
-        {
-          //  hasSold = true;
-            Debug.Log("[Dialogue] Item sold! hasSold = true");
-            owner.OnItemSold();
-        }
-        return;
-    }
-
-
         if (waitingForChoice) return;
 
         if (PressedThisFrame)
