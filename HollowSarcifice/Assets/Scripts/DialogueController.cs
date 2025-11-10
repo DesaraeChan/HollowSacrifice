@@ -277,31 +277,7 @@ public void JumpToNode(string nodeName)
 
     private bool Valid(int i) => (i >= 0 && i < npc.dialogue.Length);
 
-    // private void GoThroughDialogue(string goTo){
-    //     //this finds the dialogue node that you are wanting to go to based on name
-    //         for(int i = 0; i < npc.dialogue.Length ; i++){
-    //             // [i] is index of dialogue you are currently looking at
-    //             DialogueNode nextNode = npc.dialogue[i];
-                
-    //             if(goTo == nextNode.nodeName){
-    //                 index = i;
-    //                 break;
-    //             } if (goTo == "AskForItem") // <-- use your actual node name
-    //             {
-    //                 Debug.Log("AskForItem reached");
-    //             owner.SwitchToAskFromNext();   // or owner.ShowAskForItemFromNext();
-    //             return;                        // stop this controller; the item box will take over
-    //             }
-
-    //             if(i == npc.dialogue.Length - 1){
-    //                 Debug.Log("Not found in array...");
-    //                 owner.OnOutroBeginSafe();
-    //                 return;
-    //             }
-    //         }
-    //         StartTypingNode();
-
-    // }
+ 
 
     private void GoThroughDialogue(string goTo)
 {

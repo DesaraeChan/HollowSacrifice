@@ -9,6 +9,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     [SerializeField] private ShopManager shopManager;
     public RectTransform Rect { get; private set; }
 
+   private CharacterManager Owner =>  CharacterManager.Active; //global active manager
 
     private CanvasGroup cg;
     
@@ -26,6 +27,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public TMP_Text itemNameText;
     public TMP_Text itempriceText;
     public Image itemImage;
+
+   
 
     
     private int itemprice;
@@ -63,10 +66,17 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
         //record original pos of obj
         homePos = Rect.anchoredPosition;
+
+        // Fallback: auto-find an active CharacterManager if none wired
+        //if (!Owner) Owner = FindFirstObjectByType<CharacterManager>();
     }
 
     public void OnBeginDrag(PointerEventData e)
     {
+
+        if (Owner == null || !Owner.IsInAskPhase)
+            return;
+ 
         WasDropped = false;
         cg.blocksRaycasts = false;   // allows slot to detect item/ item to get grabbed
 
@@ -77,6 +87,9 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     }
     public void OnDrag(PointerEventData e)
     {
+        if (Owner == null || !Owner.IsInAskPhase)
+            return;
+
         Rect.anchoredPosition += e.delta / canvas.scaleFactor;
     }
 

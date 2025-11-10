@@ -21,8 +21,11 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private GameObject askForItemBox;       // the second panel    
     [SerializeField] private DialogueController askDialogue;  // controller on that panel
 
+    public static CharacterManager Active {get; private set; }
   
     private bool busy;
+
+    public bool IsInAskPhase { get; private set; }
 
    // public CharacterType CurrentType => currentNPC.type;
     
@@ -30,9 +33,19 @@ public class CharacterManager : MonoBehaviour
 // Optional guard so we don't double-fire outro begin (call from DialogueController when last line ends)
 private bool outroFired = false;
 
+private void SetDragEnabled(bool enabled)
+{
+    foreach (var drag in FindObjectsOfType<DragDrop>(true))
+        drag.enabled = enabled;
+}
+
+
 //this function starts the outro once the last node is reached
 public void OnOutroBeginSafe()
 {
+   IsInAskPhase = false;
+   SetDragEnabled(false);
+    
     if (outroFired) return;
     outroFired = true;
 
@@ -48,7 +61,10 @@ public void OnOutroComplete_ActivateNextOnly()
 {
     // mark this NPC no longer busy and hide it
     busy = false;
-    gameObject.SetActive(false);
+    // gameObject.SetActive(false);
+
+    if (Active == this) Active = null;  // <-- clear if you’re the current owner
+        gameObject.SetActive(false);
 
     // wake next NPC (its Start() will run now and call BeginNPC(currentNPC))
     if (nextManager != null && nextManager.gameObject != null)
@@ -68,6 +84,8 @@ public void OnOutroComplete_ActivateNextOnly()
 
     void Start()
     {
+        IsInAskPhase = false;
+        SetDragEnabled(false);
         // TEMP: call BeginNPC so we know the path runs (remove once you call it elsewhere)
         if (currentNPC != null)
         {
@@ -90,13 +108,14 @@ public void OnOutroComplete_ActivateNextOnly()
 
     // 2) Choose the post-sale node
     string targetNode =
+    //if no next node after sale assigned, default to these
         !string.IsNullOrEmpty(gotoNodeIfAny) ? gotoNodeIfAny :
         (repDelta < 0 ? "Positive"
         : repDelta > 0 ? "Negative"
         : "Neutral");
 
     // 3) Jump back to main dialogue at the chosen node
-    SwitchBackToMainAt(targetNode);
+   SwitchBackToMainAt(targetNode);
 }
 
     public void BeginNPC(NPCProfile npc)
@@ -106,6 +125,7 @@ public void OnOutroComplete_ActivateNextOnly()
 
         Debug.Log($"[CharacterManager] BeginNPC: {npc?.name}");
         currentNPC = npc;
+        Active = this;
 
        // if (characterSprite) characterSprite.sprite = npc.portraitSprite;
 
@@ -165,11 +185,14 @@ public void SwitchToAskFromNext()
 
     if (askForItemBox) askForItemBox.SetActive(true);
 
+    IsInAskPhase = true; //reached item ask node
+
     // Start the item box at the target node
     askDialogue.BeginFromNode(currentNPC, gameState, this, nextNode);
 
     // IMPORTANT: lock input so player can't advance until sale happens
     askDialogue.SetInteractionEnabled(false);
+   SetDragEnabled(true); //let player interact with items
 }
 
 
@@ -178,7 +201,10 @@ public void SwitchBackToMainAt(string nodeName)
 {
     askForItemBox.SetActive(false);
     dialogueBox.SetActive(true);
+    IsInAskPhase = false;
+    SetDragEnabled(false);//stop drag again
     mainDialogue.BeginFromNode(currentNPC, gameState, this, nodeName);
+   
 }
 
 

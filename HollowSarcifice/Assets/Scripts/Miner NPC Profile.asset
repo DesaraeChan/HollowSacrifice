@@ -25,5 +25,16 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 
     nextIfB: 
+    goTo: AskForItem
+  - nodeName: AskForItem
+    text: Gimme Item
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 
+    nextIfB: 
     goTo: 
   startingReputation: 0
+  npcprefs: []

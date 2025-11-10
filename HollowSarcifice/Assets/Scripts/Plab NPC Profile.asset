@@ -87,7 +87,7 @@ MonoBehaviour:
     repDeltaB: 0
     nextIfA: 0
     nextIfB: 0
-    goTo: 
+    goTo: END
   - nodeName: Positive
     text: 'I LOVE SOUP
 

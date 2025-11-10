@@ -4,7 +4,7 @@ using UnityEngine;
 public class DialogueNode
 {
    
-    public string nodeName = "Dialogue 1";
+    public string nodeName = "";
 
     [TextArea] public string text;          // line to type
    // public int nextIndex = -1;              // next node if no choice; -1 ends
@@ -19,6 +19,6 @@ public class DialogueNode
     public string nextIfA = "";                // branch indices for A/B, where you are in the dialogue tree
     public string nextIfB = "";
 
-    public string goTo = "Dialogue 2";
+    public string goTo = "";
 
 }
