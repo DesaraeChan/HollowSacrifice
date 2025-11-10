@@ -5,6 +5,7 @@ public class MoneyCounter : MonoBehaviour
     public static MoneyCounter Instance;
     public float money;
     public bool family = false;
+    public float sentToFamily = 0;
 
     void Awake()
     {
@@ -22,6 +23,10 @@ public class MoneyCounter : MonoBehaviour
     {
         if (checkMoney())
         {
+            if (family)
+            {
+                sentToFamily++;
+            }
             money -= setAmount();
             DayManager.Instance.NextDay();
         } else

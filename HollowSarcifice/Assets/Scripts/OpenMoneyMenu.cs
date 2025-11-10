@@ -28,7 +28,7 @@ public class OpenMoneyMenu : MonoBehaviour
     {
         profit.text = MoneyCounter.Instance.money.ToString();
         subtract.text = MoneyCounter.Instance.setAmount().ToString();
-
+        // Probably could be more efficient to call when the toggles are clicked rather then every frame :/
     }
     public void OpenFinancial()
     {
