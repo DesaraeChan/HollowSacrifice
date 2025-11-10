@@ -177,6 +177,7 @@ MonoBehaviour:
   itemNameText: {fileID: 1056243159}
   itempriceText: {fileID: 1173292678}
   itemImage: {fileID: 326431770}
+  owner: {fileID: 0}
 --- !u!114 &38159721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,6 +315,7 @@ MonoBehaviour:
   itemSlots:
   - {fileID: 709035938}
   - {fileID: 1177395557}
+  - {fileID: 2058157899}
 --- !u!4 &46036535
 Transform:
   m_ObjectHideFlags: 0
@@ -861,6 +863,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 2145516898}
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
+  shop: {fileID: 0}
   currentNPC: {fileID: 11400000, guid: 3de426f9ecaa81f42822f8c044ddc9a0, type: 2}
   nextManager: {fileID: 0}
   askForItemBox: {fileID: 1246360314}
@@ -1774,6 +1777,7 @@ MonoBehaviour:
   itemNameText: {fileID: 1056243159}
   itempriceText: {fileID: 1173292678}
   itemImage: {fileID: 326431770}
+  owner: {fileID: 0}
 --- !u!225 &326431773
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1857,6 +1861,7 @@ MonoBehaviour:
   itemNameText: {fileID: 1040451599}
   itempriceText: {fileID: 102265901}
   itemImage: {fileID: 432497310}
+  owner: {fileID: 0}
 --- !u!114 &432497310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2278,6 +2283,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 2145516898}
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
+  shop: {fileID: 46036534}
   currentNPC: {fileID: 11400000, guid: b9b94b1f2de7123498bf5de67b3eceb0, type: 2}
   nextManager: {fileID: 1320943806}
   askForItemBox: {fileID: 1246360314}
@@ -3366,6 +3372,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 2145516898}
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
+  shop: {fileID: 46036534}
   currentNPC: {fileID: 11400000, guid: 1e599e4e84f3e524ea419842aaf131e8, type: 2}
   nextManager: {fileID: 172784072}
   askForItemBox: {fileID: 1246360314}
@@ -4275,6 +4282,7 @@ MonoBehaviour:
   itemNameText: {fileID: 445022473}
   itempriceText: {fileID: 1944030947}
   itemImage: {fileID: 1720485661}
+  owner: {fileID: 0}
 --- !u!114 &1720485661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5144,7 +5152,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2058157896
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5215,7 +5223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemSlot
   canvas: {fileID: 65564850}
-  shopManager: {fileID: 0}
+  shopManager: {fileID: 46036534}
 --- !u!1 &2066432647
 GameObject:
   m_ObjectHideFlags: 0

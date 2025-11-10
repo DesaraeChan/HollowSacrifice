@@ -176,15 +176,15 @@ public void JumpToNode(string nodeName)
 
     private void Update()
     {
-        //if (!interactionEnabled) return;
+        if (!interactionEnabled) return;
 
         // Block clicks while locked
     if (!interactionEnabled) 
     {
         // TEMPORARY TEST, PRESSING E GOES TO THE LAST LINE AFTER YOU SOLD ITEMS
-        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        if (hasSold == true)
         {
-            hasSold = true;
+          //  hasSold = true;
             Debug.Log("[Dialogue] Item sold! hasSold = true");
             owner.OnItemSold();
         }

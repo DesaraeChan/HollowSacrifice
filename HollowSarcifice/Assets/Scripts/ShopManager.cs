@@ -19,8 +19,21 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private ItemSlot[] itemSlots;
 
+    private CharacterManager owner;
+
+    public void Initialize(CharacterManager npcOwner)
+{
+    owner = npcOwner;
+}
+
+
 
    private void Start(){
+    bool any = false;
+
+     if (sellButton) sellButton.interactable = any;
+
+     //owner = FindObjectsOfType<CharacterManager>(); 
 
 //this adds the text to the shop items
 
@@ -41,33 +54,6 @@ public class ShopManager : MonoBehaviour
         shopSlots[i].gameObject.SetActive(false);
     }
    }
-
-// public void TrySellItem(ItemSO itemSO, int price)
-// {
-//     if (itemSO == null)
-//     {
-//         Debug.LogError("[ShopManager] TrySellItem: itemSO is null.");
-//         return;
-//     }
-
-//     if (inventoryManager == null)
-//     {
-//         Debug.LogError("[ShopManager] TrySellItem: inventoryManager is null. Assign it in the Inspector.");
-//         return;
-//     }
-
-    
-//     int finalPrice = itemSO.price;
-
-//     Debug.Log($"The item name is {itemSO.itemName} and price is {finalPrice}");
-
-//     inventoryManager.money += finalPrice;
-
-//     if (inventoryManager.moneyText != null)
-//         inventoryManager.moneyText.text = inventoryManager.money.ToString();
-//     else
-//         Debug.LogWarning("[ShopManager] moneyText is null; assign the TMP/Text field on the InventoryManager.");
-// }
 
  public void RecalculateTotal()
 {
@@ -131,6 +117,13 @@ public void SellAllInSlots()
         inventoryManager.money += localTotal;
             inventoryManager.UpdateMoneyUI();
              Debug.Log($"[Sell] Added ${localTotal} to player's money. New balance: ${inventoryManager.money}");
+
+             //Tell Dialoguecontroller sale is complete
+             var dialogue = FindObjectOfType<DialogueController>();
+             if (dialogue!= null){
+                dialogue.hasSold = true;
+             }
+             owner.SwitchBackToMainAt("AfterSale"); //play last line of dialogue and leave
 }
 else
 {

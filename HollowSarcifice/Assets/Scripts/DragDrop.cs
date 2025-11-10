@@ -27,6 +27,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     public TMP_Text itempriceText;
     public Image itemImage;
 
+    public CharacterManager owner;
+
     private int itemprice;
 
 
@@ -49,6 +51,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
        }
        shopManager.TrySellItem(itemSO, itemSO.price);
        shopManager.SellAllInSlots();
+       owner.OnItemSold();
 
     }
 

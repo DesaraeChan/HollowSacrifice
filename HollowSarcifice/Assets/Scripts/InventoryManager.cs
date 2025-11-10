@@ -20,6 +20,21 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    void Awake()
+{
+    //so money persists across scenes but no duplicate inventory managers
+    //if this doesn't work can consider a MoneySO
+    var existing = FindObjectsOfType<InventoryManager>();
+    if (existing.Length > 1)
+    {
+        Destroy(gameObject);
+        return;
+    }
+
+    DontDestroyOnLoad(gameObject);
+}
+
+
     public void UpdateMoneyUI()
     {
         // Call this anytime the money value changes

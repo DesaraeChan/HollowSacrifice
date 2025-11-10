@@ -23,9 +23,9 @@ MonoBehaviour:
     choiceBText: Option B
     repDeltaA: 1
     repDeltaB: -1
-    nextIfA: 
-    nextIfB: 
-    goTo: Dialogue 2
+    nextIfA: AskForItem
+    nextIfB: Dialogue 2
+    goTo: 
   - nodeName: Dialogue 2
     text: Still a farmer...
     hasChoice: 0
@@ -36,4 +36,34 @@ MonoBehaviour:
     nextIfA: 
     nextIfB: 
     goTo: 
+  - nodeName: Dialogue 2
+    text: Still a farmer...
+    hasChoice: 1
+    choiceAText: nextnode?
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: AskForItem
+    nextIfB: 
+    goTo: AskForItem
+  - nodeName: AskForItem
+    text: I ask for item..
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 
+    nextIfB: 
+    goTo: AfterSale
+  - nodeName: AfterSale
+    text: Sale has been completed!
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 
+    nextIfB: 
+    goTo: END
   startingReputation: 0

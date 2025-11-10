@@ -12,13 +12,11 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
  //   private RectTransform self;
 
+// CurrentItem points to what item is currently in the slot
+//{get; private set;}  makes this a property instead of a plain variable
+// get=public, other scripts can read it
+//set = private, only this script can assign it
  public DragDrop CurrentItem { get; private set; }
-
-    // private void Awake(){
-    //     self = GetComponent<RectTransform>();
-    //     if (!snapPoint) snapPoint = self;
-    // }
-    
 
 
     public void OnDrop(PointerEventData e)

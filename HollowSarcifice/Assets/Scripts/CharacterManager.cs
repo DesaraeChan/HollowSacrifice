@@ -7,6 +7,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private DialogueController mainDialogue;
     [SerializeField] private GameState gameState;
+    [SerializeField] private ShopManager shop;
 
 
     [Header("This NPC")]
@@ -74,6 +75,8 @@ public void OnOutroComplete_ActivateNextOnly()
         {
             Debug.LogWarning("[CharacterManager] No currentNPC assigned; BeginNPC won't run.");
         }
+
+        if (shop!=null) shop.Initialize(this);
     }
 
     public void BeginNPC(NPCProfile npc)
