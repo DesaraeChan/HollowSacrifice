@@ -17,7 +17,7 @@ MonoBehaviour:
   portraitSprite: {fileID: 0}
   dialogue:
   - nodeName: Dialogue 1
-    text: Im a farmer
+    text: Im a farmer...who loves soup
     hasChoice: 1
     choiceAText: Option A
     choiceBText: Option B
@@ -27,8 +27,8 @@ MonoBehaviour:
     nextIfB: Dialogue 2
     goTo: 
   - nodeName: Dialogue 2
-    text: Still a farmer...
-    hasChoice: 1
+    text: Still a farmer...who..loves soup..
+    hasChoice: 0
     choiceAText: nextnode?
     choiceBText: 
     repDeltaA: 0
@@ -46,8 +46,28 @@ MonoBehaviour:
     nextIfA: 
     nextIfB: 
     goTo: AfterSale
-  - nodeName: AfterSale
-    text: Sale has been completed!
+  - nodeName: Neutral
+    text: eh..this is ok
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 
+    nextIfB: 
+    goTo: END
+  - nodeName: Positive
+    text: solzae and soup is da best
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 
+    nextIfB: 
+    goTo: END
+  - nodeName: Negative
+    text: wheres my soup :(
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -57,4 +77,13 @@ MonoBehaviour:
     nextIfB: 
     goTo: END
   startingReputation: 0
-  npcprefs: []
+  npcprefs:
+  - category: 0
+    repDelta: 0
+    nextNode: Neutral
+  - category: 5
+    repDelta: 1
+    nextNode: Positive
+  - category: 3
+    repDelta: -1
+    nextNode: Negative

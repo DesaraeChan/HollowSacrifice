@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d004e7267d9235144b8d730be1d9cfbd, type: 3}
-  m_Name: Gear
+  m_Name: Solzae
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Gear
-  itemDescription: this is gear
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  price: 3
-  category: 3
+  itemName: Solzae
+  itemDescription: this is solzae
+  icon: {fileID: 21300000, guid: 343783915573b2d4fabb541a210271b4, type: 3}
+  price: 0
+  category: 4

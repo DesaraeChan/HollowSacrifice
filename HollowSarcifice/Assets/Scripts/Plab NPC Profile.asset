@@ -125,8 +125,8 @@ MonoBehaviour:
   startingReputation: 0
   npcprefs:
   - category: 0
-    repDelta: 5
+    repDelta: -3
     nextNode: 
-  - category: 1
-    repDelta: 0
+  - category: 5
+    repDelta: 5
     nextNode: 
