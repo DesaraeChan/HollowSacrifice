@@ -1,0 +1,45 @@
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+public class ShopSlot : MonoBehaviour
+{
+    public ItemSO itemSO;
+    public TMP_Text itemNameText;
+    public TMP_Text priceText;
+    public Image itemImage;
+     public Button buyButton;
+    
+    [SerializeField] private ShopManager shopManager;
+    public int price;
+
+    void Update()
+    {
+        UpdateButtonState();
+        //This is hella in efficent but i think its good right now for bug fixing purposes
+    }
+    public void Initialize(ItemSO newItemSO, int price)
+    {
+        itemSO = newItemSO;
+        itemNameText.text = itemSO.itemName;
+        this.price = price;
+        priceText.text = price.ToString();
+        UpdateButtonState();
+    }
+
+    public void OnBuyButtonClicked()
+    {
+        shopManager.TryBuyItem(itemSO, price);
+        UpdateButtonState();
+        //set inactive once bought
+    }
+
+    public void UpdateButtonState()
+    {
+        if (MoneyCounter.Instance != null)
+        {
+            buyButton.interactable = MoneyCounter.Instance.money >= price;
+        }
+    }
+
+   
+}
