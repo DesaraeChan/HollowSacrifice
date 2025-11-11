@@ -62,6 +62,8 @@ public class DialogueController : MonoBehaviour
 
    }
 
+   
+
    public void BeginFromNode(NPCProfile profile, GameState gs, CharacterManager ownerMgr, string nodeName)
 {
     startNodeOverride = nodeName;
@@ -208,6 +210,23 @@ public void JumpToNode(string nodeName)
             }
         }
     }
+
+    public bool HasNode(string nodeName)
+{
+    if (string.IsNullOrEmpty(nodeName) || npc.dialogue == null || npc.dialogue.Length == 0)
+        return false;
+
+    foreach (var node in npc.dialogue)
+    {
+        if (node == null) continue;
+        if (node.nodeName == nodeName)
+            return true;
+    }
+
+    return false;
+}
+
+
 
     private void StartTypingNode()
     {

@@ -38,8 +38,10 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         //fill the slot with new info
         itemSO = newItemSO;
         itemImage.sprite = itemSO.icon;
-        itemNameText.text = itemSO.itemName;
-        itempriceText.text = itemprice.ToString();
+        itemNameText.text = itemSO.itemName.ToString();
+        itempriceText.text = itemSO.price.ToString();
+
+      
 
     }
 
@@ -57,6 +59,28 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
 
     }
 
+   private void Start()
+    {
+        // Initialize the UI text when the game starts
+        if (itemprice != null)
+        {
+            itempriceText.text = itemSO.price.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("[DragDrop] itemprice is not assigned in the Inspector!");
+        }
+
+      
+        if (itemSO.itemName != null)
+        {
+            itemNameText.text = itemSO.itemName.ToString();
+        }
+        else
+        {
+            Debug.LogWarning("[DragDrop] itemname is not assigned in the Inspector!");
+        }
+    }
 
     void Awake()
     {
@@ -68,7 +92,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         homePos = Rect.anchoredPosition;
 
         // Fallback: auto-find an active CharacterManager if none wired
-        //if (!Owner) Owner = FindFirstObjectByType<CharacterManager>();
+       // if (!Owner) Owner = FindFirstObjectByType<CharacterManager>();
     }
 
     public void OnBeginDrag(PointerEventData e)

@@ -9,6 +9,10 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private GameState gameState;
     [SerializeField] private ShopManager shop;
 
+    [SerializeField] private string positiveNode = "Positive";
+    [SerializeField] private string negativeNode = "Negative";
+    [SerializeField] private string neutralNode  = "Neutral";
+
 
     [Header("This NPC")]
     [SerializeField] private NPCProfile currentNPC;
@@ -106,17 +110,34 @@ public void OnOutroComplete_ActivateNextOnly()
     if (repDelta != 0 && currentNPC != null)
         ApplyReputation(currentNPC.type, repDelta);
 
-    // 2) Choose the post-sale node
+   
+   
     string targetNode =
-    //if no next node after sale assigned, default to these
         !string.IsNullOrEmpty(gotoNodeIfAny) ? gotoNodeIfAny :
-        (repDelta < 0 ? "Positive"
-        : repDelta > 0 ? "Negative"
-        : "Neutral");
+        (repDelta > 0 ? positiveNode :
+        repDelta < 0 ? negativeNode :
+        neutralNode);
+
+         // 2) Validate it exists; if not, fall back sensibly
+        if (!NodeExistsInMain(targetNode))
+        {
+            Debug.LogWarning($"[CM] Node '{targetNode}' not found in MAIN. Falling back to '{neutralNode}'.");
+            targetNode = NodeExistsInMain(neutralNode) ? neutralNode :
+                         NodeExistsInMain(positiveNode) ? positiveNode :
+                         NodeExistsInMain(negativeNode) ? negativeNode : null;
+        }
+
 
     // 3) Jump back to main dialogue at the chosen node
    SwitchBackToMainAt(targetNode);
 }
+
+private bool NodeExistsInMain(string nodeName)
+    {
+        if (mainDialogue == null || string.IsNullOrEmpty(nodeName)) return false;
+        return mainDialogue.HasNode(nodeName); // implement this in DialogueController
+    }
+
 
     public void BeginNPC(NPCProfile npc)
     {

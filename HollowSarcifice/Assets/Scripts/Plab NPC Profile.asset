@@ -88,8 +88,30 @@ MonoBehaviour:
     nextIfA: 0
     nextIfB: 0
     goTo: END
+  - nodeName: Neutral
+    text: ' (neutral)'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 0
+    nextIfB: 0
+    goTo: END
+  - nodeName: Negative
+    text: '(negative)
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 0
+    nextIfB: 0
+    goTo: END
   - nodeName: Positive
-    text: 'I LOVE SOUP
+    text: '(positive)
 
 '
     hasChoice: 0
@@ -104,4 +126,7 @@ MonoBehaviour:
   npcprefs:
   - category: 0
     repDelta: 5
-    nextNode: Positive
+    nextNode: 
+  - category: 1
+    repDelta: 0
+    nextNode: 

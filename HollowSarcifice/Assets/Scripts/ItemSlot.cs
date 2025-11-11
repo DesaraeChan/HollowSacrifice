@@ -8,9 +8,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     [SerializeField] private Canvas canvas; // same canvas as UI
 
     [SerializeField] private ShopManager shopManager;
-  //  [SerializeField] RectTransform snapPoint;
 
- //   private RectTransform self;
 
 // CurrentItem points to what item is currently in the slot
 //{get; private set;}  makes this a property instead of a plain variable
@@ -46,7 +44,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     //Sets wasdropped to true so obj snaps to slot and not home pos
         dragItem.WasDropped  = true;
         // records which slot the item is in
-        dragItem.CurrentSlot = slotRect;
+        dragItem.CurrentItemSlot = this;
 
         CurrentItem = dragItem;
 

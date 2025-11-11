@@ -28,16 +28,6 @@ MonoBehaviour:
     goTo: 
   - nodeName: Dialogue 2
     text: Still a farmer...
-    hasChoice: 0
-    choiceAText: 
-    choiceBText: 
-    repDeltaA: 0
-    repDeltaB: 0
-    nextIfA: 
-    nextIfB: 
-    goTo: 
-  - nodeName: Dialogue 2
-    text: Still a farmer...
     hasChoice: 1
     choiceAText: nextnode?
     choiceBText: 
@@ -67,3 +57,4 @@ MonoBehaviour:
     nextIfB: 
     goTo: END
   startingReputation: 0
+  npcprefs: []
