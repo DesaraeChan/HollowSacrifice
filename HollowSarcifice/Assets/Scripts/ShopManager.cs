@@ -19,10 +19,25 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] private ItemSlot[] itemSlots;
 
+    [Header("Rules")]
+    [SerializeField] private ItemCategory[] NoSellCategory = {ItemCategory.Bowl, ItemCategory.Solzae, ItemCategory.Glass };// set special non sellable item herer (bowl, glass)
+
+// true only if NOT one of the non-sellable categories
+private bool IsSellable(ItemSO so)
+{
+    if (so == null) return false;
+    foreach (var cat in NoSellCategory)
+        if (so.category == cat) return false;
+    return true;
+}
+
+
     private CharacterManager owner;
     public void Initialize(CharacterManager npcOwner)
 {
     owner = npcOwner;
+
+    
 }
 
 
@@ -54,29 +69,62 @@ public class ShopManager : MonoBehaviour
     }
    }
 
- public void RecalculateTotal()
+
+
+//  public void RecalculateTotal()
+// {
+//     int total = 0;
+//     bool any = false;
+
+//     foreach (var slot in itemSlots)
+//     {
+//         if (slot != null && slot.CurrentItem != null && slot.CurrentItem.itemSO != null)
+//         {
+//             if(IsSellable(so)){
+//                 total += slot.CurrentItem.itemSO.price;
+//                 any = true;
+
+//             }
+            
+//         }
+// //     }
+//  if (totalText) totalText.text = $"Total: ${total}";
+//     if (sellButton) sellButton.interactable = any;
+// }
+
+public void RecalculateTotal()
 {
     int total = 0;
-    bool any = false;
+    bool anySellable = false;
 
     foreach (var slot in itemSlots)
     {
-        if (slot != null && slot.CurrentItem != null && slot.CurrentItem.itemSO != null)
+        if (slot == null) continue;
+
+        var item = slot.CurrentItem;
+        if (item == null || item.itemSO == null) continue;
+
+        var so = item.itemSO; 
+        if (IsSellable(so))   // ignore bowls
         {
             total += slot.CurrentItem.itemSO.price;
-            any = true;
+            anySellable = true;
         }
     }
 
     if (totalText) totalText.text = $"Total: ${total}";
-    if (sellButton) sellButton.interactable = any;
+    if (sellButton) sellButton.interactable = anySellable;
 }
+
+
+   
 
 
     // Optional: keep single-item path if you still call it
     public void TrySellItem(ItemSO itemSO, int price)
     {
         if (itemSO == null || inventoryManager == null) return;
+        if (!IsSellable(itemSO)) return;     
 
         inventoryManager.money += price;
         if (inventoryManager.moneyText)
@@ -103,6 +151,7 @@ public class ShopManager : MonoBehaviour
 
         var item = slot.CurrentItem;
         if (item == null || item.itemSO == null) continue;
+        if (!IsSellable(item.itemSO)) return;     
 
         localTotal += item.itemSO.price;
         soldItems.Add(item);
@@ -110,6 +159,7 @@ public class ShopManager : MonoBehaviour
     }
 
     Debug.Log($"[Sell] Computed localTotal = ${localTotal}");
+
 
     // 2) Apply money once
     if (localTotal > 0 && inventoryManager != null)

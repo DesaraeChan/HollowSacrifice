@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ItemCategory { Soup, Gear, Solzae} //allows to define a set of named integer constraints
+public enum ItemCategory { Soup, Bowl, Glass,Gear, Solzae, SolzaeSoup};
 
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Scriptable Objects/ItemSO")]
 

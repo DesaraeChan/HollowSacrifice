@@ -34,9 +34,10 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
     private static DragDrop itemBeingDragged; // the active dragged instance (clone)
 
  
-    private int itemprice; 
+    private int itemprice;  
+    public static Vector2 PointerPos { get; private set; }     // add this
+    public static DragDrop CurrentDragging => itemBeingDragged; // already have itemBeingDragged; just expose
 
-    // -------- Initialization / UI --------
 
     private void Awake()
     {
@@ -69,8 +70,8 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
          //fill the slot with new info 
         itemSO = newItemSO; 
         itemImage.sprite = itemSO.icon; 
-        itemNameText.text = itemSO.itemName.ToString(); 
-        itempriceText.text = itemSO.price.ToString(); 
+        // itemNameText.text = itemSO.itemName.ToString(); 
+        // itempriceText.text = itemSO.price.ToString(); 
 
         ApplyItemVisuals();
         }
@@ -159,6 +160,21 @@ public void OnBeginDrag(PointerEventData e)
     }
 }
 
+// private void TryUICombine()
+// {
+//     var dragging = spawnCloneOnDrag ? itemBeingDragged : this;
+//     if (dragging == null) return;
+
+//     // super simple: scan all CombineTarget in scene (fine for a few targets)
+//     var targets = Object.FindObjectsOfType<CombineTarget>(true);
+//     var cam = canvas ? canvas.worldCamera : null;
+
+//     for (int i = 0; i < targets.Length; i++)
+//     {
+//         if (targets[i] != null && targets[i].TryCombine(dragging, cam))
+//             break; // combined; stop
+//     }
+// }
 
 
     public void OnDrag(PointerEventData eventData)
@@ -173,7 +189,17 @@ public void OnBeginDrag(PointerEventData e)
         {
             Rect.position = eventData.position;
         }
+
+        PointerPos = eventData.position;
+          CombineScan.Try(PointerPos, spawnCloneOnDrag ? itemBeingDragged : this, canvas);
     }
+
+    public static void Consume(DragDrop d)
+{
+    if (itemBeingDragged == d) itemBeingDragged = null;
+    if (d != null) Object.Destroy(d.gameObject);
+}
+
 
 
     public void OnEndDrag(PointerEventData e)

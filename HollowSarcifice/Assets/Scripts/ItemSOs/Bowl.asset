@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d004e7267d9235144b8d730be1d9cfbd, type: 3}
-  m_Name: Soup
+  m_Name: Bowl
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Soup
-  itemDescription: this is soup
-  icon: {fileID: 21300000, guid: 79e6b017abea0cf4294d15dd0da33a3e, type: 3}
-  price: 5
-  category: 0
+  itemName: Bowl
+  itemDescription: this is empty bowl
+  icon: {fileID: 21300000, guid: 084144e535d861e44bd1fe3e50820115, type: 3}
+  price: 0
+  category: 1
