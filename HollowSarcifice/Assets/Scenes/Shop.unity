@@ -173,6 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragDrop
   canvas: {fileID: 65564850}
   shopManager: {fileID: 46036534}
+  spawnCloneOnDrag: 1
+  dragLayer: {fileID: 0}
   itemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
   itemNameText: {fileID: 7282671365944578679}
   itempriceText: {fileID: 6537847750138346851}
@@ -342,9 +344,10 @@ GameObject:
   - component: {fileID: 65564850}
   - component: {fileID: 65564849}
   - component: {fileID: 65564848}
+  - component: {fileID: 65564851}
   m_Layer: 0
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: UI Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,6 +437,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 2
   m_TargetDisplay: 0
+--- !u!225 &65564851
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65564846}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &102265899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,6 +1764,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragDrop
   canvas: {fileID: 65564850}
   shopManager: {fileID: 46036534}
+  spawnCloneOnDrag: 1
+  dragLayer: {fileID: 0}
   itemSO: {fileID: 11400000, guid: c61d119b130c3344abb78b26101ab075, type: 2}
   itemNameText: {fileID: 1040451599}
   itempriceText: {fileID: 102265901}
@@ -2062,7 +2079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &650614889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2977,7 +2994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1320943806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3903,6 +3920,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DragDrop
   canvas: {fileID: 65564850}
   shopManager: {fileID: 46036534}
+  spawnCloneOnDrag: 1
+  dragLayer: {fileID: 0}
   itemSO: {fileID: 11400000, guid: c61d119b130c3344abb78b26101ab075, type: 2}
   itemNameText: {fileID: 445022473}
   itempriceText: {fileID: 1944030947}
@@ -5404,6 +5423,10 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 65564850}
+    - target: {fileID: 4469869008037470773, guid: 553b17c655101654dba55ee3ad37b494, type: 3}
+      propertyPath: dragLayer
+      value: 
+      objectReference: {fileID: 65564847}
     - target: {fileID: 4469869008037470773, guid: 553b17c655101654dba55ee3ad37b494, type: 3}
       propertyPath: shopManager
       value: 

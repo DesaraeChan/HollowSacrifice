@@ -5,128 +5,213 @@ using TMPro;
 
 public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    [SerializeField] private Canvas canvas;   // assign in Inspector
+    [Header("Scene/Managers")]
+    [SerializeField] private Canvas canvas;               // Assign in Inspector (fallbacks provided)
     [SerializeField] private ShopManager shopManager;
-    public RectTransform Rect { get; private set; }
+    private CharacterManager Owner => CharacterManager.Active;
 
-   private CharacterManager Owner =>  CharacterManager.Active; //global active manager
+    [Header("Duplication")]
+    [Tooltip("If true, this object acts as a TEMPLATE: begin drag will spawn a clone and drag the clone.")]
+    [SerializeField] private bool spawnCloneOnDrag = true;
+    [Tooltip("Optional: parent for dragged clones (a top-level UI layer under the Canvas).")]
+    [SerializeField] private RectTransform dragLayer;
 
-    private CanvasGroup cg;
-    
-    //position of obj before you touch it
-    private Vector2 homePos;
-
-    // set by ItemSlot
-    public bool WasDropped { get; set; }
-    public RectTransform CurrentSlot { get; set; }
-
-    public ItemSlot CurrentItemSlot { get; set; }
-
-    //item stats stuff
+    [Header("UI Refs")]
     public ItemSO itemSO;
     public TMP_Text itemNameText;
     public TMP_Text itempriceText;
     public Image itemImage;
 
-   
+    [Header("Runtime")]
+    public RectTransform Rect { get; private set; }
+    public bool WasDropped { get; set; }
+    public RectTransform CurrentSlot { get; set; }
+    public ItemSlot CurrentItemSlot { get; set; }
 
-    
-    private int itemprice;
+    private CanvasGroup cg;
+    private Vector2 homePos;
+    private bool isDragging;
+    private static DragDrop itemBeingDragged; // the active dragged instance (clone)
 
+ 
+    private int itemprice; 
 
-    public void InitializeItem(ItemSO newItemSO, int itemprice){
-        //fill the slot with new info
-        itemSO = newItemSO;
-        itemImage.sprite = itemSO.icon;
-        itemNameText.text = itemSO.itemName.ToString();
-        itempriceText.text = itemSO.price.ToString();
+    // -------- Initialization / UI --------
 
-      
-
-    }
-
-    public void OnSellButtonClicked(){
-        //when sell button is clicked, destroy objects placed onto slots
-        // update player's money value
-        //play the customer's last line of dialogue
-
-       if(!shopManager || !itemSO){
-        return;
-       }
-       shopManager.TrySellItem(itemSO, itemSO.price);
-       shopManager.SellAllInSlots();
-       
-
-    }
-
-   private void Start()
-    {
-        // Initialize the UI text when the game starts
-        if (itemprice != null)
-        {
-            itempriceText.text = itemSO.price.ToString();
-        }
-        else
-        {
-            Debug.LogWarning("[DragDrop] itemprice is not assigned in the Inspector!");
-        }
-
-      
-        if (itemSO.itemName != null)
-        {
-            itemNameText.text = itemSO.itemName.ToString();
-        }
-        else
-        {
-            Debug.LogWarning("[DragDrop] itemname is not assigned in the Inspector!");
-        }
-    }
-
-    void Awake()
+    private void Awake()
     {
         Rect = GetComponent<RectTransform>();
         cg = GetComponent<CanvasGroup>();
         if (!cg) cg = gameObject.AddComponent<CanvasGroup>();
-
-        //record original pos of obj
         homePos = Rect.anchoredPosition;
 
-        // Fallback: auto-find an active CharacterManager if none wired
-       // if (!Owner) Owner = FindFirstObjectByType<CharacterManager>();
-    }
-
-    public void OnBeginDrag(PointerEventData e)
-    {
-
-        if (Owner == null || !Owner.IsInAskPhase)
-            return;
- 
-        WasDropped = false;
-        cg.blocksRaycasts = false;   // allows slot to detect item/ item to get grabbed
-
-        if (CurrentItemSlot != null){
-            CurrentItemSlot.ClearIfThis(this);
-            CurrentItemSlot = null;
+        if (!canvas)
+        {
+            canvas = GetComponentInParent<Canvas>();
+            if (!canvas)
+            {
+                var tagged = GameObject.FindGameObjectWithTag("UI Canvas");
+                if (tagged) canvas = tagged.GetComponent<Canvas>();
+            }
         }
     }
-    public void OnDrag(PointerEventData e)
-    {
-        if (Owner == null || !Owner.IsInAskPhase)
-            return;
 
-        Rect.anchoredPosition += e.delta / canvas.scaleFactor;
+    private void Start()
+    {
+        // If itemSO is assigned in Inspector, push to UI immediately
+        ApplyItemVisuals();
     }
+
+
+
+    public void InitializeItem(ItemSO newItemSO, int itemprice)
+    {
+         //fill the slot with new info 
+        itemSO = newItemSO; 
+        itemImage.sprite = itemSO.icon; 
+        itemNameText.text = itemSO.itemName.ToString(); 
+        itempriceText.text = itemSO.price.ToString(); 
+
+        ApplyItemVisuals();
+        }
+   
+    // public void InitializeItem(ItemSO newItemSO, int price)
+    // {
+    //     itemSO = newItemSO;
+    //     ApplyItemVisuals();
+    // }
+
+    private void ApplyItemVisuals()
+    {
+        if (itemSO == null) return;
+
+        if (itemImage)     itemImage.sprite = itemSO.icon;
+        if (itemNameText)  itemNameText.text = itemSO.itemName;
+        if (itempriceText) itempriceText.text = itemSO.price.ToString();
+
+        itemNameText?.ForceMeshUpdate();
+        itempriceText?.ForceMeshUpdate();
+    }
+
+   
+
+    public void OnSellButtonClicked()
+    {
+        if (!shopManager || !itemSO) return;
+
+        shopManager.TrySellItem(itemSO, itemSO.price);
+        shopManager.SellAllInSlots();
+    }
+
+
+public void OnBeginDrag(PointerEventData e)
+{
+    if (Owner == null || !Owner.IsInAskPhase) return;
+
+    if (spawnCloneOnDrag)
+    {
+        var parent = dragLayer ? dragLayer :
+                     (canvas ? canvas.transform as RectTransform : (RectTransform)transform.parent);
+
+        var cloneGO = Instantiate(gameObject, parent);
+        var clone   = cloneGO.GetComponent<DragDrop>();
+
+        // clone config
+        clone.spawnCloneOnDrag = false;
+        clone.InitializeItem(itemSO, itemprice);
+
+        // size/position
+        var srcRT = Rect;
+        var dstRT = clone.Rect;
+        dstRT.sizeDelta = srcRT.sizeDelta;
+        dstRT.position  = srcRT.position;
+
+        // make the dragged clone not block raycasts while dragging
+        var cloneCG = clone.GetComponent<CanvasGroup>() ?? clone.gameObject.AddComponent<CanvasGroup>();
+        cloneCG.blocksRaycasts = false;
+
+        // ---- HAND THE DRAG TO THE CLONE (the key bit) ----
+        itemBeingDragged = clone;
+        clone.isDragging = true;
+
+        // tell the EventSystem the clone is now the thing being dragged
+        e.pointerDrag  = cloneGO;
+        e.pointerPress = cloneGO;
+        EventSystem.current.SetSelectedGameObject(cloneGO);
+
+        // optional: make sure the template doesn't hijack raycasts while you drag
+        // (leave it interactable normally; we just don't want this drag to hit it)
+        foreach (var g in GetComponentsInChildren<Graphic>())
+            g.raycastTarget = true; // keep template clickable for next time
+
+        return;
+    }
+
+    // clone path (dragging an already-spawned item)
+    WasDropped = false;
+    isDragging = true;
+    cg.blocksRaycasts = false;
+
+    if (CurrentItemSlot != null)
+    {
+        CurrentItemSlot.ClearIfThis(this);
+        CurrentItemSlot = null;
+    }
+}
+
+
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        // move whatever is currently being dragged
+        if (spawnCloneOnDrag)
+        {
+            if (itemBeingDragged != null)
+                itemBeingDragged.Rect.position = eventData.position;
+        }
+        else
+        {
+            Rect.position = eventData.position;
+        }
+    }
+
 
     public void OnEndDrag(PointerEventData e)
     {
-        cg.blocksRaycasts = true;    //prevents clicking/further interaction with obj when being dragged
+        // TEMPLATE path: finalize clone
+        if (spawnCloneOnDrag)
+        {
+            if (itemBeingDragged != null)
+            {
+                // If a slot didn’t mark it as dropped, destroy the clone
+                if (!itemBeingDragged.WasDropped)
+                {
+                    Destroy(itemBeingDragged.gameObject);
+                }
+                else
+                {
+                    // Dropped successfully: restore raycasts to interactable
+                    var cloneCG = itemBeingDragged.GetComponent<CanvasGroup>();
+                    if (cloneCG) cloneCG.blocksRaycasts = true;
+                }
+                itemBeingDragged.isDragging = false;
+                itemBeingDragged = null;
+            }
+            return;
+        }
+
+        // CLONE path: finish drag on this instance
+        isDragging = false;
+        cg.blocksRaycasts = true;
 
         if (!WasDropped)
         {
-            // not dropped on a slot, then go back to og spot
-            Rect.anchoredPosition = homePos;
-            CurrentSlot = null;
+            // Not dropped on a valid slot, revert / destroy clone
+            // If you prefer reverting to home instead of destroying, swap these lines:
+            // Rect.anchoredPosition = homePos;
+            // CurrentSlot = null;
+            Destroy(gameObject);
+            return;
         }
     }
-
 }
