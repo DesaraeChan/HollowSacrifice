@@ -12,8 +12,10 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private GameObject choicePanel;              // panel holding buttons
     [SerializeField] private Button choiceAButton;
     [SerializeField] private Button choiceBButton;
+    [SerializeField] private Button choiceCButton;
     [SerializeField] private TextMeshProUGUI choiceAText;
     [SerializeField] private TextMeshProUGUI choiceBText;
+    [SerializeField] private TextMeshProUGUI choiceCText;
 
     [Header("Typing")]
     [SerializeField] private float textSpeed = 0.1f;
@@ -34,7 +36,7 @@ public class DialogueController : MonoBehaviour
     private string startNodeOverride; //opt start node name
 
     private bool interactionEnabled = true;
-    public bool hasSold = false;
+
 
     // Input (new system)
     private bool PressedThisFrame =>
@@ -252,38 +254,55 @@ public void JumpToNode(string nodeName)
         waitingForClick = true; // click will either show choices or advance
     }
 
-    private void ShowChoices(DialogueNode node)
+   private void ShowChoices(DialogueNode node)
+{
+    waitingForChoice = true;
+    choicePanel.SetActive(true);
+
+    // Texts
+    choiceAText.text = node.choiceAText;
+    choiceBText.text = node.choiceBText;
+    choiceCText.text = node.choiceCText;
+
+    // Show/hide per text presence (keeps old 2-choice nodes working)
+    bool showA = !string.IsNullOrEmpty(node.choiceAText);
+    bool showB = !string.IsNullOrEmpty(node.choiceBText);
+    bool showC = !string.IsNullOrEmpty(node.choiceCText);
+
+    choiceAButton.gameObject.SetActive(showA);
+    choiceBButton.gameObject.SetActive(showB);
+    choiceCButton.gameObject.SetActive(showC);
+
+    // Reset listeners
+    choiceAButton.onClick.RemoveAllListeners();
+    choiceBButton.onClick.RemoveAllListeners();
+    choiceCButton.onClick.RemoveAllListeners();
+
+    if (showA) choiceAButton.onClick.AddListener(() => OnChoose(node, 0)); // A
+    if (showB) choiceBButton.onClick.AddListener(() => OnChoose(node, 1)); // B
+    if (showC) choiceCButton.onClick.AddListener(() => OnChoose(node, 2)); // C
+}
+
+
+   private void OnChoose(DialogueNode node, int which) // 0=A, 1=B, 2=C
+{
+    choicePanel.SetActive(false);
+    waitingForChoice = false;
+
+    int delta = 0;
+    string next = null;
+
+    switch (which)
     {
-        waitingForChoice = true;
-        choicePanel.SetActive(true);
-        choiceAText.text = node.choiceAText;
-        choiceBText.text = node.choiceBText;
-
-        choiceAButton.onClick.RemoveAllListeners();
-        choiceBButton.onClick.RemoveAllListeners();
-
-        choiceAButton.onClick.AddListener(() => OnChoose(node, isA:true));
-        choiceBButton.onClick.AddListener(() => OnChoose(node, isA:false));
+        case 0: delta = node.repDeltaA; next = node.nextIfA; break;
+        case 1: delta = node.repDeltaB; next = node.nextIfB; break;
+        case 2: delta = node.repDeltaC; next = node.nextIfC; break;
+        default: Debug.LogWarning("Unknown choice index"); break;
     }
 
-    private void OnChoose(DialogueNode node, bool isA)
-    {
-        choicePanel.SetActive(false);
-        waitingForChoice = false;
-
-        // Apply reputation change
-        int delta = isA ? node.repDeltaA : node.repDeltaB;
-        owner?.ApplyReputation(npc.type, delta);
-
-        
-
-        // Branch next index
-        string next = isA ? node.nextIfA : node.nextIfB;
-        
-            GoThroughDialogue(next);
-            // StartTypingNode();
-    
-     }
+    owner?.ApplyReputation(npc.type, delta);
+    GoThroughDialogue(next);
+}
 
     private void Advance()
     {

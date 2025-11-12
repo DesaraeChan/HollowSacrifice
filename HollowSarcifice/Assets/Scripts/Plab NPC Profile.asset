@@ -21,60 +21,78 @@ MonoBehaviour:
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
     goTo: Sammy
   - nodeName: Sammy
     text: Hello, this is line 2!
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
     text: Hello, this is line with choice options :0
     hasChoice: 1
     choiceAText: Option A (good)
     choiceBText: Option B (bad)
+    choiceCText: neutral
     repDeltaA: 1
     repDeltaB: -1
+    repDeltaC: 0
     nextIfA: Option A
     nextIfB: Option B
+    nextIfC: Option C
     goTo: Dialogue 4
   - nodeName: Option A
     text: You picked option A
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
     goTo: AskForItem
   - nodeName: Option B
-    text: You picked option B
+    text: That was mean.. im leaving >:(
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
-    goTo: AskForItem
+    nextIfC: 
+    goTo: END
   - nodeName: AskForItem
     text: I'm asking for item now
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
     goTo: Bob
   - nodeName: AfterSale
     text: 'Sale has finished now
@@ -83,20 +101,26 @@ MonoBehaviour:
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
     goTo: END
   - nodeName: Neutral
     text: ' (neutral)'
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
     goTo: END
   - nodeName: Negative
     text: '(negative)
@@ -105,10 +129,13 @@ MonoBehaviour:
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
     goTo: END
   - nodeName: Positive
     text: '(positive)
@@ -117,10 +144,28 @@ MonoBehaviour:
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 0
     nextIfB: 0
+    nextIfC: 
+    goTo: END
+  - nodeName: Positive
+    text: 'Neutral option
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
     goTo: END
   startingReputation: 0
   npcprefs:
