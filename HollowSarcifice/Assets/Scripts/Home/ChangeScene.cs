@@ -15,7 +15,7 @@ public class ChangeScene : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Hypothetical2DWalking");
+        SceneManager.LoadScene("Street");
         
     }
 
