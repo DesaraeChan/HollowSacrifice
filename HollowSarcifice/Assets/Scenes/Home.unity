@@ -224,11 +224,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 104022261}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0deba5d8b99a1474895c2190decdbcba, type: 3}
+  m_Script: {fileID: 11500000, guid: 795a634112f7cca4ca953a712025b850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
   money: 0
-  family: 1
+  family: 0
+  sentToFamily: 0
 --- !u!4 &104022263
 Transform:
   m_ObjectHideFlags: 0
@@ -2763,7 +2764,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &2004510558
 GameObject:
   m_ObjectHideFlags: 0

@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 38159723}
   - component: {fileID: 38159722}
   - component: {fileID: 38159721}
-  - component: {fileID: 38159720}
   m_Layer: 0
   m_Name: SellButton
   m_TagString: Untagged
@@ -159,26 +158,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1142, y: 185}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &38159720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38159718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcae14a9c257dbe498f40c2fda7d31ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragDrop
-  canvas: {fileID: 65564850}
-  shopManager: {fileID: 46036534}
-  spawnCloneOnDrag: 0
-  dragLayer: {fileID: 0}
-  itemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
-  itemNameText: {fileID: 980782582457159451}
-  itempriceText: {fileID: 3281960578133866357}
-  itemImage: {fileID: 3266203965810505231}
 --- !u!114 &38159721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2671,27 +2650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78da3f00f3328541b4526c0b0b5ec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: OEBIF::cakeslice.OutlineEffect
-  lineThickness: 3.65
-  lineIntensity: 10
-  fillAmount: 0.337
-  lineColor0: {r: 1, g: 1, b: 1, a: 1}
-  lineColor1: {r: 0, g: 1, b: 0, a: 1}
-  lineColor2: {r: 0, g: 0, b: 1, a: 1}
-  additiveRendering: 0
-  backfaceCulling: 1
-  fillColor: {r: 0, g: 0, b: 1, a: 1}
-  useFillColor: 0
-  cornerOutlines: 0
-  addLinesBetweenColors: 0
-  scaleWithScreenSize: 1
-  alphaCutoff: 0.5
-  flipY: 0
-  sourceCamera: {fileID: 0}
-  autoEnableOutlines: 0
-  outlineCamera: {fileID: 0}
-  outlineShaderMaterial: {fileID: 0}
-  renderTexture: {fileID: 0}
-  extraRenderTexture: {fileID: 0}
 --- !u!114 &1089238093
 MonoBehaviour:
   m_ObjectHideFlags: 0

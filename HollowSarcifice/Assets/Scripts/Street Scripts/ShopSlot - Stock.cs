@@ -1,15 +1,15 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-public class ShopSlot : MonoBehaviour
+public class ShopSlotStock : MonoBehaviour
 {
-    public ItemSO itemSO;
+    public ItemSOStock itemSO;
     public TMP_Text itemNameText;
     public TMP_Text priceText;
     public Image itemImage;
      public Button buyButton;
     
-    [SerializeField] private ShopManager shopManager;
+    [SerializeField] private ShopManagerStock shopManager;
     public int price;
 
     void Update()
@@ -17,7 +17,7 @@ public class ShopSlot : MonoBehaviour
         UpdateButtonState();
         //This is hella in efficent but i think its good right now for bug fixing purposes
     }
-    public void Initialize(ItemSO newItemSO, int price)
+    public void Initialize(ItemSOStock newItemSO, int price)
     {
         itemSO = newItemSO;
         itemNameText.text = itemSO.itemName;

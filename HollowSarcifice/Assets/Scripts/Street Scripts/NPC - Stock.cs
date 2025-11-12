@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-public class NPC : MonoBehaviour
+public class NPCStock : MonoBehaviour
 {
     public GameObject canvas;
     public KeyCode interactKey = KeyCode.E;
