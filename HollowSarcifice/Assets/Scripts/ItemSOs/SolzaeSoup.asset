@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: SolzaeSoup
   itemDescription: this is solzae + soup
-  icon: {fileID: 21300000, guid: 0070c387df2106a4782acf21df67333f, type: 3}
+  icon: {fileID: 21300000, guid: 07ae909bf08e08f4fa6edb02ab77dd72, type: 3}
   price: 8
   category: 5

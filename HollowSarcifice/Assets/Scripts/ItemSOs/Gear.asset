@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemName: Gear
   itemDescription: this is gear
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: f3564dc83abe58243b1fe76d6fddd0d5, type: 3}
   price: 3
   category: 3
