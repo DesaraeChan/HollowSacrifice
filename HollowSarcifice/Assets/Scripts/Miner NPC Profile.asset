@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
+  m_Name: Miner NPC Profile
+  m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
+  displayName: Miner
+  type: 2
+  portraitSprite: {fileID: 0}
+  dialogue:
+  - nodeName: Dialogue 1
+    text: Hi i mine rocks
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 
+    nextIfB: 
+    goTo: AskForItem
+  - nodeName: AskForItem
+    text: Gimme Item
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    nextIfA: 
+    nextIfB: 
+    goTo: 
+  startingReputation: 0
+  npcprefs: []
