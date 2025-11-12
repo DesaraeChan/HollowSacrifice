@@ -613,7 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 494980238}
   - component: {fileID: 494980237}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wall 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1665,7 +1665,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1128904111}
   - component: {fileID: 1128904112}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2194,7 +2194,7 @@ Transform:
   m_GameObject: {fileID: 1515997792}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.26, y: 3.57, z: 0}
+  m_LocalPosition: {x: 0.001, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2337,7 +2337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   body: {fileID: 1520861550}
-  speed: 2.3
+  speed: 2
   acceleration: 0.25
   groundDecay: 1
   groundCheck: {fileID: 1736381262}
@@ -2668,7 +2668,7 @@ Transform:
   m_GameObject: {fileID: 1940674889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.002, y: 2.87, z: 0}
+  m_LocalPosition: {x: -0, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
