@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameState
   reps:
   - type: 0
-    reputation: 6
+    reputation: 0
   - type: 1
     reputation: 0
   - type: 2
     reputation: 0
   - type: 3
+    reputation: 0
+  - type: 4
     reputation: 0

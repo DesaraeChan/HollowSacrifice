@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 
-public class Dialogue : MonoBehaviour
+public class Cutscene : MonoBehaviour
 
 
 {
@@ -60,8 +60,9 @@ public class Dialogue : MonoBehaviour
         }else{
             //close text box
         gameObject.SetActive(false);
-        //Character walking away animation
-        characterAnimator.SetTrigger("DialogueDone");
+        
+        //SCENE TRANSITION SHOULD BE HERE
+        // characterAnimator.SetTrigger("DialogueDone");
         }
     }
 }
