@@ -287,7 +287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &95689908
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4349,7 +4349,7 @@ MonoBehaviour:
   m_LocalBounds:
     m_Center: {x: 0, y: -0.00000011920929, z: 0}
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
-  m_PointLightInnerAngle: 175.96397
+  m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 6.33
   m_PointLightOuterRadius: 15.5
@@ -4814,7 +4814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   body: {fileID: 1520861550}
   speed: 10
-  acceleration: 0.05
+  acceleration: 0
   groundDecay: 1
   groundCheck: {fileID: 1736381262}
   groundMask:
@@ -6623,6 +6623,7 @@ GameObject:
   - component: {fileID: 1948308136}
   - component: {fileID: 1948308134}
   - component: {fileID: 1948308137}
+  - component: {fileID: 1948308138}
   m_Layer: 0
   m_Name: HomelessGuy
   m_TagString: StockSeller
@@ -6786,6 +6787,22 @@ MonoBehaviour:
   - "Ah thank you, like I said anything helps really when you\u2019re out here."
   - "I\u2019ll use this, and won\u2019t waste it AHARHA!"
   clickSkipsWhileTyping: 1
+--- !u!114 &1948308138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948308132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd74c7d1f95ee4d49a7749441a9e1e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCStock
+  canvas: {fileID: 738963585}
+  interactKey: 101
+  dialogueBox: {fileID: 95689907}
+  cutscene: {fileID: 95689911}
 --- !u!1 &1948569696
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,10 +43,13 @@ public class NPCCloseup : MonoBehaviour
     // runtime
     bool playerInRange;
     bool isOpen;
-    bool playedChoice;                  // have we already chosen?
+    bool playedChoice;  
+    bool donedialogue;               
     string[] currentLines;
     int index;
     Coroutine typing;
+
+
 
     void Awake()
     {
@@ -70,7 +73,7 @@ public class NPCCloseup : MonoBehaviour
     void Update()
     {
         // Open/close with E inside trigger
-        if (playerInRange && Input.GetKeyDown(interactKey))
+        if (playerInRange && Input.GetKeyDown(interactKey)&& !donedialogue)
         {
             if (!isOpen) OpenDialogue();
             else CloseDialogue();
@@ -109,6 +112,14 @@ public class NPCCloseup : MonoBehaviour
                 else
                 {
                     CloseDialogue();
+                    donedialogue = true;
+                    //reenable movement
+                    var pm = FindFirstObjectByType<PlayerMovement>();
+                    if (pm) pm.enabled = true;
+
+                     // optional: never trigger again
+                    var col = GetComponent<Collider2D>();
+                    if (col) col.enabled = false;
                 }
             }
         }
@@ -197,5 +208,6 @@ public class NPCCloseup : MonoBehaviour
 
         index = 0;
         StartTypingCurrent();
+        playerInRange = false;
     }
 }
