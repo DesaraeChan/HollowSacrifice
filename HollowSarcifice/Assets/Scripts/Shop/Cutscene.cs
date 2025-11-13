@@ -7,10 +7,14 @@ public class Cutscene : MonoBehaviour
 
 {
     [SerializeField] private Animator characterAnimator;
+  
 
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+
+    public bool inNPCZone = false;
+    public bool allowSkip = true;
 
 //track where we are within the text
     private int index;
@@ -19,13 +23,14 @@ public class Cutscene : MonoBehaviour
     void Start()
     {
        textComponent.text = string.Empty;
-       StartDialogue();
+       //StartDialogue();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        
+        if (Input.GetMouseButtonDown(0) && (!inNPCZone || allowSkip))
         {
             if(textComponent.text == lines[index])
             {
@@ -37,7 +42,9 @@ public class Cutscene : MonoBehaviour
         }
     }
 
-    void StartDialogue(){
+    public void StartDialogue(){
+        StopAllCoroutines();
+        textComponent.text = string.Empty;
         index = 0;
         StartCoroutine(TypeLine());
     }

@@ -8,6 +8,10 @@ public class NPCStock : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
     private bool playerInRange = false;
 
+   [SerializeField] GameObject dialogueBox;
+  [SerializeField] Cutscene cutscene;
+
+   
     void Start()
     {
         if (canvas != null)
@@ -24,6 +28,7 @@ public class NPCStock : MonoBehaviour
         {
             ToggleWindow();
         }
+        
     }
 
     private void ToggleWindow()
@@ -47,14 +52,32 @@ public class NPCStock : MonoBehaviour
         {
             playerInRange = true;
             Debug.Log("Player entered NPC range");
-        }
+            if (cutscene != null)
+    {
+        // Make sure the coroutine host is active
+        if (!cutscene.gameObject.activeSelf)
+            cutscene.gameObject.SetActive(true);
+
+        cutscene.inNPCZone = true;
+        cutscene.allowSkip = true;   // if you want first line skippable
+        cutscene.StartDialogue();    // safe now
     }
+}
+          
+
+        }
+
+        
+    
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+            cutscene.inNPCZone = false;
+            cutscene.allowSkip = true;
+            dialogueBox.SetActive(false);
             Debug.Log("Player left NPC range");
             if (canvas != null)
                 canvas.SetActive(false);
