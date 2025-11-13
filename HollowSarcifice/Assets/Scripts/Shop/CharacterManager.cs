@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -31,7 +32,8 @@ public class CharacterManager : MonoBehaviour
 
     public bool IsInAskPhase { get; private set; }
 
-   // public CharacterType CurrentType => currentNPC.type;
+   public static Action<int> OnReputationApplied; //for rep popups
+   private int reputation;
     
 
 // Optional guard so we don't double-fire outro begin (call from DialogueController when last line ends)
@@ -179,6 +181,8 @@ private bool NodeExistsInMain(string nodeName)
     public void ApplyReputation(CharacterType t, int delta)
     {
         gameState?.AddRep(t, delta);
+
+        OnReputationApplied?.Invoke(delta); //anything subscribed to onrepapplied gets called when rep is applied
     }
 
     public void ShowTextBox() //this is an animation event

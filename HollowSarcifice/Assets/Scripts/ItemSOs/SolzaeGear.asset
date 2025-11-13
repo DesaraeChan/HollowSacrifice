@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d004e7267d9235144b8d730be1d9cfbd, type: 3}
-  m_Name: SolzaeSoup
+  m_Name: SolzaeGear
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: SolzaeSoup
-  itemDescription: this is solzae + soup
-  icon: {fileID: 21300000, guid: 07ae909bf08e08f4fa6edb02ab77dd72, type: 3}
-  price: 8
-  category: 6
+  itemName: SolzaeGear
+  itemDescription: this is gear + solzae
+  icon: {fileID: -5781844184038680915, guid: b3801b50a12709d42b54e519b3d22dd8, type: 3}
+  price: 9
+  category: 4

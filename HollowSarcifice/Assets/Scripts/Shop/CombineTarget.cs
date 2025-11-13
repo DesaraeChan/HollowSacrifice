@@ -39,6 +39,13 @@ public class CombineTarget : MonoBehaviour
         if (dragging == null || dragging.itemSO == null || host == null) return false;
         if (combineOnce && combined) return false;
 
+        //  Only allow combine if the host item is currently in a slot
+        if (host.CurrentItemSlot == null)
+        {
+            if (verboseLogs) Debug.Log($"[CombineTarget:{name}] Host is not in a slot, block combine.");
+            return false;
+        }
+
         if (!RectTransformUtility.RectangleContainsScreenPoint(rect, pointerPos, uiCam)) return false;
 
        
