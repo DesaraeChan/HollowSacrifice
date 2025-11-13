@@ -59,8 +59,8 @@ public class NPCStock : MonoBehaviour
             cutscene.gameObject.SetActive(true);
 
         cutscene.inNPCZone = true;
-        cutscene.allowSkip = true;   // if you want first line skippable
-        cutscene.StartDialogue();    // safe now
+        cutscene.allowSkip = false;
+        cutscene.StartDialogue();    
     }
 }
           
