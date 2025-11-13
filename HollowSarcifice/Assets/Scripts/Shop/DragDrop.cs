@@ -207,10 +207,12 @@ public void OnBeginDrag(PointerEventData e)
         // TEMPLATE path: finalize clone
         if (spawnCloneOnDrag)
         {
+            
             if (itemBeingDragged != null)
             {
+                bool isUnslottable = itemBeingDragged.CompareTag("NotSlottable"); //tag for not slottable item
                 // If a slot didn’t mark it as dropped, destroy the clone
-                if (!itemBeingDragged.WasDropped)
+                if (isUnslottable || !itemBeingDragged.WasDropped)
                 {
                     Destroy(itemBeingDragged.gameObject);
                 }

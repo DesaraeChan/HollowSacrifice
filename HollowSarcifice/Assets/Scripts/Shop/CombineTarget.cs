@@ -11,14 +11,12 @@ public class CombineTarget : MonoBehaviour
     [System.Serializable]
     public struct Recipe
     {
-        public ItemSO hostBefore;   // e.g., EmptyBowlSO, SoupSO
-        public ItemSO incoming;     // e.g., SoupSO, SpiceSO
-        public ItemSO result;       // e.g., SoupSO, SpicySoupSO
+        public ItemSO hostBefore;   
+        public ItemSO incoming;     
+        public ItemSO result;       
     }
 
-    [Header("Filters")]
-    [SerializeField] private bool requireAcceptedCategory = false;
-    [SerializeField] private ItemCategory[] acceptedCategories = { }; // empty = accept all
+   
 
     [Header("Behavior")]
     [SerializeField] private bool destroyDragged = true;
@@ -43,17 +41,7 @@ public class CombineTarget : MonoBehaviour
 
         if (!RectTransformUtility.RectangleContainsScreenPoint(rect, pointerPos, uiCam)) return false;
 
-        if (requireAcceptedCategory && acceptedCategories != null && acceptedCategories.Length > 0)
-        {
-            bool ok = false;
-            foreach (var c in acceptedCategories) if (c == dragging.itemSO.category) { ok = true; break; }
-            if (!ok)
-            {
-                if (verboseLogs) Debug.Log($"[CombineTarget:{name}] Category {dragging.itemSO.category} not accepted.");
-                return false;
-            }
-        }
-
+       
         var before = host.itemSO;
         var incoming = dragging.itemSO;
 

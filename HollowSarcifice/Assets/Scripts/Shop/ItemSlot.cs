@@ -23,6 +23,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler
         var go = e.pointerDrag;
         if (!go) return;
 
+        if(go.CompareTag("NotSlottable")) //if not able to slot, return
+        return;
+
     //does obj being dragged have DragDrop script attached, if so access it's data
         var dragItem = go.GetComponent<DragDrop>();
         if (!dragItem) return;
