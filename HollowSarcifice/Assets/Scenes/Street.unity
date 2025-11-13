@@ -611,6 +611,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b400c6daf5e564429cc9f0da6d778fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopSlot
+--- !u!114 &464174985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2109157827968253965, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
+  m_PrefabInstance: {fileID: 726435473692359746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &494980236
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,6 +1439,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1520861551}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &678715133 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2109157827968253965, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
+  m_PrefabInstance: {fileID: 1667295913}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &706248034
 GameObject:
   m_ObjectHideFlags: 0
@@ -2349,6 +2371,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1421944015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2109157827968253965, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
+  m_PrefabInstance: {fileID: 1581460189}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1515997792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,6 +3004,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7024436845600311336, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1421944015}
     - target: {fileID: 7410575375075020321, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 8
@@ -3248,6 +3285,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7024436845600311336, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 678715133}
     - target: {fileID: 7410575375075020321, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 8
@@ -4303,6 +4344,10 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7024436845600311336, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 464174985}
     - target: {fileID: 7410575375075020321, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 8
