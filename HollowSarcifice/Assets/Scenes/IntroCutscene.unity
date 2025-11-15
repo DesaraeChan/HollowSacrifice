@@ -993,6 +993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   characterAnimator: {fileID: 0}
+  nextSceneName: Home
   textComponent: {fileID: 1773173846}
   lines:
   - 'Zaetia. A country which has recently escaped their dreary reality. Your home. '
@@ -1005,6 +1006,8 @@ MonoBehaviour:
     war against the Plabs.
   - It is up to you to generate income to support yourself and your father
   textSpeed: 0.08
+  inNPCZone: 0
+  allowSkip: 1
 --- !u!1 &1508249467
 GameObject:
   m_ObjectHideFlags: 0

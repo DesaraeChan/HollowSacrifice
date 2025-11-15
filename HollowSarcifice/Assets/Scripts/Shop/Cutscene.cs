@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Cutscene : MonoBehaviour
 
 
 {
     [SerializeField] private Animator characterAnimator;
+    [Header("Scene Transition")]
+    [SerializeField] private string nextSceneName;
   
 
     public TextMeshProUGUI textComponent;
@@ -38,6 +41,10 @@ public class Cutscene : MonoBehaviour
             }else{
                 StopAllCoroutines();
                 textComponent.text = lines [index];
+
+                if (index >= lines.Length -1){
+                    EndCutscene();
+                }
             }
         }
     }
@@ -55,6 +62,15 @@ public class Cutscene : MonoBehaviour
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
 
+        }
+    }
+
+    void EndCutscene(){
+        gameObject.SetActive(false);
+
+         if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 
