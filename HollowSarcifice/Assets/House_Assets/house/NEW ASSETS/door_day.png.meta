@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7400fc1e897425a4fa357675f9f8e2de
+guid: 7ea800b3718cc354383ebb46e406da88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2727858069317810888
-    second: window_day_0
+      213: 4163309376157160637
+    second: door_day_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: window_day_0
+      name: door_day_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 484
-        height: 326
+        x: 1
+        y: 4
+        width: 273
+        height: 505
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8cafe53167c4bd520800000000000000
-      internalID: 2727858069317810888
+      spriteID: db496e7c1db07c930800000000000000
+      internalID: 4163309376157160637
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      window_day_0: 2727858069317810888
+      door_day_0: 4163309376157160637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

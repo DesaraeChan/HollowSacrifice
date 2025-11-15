@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8012bab6c30f24e4baca964b767cad63
+guid: c773e2626f4010b43ac947395f8bf91d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1590947156159060677
-    second: bed_night_0
+      213: 828565588967573800
+    second: window_day_foggy_o_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: bed_night_0
+      name: window_day_foggy_o_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1068
-        height: 448
+        width: 480
+        height: 323
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b35a8bc9df1dbe9e0800000000000000
-      internalID: -1590947156159060677
+      spriteID: 82946836308af7b00800000000000000
+      internalID: 828565588967573800
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      bed_night_0: -1590947156159060677
+      window_day_foggy_o_0: 828565588967573800
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
