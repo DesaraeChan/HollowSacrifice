@@ -20,6 +20,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private ItemSlot[] itemSlots;
     [SerializeField] private Animator buttonanim;
     [SerializeField] private GameObject arrow;
+    
 
     [Header("Rules")]
     [SerializeField] private ItemCategory[] NoSellCategory = {ItemCategory.Bowl, ItemCategory.Solzae, ItemCategory.Glass };// set special non sellable item herer (bowl, glass)
@@ -48,6 +49,8 @@ private bool IsSellable(ItemSO so)
     bool any = false;
     arrow.SetActive(false);
     buttonanim.SetBool("Sellable", false);
+
+    DayManager.Instance.Night = true;
  
 
      if (sellButton) sellButton.interactable = any;
@@ -78,26 +81,6 @@ private bool IsSellable(ItemSO so)
 
 
 
-//  public void RecalculateTotal()
-// {
-//     int total = 0;
-//     bool any = false;
-
-//     foreach (var slot in itemSlots)
-//     {
-//         if (slot != null && slot.CurrentItem != null && slot.CurrentItem.itemSO != null)
-//         {
-//             if(IsSellable(so)){
-//                 total += slot.CurrentItem.itemSO.price;
-//                 any = true;
-
-//             }
-            
-//         }
-// //     }
-//  if (totalText) totalText.text = $"Total: ${total}";
-//     if (sellButton) sellButton.interactable = any;
-// }
 
 public void RecalculateTotal()
 {
