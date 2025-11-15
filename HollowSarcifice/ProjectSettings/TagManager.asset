@@ -60,11 +60,11 @@ TagManager:
   - name: Layer 4-GROUND
     uniqueID: 1798339803
     locked: 0
-  - name: Layer 5
-    uniqueID: 3940144647
-    locked: 0
   - name: Characters
     uniqueID: 1876550635
+    locked: 0
+  - name: Layer 5
+    uniqueID: 3940144647
     locked: 0
   m_RenderingLayers:
   - Default
