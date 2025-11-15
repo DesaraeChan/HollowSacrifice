@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum ItemCategory { Soup, Bowl, Glass,Gear, SolzaeGear, Solzae, SolzaeSoup};
+public enum ItemCategory { Soup, Bowl, Ladle, Glass,Gear, SolzaeGear, Solzae, SolzaeSoup};
 
 [CreateAssetMenu(fileName = "ItemSO", menuName = "Scriptable Objects/ItemSO")]
 

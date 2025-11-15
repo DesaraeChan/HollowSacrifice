@@ -170,8 +170,8 @@ MonoBehaviour:
   startingReputation: 0
   npcprefs:
   - category: 0
-    repDelta: -3
+    repDelta: -1
     nextNode: 
   - category: 5
-    repDelta: 5
+    repDelta: 1
     nextNode: 
