@@ -18,6 +18,8 @@ public class ShopManager : MonoBehaviour
    [SerializeField] private Button sellButton;
 
     [SerializeField] private ItemSlot[] itemSlots;
+    [SerializeField] private Animator buttonanim;
+    [SerializeField] private GameObject arrow;
 
     [Header("Rules")]
     [SerializeField] private ItemCategory[] NoSellCategory = {ItemCategory.Bowl, ItemCategory.Solzae, ItemCategory.Glass };// set special non sellable item herer (bowl, glass)
@@ -44,8 +46,13 @@ private bool IsSellable(ItemSO so)
 
    private void Start(){
     bool any = false;
+    arrow.SetActive(false);
+    buttonanim.SetBool("Sellable", false);
+ 
 
      if (sellButton) sellButton.interactable = any;
+     //stop button anim
+        
 
      //owner = FindObjectsOfType<CharacterManager>(); 
 
@@ -114,6 +121,10 @@ public void RecalculateTotal()
 
     if (totalText) totalText.text = $"Total: ${total}";
     if (sellButton) sellButton.interactable = anySellable;
+    //play button seel anim here
+    if (arrow) arrow.SetActive(anySellable);
+      buttonanim.SetBool("Sellable", anySellable);
+
 }
 
 
@@ -134,6 +145,7 @@ public void RecalculateTotal()
     private bool selling; // guard against double firing
 public void SellAllInSlots()
 {
+    
     if (selling) return;
     selling = true;
 
@@ -161,6 +173,7 @@ public void SellAllInSlots()
         {
             // mark for clearing only if we end up selling at least one thing
             toClearBadOnes.Add((slot, item));
+           
         }
     }
 
@@ -169,6 +182,7 @@ public void SellAllInSlots()
     {
         selling = false;
         return;
+       
     }
 
     // 2) Apply money once
@@ -219,6 +233,8 @@ public void SellAllInSlots()
     // 6) Refresh UI
     RecalculateTotal();
     selling = false;
+    arrow.SetActive(false);
+    buttonanim.SetBool("Sellable", false);
 }
 
 }
