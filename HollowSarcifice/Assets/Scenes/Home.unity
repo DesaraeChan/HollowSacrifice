@@ -153,8 +153,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.1, y: 0}
-  m_SizeDelta: {x: 61.403, y: 10.8699}
+  m_AnchoredPosition: {x: -72.83745, y: -28.744785}
+  m_SizeDelta: {x: 174.9592, y: 39.9414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6031052
 MonoBehaviour:
@@ -203,10 +203,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 10
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -520,8 +520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.062}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.3, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -66, y: -21}
+  m_SizeDelta: {x: 204.7698, y: 185.9585}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164506918
 MonoBehaviour:
@@ -595,7 +595,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 77.33185, y: -367.81}
+  m_AnchoredPosition: {x: 104, y: -772}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &241562818
@@ -755,8 +755,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.2, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -48, y: -23}
+  m_SizeDelta: {x: 212.8679, y: 175.5133}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &261887360
 MonoBehaviour:
@@ -832,8 +832,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -207.75, y: -145.98021}
-  m_SizeDelta: {x: 415.5, y: 175.0396}
+  m_AnchoredPosition: {x: -427.66, y: -355.38}
+  m_SizeDelta: {x: 1064.678, y: 364.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345682034
 MonoBehaviour:
@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
   currentDay: 1
-  Night: 0
+  Night: 1
   unlockDay: 0
 --- !u!4 &433095209
 Transform:
@@ -1103,8 +1103,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 237.04, y: 15.926}
-  m_SizeDelta: {x: 123.4437, y: 201.87}
+  m_AnchoredPosition: {x: 575.2408, y: -14.5535}
+  m_SizeDelta: {x: 288.5004, y: 515.747}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807024122
 MonoBehaviour:
@@ -1295,8 +1295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -33.5, y: 3.2}
-  m_SizeDelta: {x: 61.403, y: 10.8699}
+  m_AnchoredPosition: {x: -86.41339, y: -16.285229}
+  m_SizeDelta: {x: 148.8298, y: 10.8699}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807192736
 MonoBehaviour:
@@ -1345,10 +1345,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 10
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1533,7 +1533,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 132.4, y: -294.8}
+  m_AnchoredPosition: {x: 216, y: -612}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &861041947
@@ -2599,7 +2599,6 @@ GameObject:
   - component: {fileID: 1233763000}
   - component: {fileID: 1233763005}
   - component: {fileID: 1233763004}
-  - component: {fileID: 1233763006}
   m_Layer: 0
   m_Name: Window Sprite
   m_TagString: Untagged
@@ -2782,21 +2781,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverSwapSprite
   normalSprite: {fileID: -4882918461518551987, guid: df5132b546fe6124aaf0dc68c9d5aae6, type: 3}
   hoverSprite: {fileID: 2686617765436475272, guid: 11baaceb1c090cd4e84adfb57014aaa8, type: 3}
---- !u!114 &1233763006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233762999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e355bf4b7f29e48983ba98d560b309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
-  tooltipPanel: {fileID: 0}
-  tooltipText: {fileID: 0}
-  offset: {x: -30, y: -10}
+  normalNightSprite: {fileID: 0}
+  hoverNightSprite: {fileID: 0}
 --- !u!1 &1281751089
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,7 +2934,6 @@ GameObject:
   - component: {fileID: 1283721354}
   - component: {fileID: 1283721359}
   - component: {fileID: 1283721360}
-  - component: {fileID: 1283721361}
   m_Layer: 0
   m_Name: Bed Sprite
   m_TagString: Untagged
@@ -3124,7 +3109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 336.93, y: 180.39}
+  m_AnchoredPosition: {x: 336.91, y: 180.31}
   m_SizeDelta: {x: 1068, y: 448}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283721359
@@ -3141,6 +3126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverSwapSprite
   normalSprite: {fileID: 2172883764541306817, guid: ab4aa04af96d173448d47ba4369b4168, type: 3}
   hoverSprite: {fileID: 8432575377821664468, guid: 935ffd703797d4a49a73e5d112e6e293, type: 3}
+  normalNightSprite: {fileID: -1590947156159060677, guid: 1b85efc2662ad3c4c9cf9f5c1632875a, type: 3}
+  hoverNightSprite: {fileID: 4513754111659377987, guid: f6f8588012be63347bfd6db23b7c1a96, type: 3}
 --- !u!61 &1283721360
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3187,21 +3174,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 10.68, y: 3.6349273}
   m_EdgeRadius: 0
---- !u!114 &1283721361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283721353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e355bf4b7f29e48983ba98d560b309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
-  tooltipPanel: {fileID: 0}
-  tooltipText: {fileID: 0}
-  offset: {x: -30, y: -10}
 --- !u!1 &1317030398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,7 +3502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.299988, y: -313.7}
+  m_AnchoredPosition: {x: -9.299988, y: -683.89}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1377504358
@@ -3545,6 +3517,7 @@ GameObject:
   - component: {fileID: 1377504361}
   - component: {fileID: 1377504360}
   - component: {fileID: 1377504362}
+  - component: {fileID: 1377504363}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -3667,6 +3640,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1377504363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377504358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95e8dc811f7e6e40b131747c626a2cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundNight
+  normalSprite: {fileID: 21300000, guid: c22e1b5213669cb4795471a95b5e8ad0, type: 3}
+  NightSprite: {fileID: 21300000, guid: c632783fc82c7da4db005551d4ec4bc3, type: 3}
 --- !u!1 &1585962037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,8 +3688,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -18.4, y: 0}
-  m_SizeDelta: {x: -38.597, y: -89.1301}
+  m_AnchoredPosition: {x: -90.72754, y: -14.87878}
+  m_SizeDelta: {x: 99.7479, y: -85.1201}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1585962039
 MonoBehaviour:
@@ -3751,10 +3738,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 10
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -3976,8 +3963,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3.5801992, y: 42.029724}
-  m_SizeDelta: {x: 230.7913, y: 162.3397}
+  m_AnchoredPosition: {x: -10.34, y: 87.246}
+  m_SizeDelta: {x: 482.64, y: 311.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680536378
 MonoBehaviour:
@@ -4107,7 +4094,6 @@ GameObject:
   - component: {fileID: 1724210842}
   - component: {fileID: 1724210843}
   - component: {fileID: 1724210844}
-  - component: {fileID: 1724210845}
   m_Layer: 5
   m_Name: Door Sprite
   m_TagString: Untagged
@@ -4404,6 +4390,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoverSwapSprite
   normalSprite: {fileID: 4163309376157160637, guid: 7ea800b3718cc354383ebb46e406da88, type: 3}
   hoverSprite: {fileID: -6427887182850540086, guid: 80bb3e324ecb02f45b37f042049a4c60, type: 3}
+  normalNightSprite: {fileID: 6939432640463033174, guid: f817933828230a34bb73f4b497a3b2ba, type: 3}
+  hoverNightSprite: {fileID: -8958982639416336352, guid: f5c46d31f5980d24fb16525e06727c43, type: 3}
 --- !u!61 &1724210844
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4450,21 +4438,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.73, y: 5.05}
   m_EdgeRadius: 0
---- !u!114 &1724210845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1724210833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6e355bf4b7f29e48983ba98d560b309, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TooltipTrigger
-  tooltipPanel: {fileID: 0}
-  tooltipText: {fileID: 0}
-  offset: {x: -30, y: -10}
 --- !u!1 &1919369319
 GameObject:
   m_ObjectHideFlags: 0
@@ -4597,8 +4570,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 2.600006}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -47, y: -23}
+  m_SizeDelta: {x: 207.4814, y: 194.3418}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1940281209
 MonoBehaviour:

@@ -6,21 +6,40 @@ public class HoverSwapSprite : MonoBehaviour
     public Sprite normalSprite;
     public Sprite hoverSprite;
 
+    public Sprite normalNightSprite;
+    public Sprite hoverNightSprite;
+
     private SpriteRenderer sr;
 
     void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
-        sr.sprite = normalSprite;
+        if(DayManager.Instance.Night)
+        {
+            sr.sprite = normalNightSprite;
+        } else{
+            sr.sprite = normalSprite;
+        }
+        
     }
 
     void OnMouseEnter()
     {
-        sr.sprite = hoverSprite;
+        if(DayManager.Instance.Night)
+        {
+            sr.sprite = hoverNightSprite;
+        } else{
+            sr.sprite = hoverSprite;
+        }
     }
 
     void OnMouseExit()
     {
-        sr.sprite = normalSprite;
+        if(DayManager.Instance.Night)
+        {
+            sr.sprite = normalNightSprite;
+        } else{
+            sr.sprite = normalSprite;
+        }
     }
 }

@@ -19,11 +19,24 @@ public class ChangeScene : MonoBehaviour
         
     }
 
+    public IEnumerator _ChangeScene2DNight()
+    {
+        fade.FadeIn();
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Street Night");
+        
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void SceneOutside()
     {
-        StartCoroutine(_ChangeScene2D());
+        if(!DayManager.Instance.Night){
+            StartCoroutine(_ChangeScene2D());
+        } else{
+            StartCoroutine(_ChangeScene2DNight());
+        }
+       
     }
 
 }
