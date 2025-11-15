@@ -10286,8 +10286,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1948308133}
   - component: {fileID: 1948308136}
-  - component: {fileID: 1948308134}
-  - component: {fileID: 1948308137}
   m_Layer: 0
   m_Name: HomelessGuy
   m_TagString: StockSeller
@@ -10310,42 +10308,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1618995459}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &1948308134
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948308132}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 5
 --- !u!212 &1948308136
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10404,51 +10366,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1948308137
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1948308132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ba6f5bf1e942ac4ebaf189dcbd20cb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPCCloseup
-  playerTag: Player
-  interactKey: 101
-  dialogueRoot: {fileID: 0}
-  textBox: {fileID: 0}
-  charDelay: 0.03
-  introLines:
-  - 'I think you know how it is out here. Cold wet. Acidic. '
-  - "Do you have anything to spare? I\u2019d appreciate anything really, just trying
-    to get by like yourself.\n"
-  - 'Why did I ask you over here?  *BURPS
-
-'
-  - 'AHAHA well you look like a kind person. You also look like you might have something
-    on you to help a guy out.
-
-
-'
-  choicePanel: {fileID: 0}
-  choiceAButton: {fileID: 0}
-  choiceBButton: {fileID: 0}
-  choiceAText: {fileID: 0}
-  choiceBText: {fileID: 0}
-  choiceALabel: Here take some change.
-  choiceBLabel: Here, have some Solzae.
-  afterChoiceA:
-  - 'Ah thank you! I knew you looked like a kind soul.
-
-'
-  - I could buy a bowl of soup using this. Just like me mum used to make.
-  afterChoiceB:
-  - "Ah thank you, like I said anything helps really when you\u2019re out here."
-  - "I\u2019ll use this, and won\u2019t waste it AHARHA!"
-  clickSkipsWhileTyping: 1
 --- !u!1 &1948569696
 GameObject:
   m_ObjectHideFlags: 0

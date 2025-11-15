@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff3a0fd7ac91f824d948a308dfbedd35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StreetToShop
-  fade: {fileID: 0}
+  fade: {fileID: 1846688592}
   interactKey: 101
   hasInventory: 1
 --- !u!1001 &835030765
@@ -8595,7 +8595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: price
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: itemSO

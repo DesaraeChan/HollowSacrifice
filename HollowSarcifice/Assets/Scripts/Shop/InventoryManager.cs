@@ -4,7 +4,8 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     [Header("Player Money")]
-    public int money;                     // the actual player money value
+    public int money;
+    public MoneyCounter countermoney;                     // the actual player money value
     public TMP_Text moneyText;            // UI text showing the money
 
     private void Start()
@@ -12,7 +13,7 @@ public class InventoryManager : MonoBehaviour
         // Initialize the UI text when the game starts
         if (moneyText != null)
         {
-            moneyText.text = money.ToString();
+            moneyText.text = countermoney.money.ToString();
         }
         else
         {
@@ -40,7 +41,7 @@ public class InventoryManager : MonoBehaviour
         // Call this anytime the money value changes
         if (moneyText != null)
         {
-            moneyText.text = money.ToString();
+            moneyText.text = countermoney.money.ToString();
         }
     }
 }
