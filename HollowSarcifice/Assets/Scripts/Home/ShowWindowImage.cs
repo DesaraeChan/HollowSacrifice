@@ -40,8 +40,6 @@ public class ShowWindowImage : MonoBehaviour
 
     public void UpdateVisuals()
     {
-        if (dayImages.Length == 0) return;
-        Debug.Log("Day is changed to " + DayManager.Instance.currentDay);
 
         int index = Mathf.Clamp(DayManager.Instance.currentDay - 1, 0, dayImages.Length - 1);
         uiImage.sprite = dayImages[index];

@@ -4,6 +4,8 @@ public class DayManager : MonoBehaviour
 {
     public static DayManager Instance;
     public int currentDay = 1;
+    public bool Night = false;
+    //False = day - True = Night 
     public bool unlockDay = false; 
 
     void Awake()
@@ -22,7 +24,7 @@ public class DayManager : MonoBehaviour
     {
         unlockDay = true;
         currentDay++;
-
+        Night = false;
         Debug.Log("Day advanced to: " + currentDay);
 
 

@@ -72,16 +72,10 @@ public class PlayerMovement : MonoBehaviour
 
     void ApplyFriction()
     {
-        if (CheckGround() && xInput == 0)
+        if ( xInput == 0)
         {
             body.linearVelocity *= groundDecay;
         }
     }
-
-    bool CheckGround()
-    {
-        return Physics2D.OverlapAreaAll(groundCheck.bounds.min, groundCheck.bounds.max, groundMask).Length > 0;
-    }
-
 }
 
