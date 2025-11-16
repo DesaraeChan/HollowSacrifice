@@ -15,9 +15,12 @@ public class Cutscene : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+    public NPCStock shopCanvas;
 
     public bool inNPCZone = false;
     public bool allowSkip = true;
+
+     public bool DialogueDone { get; private set; } = false;
 
 //track where we are within the text
     private int index;
@@ -51,6 +54,7 @@ public class Cutscene : MonoBehaviour
 
     public void StartDialogue(){
         StopAllCoroutines();
+        DialogueDone = false;
         textComponent.text = string.Empty;
         index = 0;
         StartCoroutine(TypeLine());
@@ -66,6 +70,8 @@ public class Cutscene : MonoBehaviour
     }
 
     void EndCutscene(){
+        if (DialogueDone) return;
+        DialogueDone = true;
         gameObject.SetActive(false);
 
          if (!string.IsNullOrEmpty(nextSceneName))
@@ -83,6 +89,7 @@ public class Cutscene : MonoBehaviour
         }else{
             //close text box
         gameObject.SetActive(false);
+          if (shopCanvas.gameObject) shopCanvas.gameObject.SetActive(true);
         
         //SCENE TRANSITION SHOULD BE HERE
         // characterAnimator.SetTrigger("DialogueDone");

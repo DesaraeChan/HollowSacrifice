@@ -40,16 +40,27 @@ public class NPCCloseup : MonoBehaviour
     [Header("Behaviour")]
     [SerializeField] private bool clickSkipsWhileTyping = true; // left-click to skip current line reveal
 
+    [SerializeField] private bool hasChoices = true;
     // runtime
     bool playerInRange;
     bool isOpen;
+    // bool donedialogue;  
     bool playedChoice;  
-    bool donedialogue;               
+    //public bool DialogueDone => donedialogue;             
     string[] currentLines;
     int index;
     Coroutine typing;
 
-    public string npcId = "Homeless";
+    public Cutscene cutscene;
+
+    //public Cutscene cutscene;
+
+    public bool DialogueDone { get; private set; } = false;
+
+
+    public string npcId = "";
+
+    [SerializeField] Canvas closeupcanvas;
 
 
 
@@ -73,13 +84,40 @@ public class NPCCloseup : MonoBehaviour
         CloseDialogue();
     }
 
+    void FinishDialogue()
+{
+    DialogueDone = true;
+
+    // Close UI
+    CloseDialogue();
+
+    // Reenable movement
+    var pm = FindFirstObjectByType<PlayerMovement>();
+    if (pm) pm.enabled = true;
+
+    // Prevent retriggering this closeup
+    // var col = GetComponent<Collider2D>();
+    // if (col) col.enabled = false;
+}
+
+
+    public void StartCloseup(){
+        if (DialogueDone) return;
+        if(isOpen) return;
+
+        OpenDialogue();
+    }
+
+   
     void Update()
     {
         // Open/close with E inside trigger
-        if (playerInRange && Input.GetKeyDown(interactKey)&& !donedialogue)
+        if (playerInRange && Input.GetKeyDown(interactKey)&& !DialogueDone)
         {
-            if (!isOpen) OpenDialogue();
-            else CloseDialogue();
+            // if (!isOpen) OpenDialogue();
+            // else CloseDialogue();
+            closeupcanvas.gameObject.SetActive(true);
+            cutscene.StartDialogue();
         }
 
         if (!isOpen || choicePanel.activeSelf) return;
@@ -108,21 +146,22 @@ public class NPCCloseup : MonoBehaviour
             else
             {
                 // finished this block
-                if (!playedChoice)
+                if (hasChoices && !playedChoice)
                 {
                     ShowChoices();
                 }
                 else
                 {
-                    CloseDialogue();
-                    donedialogue = true;
+                   FinishDialogue();
+                   // CloseDialogue();
+                   // donedialogue = true;
                     //reenable movement
                     var pm = FindFirstObjectByType<PlayerMovement>();
                     if (pm) pm.enabled = true;
 
                      // optional: never trigger again
-                    var col = GetComponent<Collider2D>();
-                    if (col) col.enabled = false;
+                    // var col = GetComponent<Collider2D>();
+                    // if (col) col.enabled = false;
                 }
             }
         }
@@ -130,13 +169,17 @@ public class NPCCloseup : MonoBehaviour
 
     void OpenDialogue()
     {
-        if (dialogueRoot) dialogueRoot.SetActive(true);
+         if (dialogueRoot) dialogueRoot.SetActive(true);
         isOpen = true;
         playedChoice = false;
         currentLines = introLines;
         index = 0;
         textBox.text = "";
         StartTypingCurrent();
+
+        // optional: lock movement while closeup is open
+        var pm = FindFirstObjectByType<PlayerMovement>();
+        if (pm) pm.enabled = false;
     }
 
     void CloseDialogue()
@@ -144,7 +187,14 @@ public class NPCCloseup : MonoBehaviour
         if (typing != null) { StopCoroutine(typing); typing = null; }
         if (choicePanel) choicePanel.SetActive(false);
         if (dialogueRoot) dialogueRoot.SetActive(false);
+        isOpen = false; if (typing != null) { StopCoroutine(typing); typing = null; }
+        if (choicePanel) choicePanel.SetActive(false);
+        if (dialogueRoot) dialogueRoot.SetActive(false);
         isOpen = false;
+
+        // optional: re-enable movement
+        var pm = FindFirstObjectByType<PlayerMovement>();
+        if (pm) pm.enabled = true;
     }
 
     void StartTypingCurrent()
