@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dbe00945930a7114ba91064a4adf67b3
+guid: 17d7a59b843a0694a927454336f972f7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2229227691893195022
-    second: Waterfallblock_0
+      213: -4060906074040344310
+    second: closeUp_stock_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,9 +40,9 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Waterfallblock_0
+      name: closeUp_stock_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 3464
-        height: 1960
+        width: 1380
+        height: 775
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e0102ca56cecfee10800000000000000
-      internalID: 2229227691893195022
+      spriteID: a016996f073c4a7c0800000000000000
+      internalID: -4060906074040344310
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Waterfallblock_0: 2229227691893195022
+      closeUp_stock_0: -4060906074040344310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
