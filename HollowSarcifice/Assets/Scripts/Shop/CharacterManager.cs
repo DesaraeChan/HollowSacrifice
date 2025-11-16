@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class CharacterManager : MonoBehaviour
 {
@@ -25,6 +26,9 @@ public class CharacterManager : MonoBehaviour
     [Header("AskforItemBox")]
     [SerializeField] private GameObject askForItemBox;       // the second panel    
     [SerializeField] private DialogueController askDialogue;  // controller on that panel
+
+    [Header("Flow After Last NPC")]
+    [SerializeField] private string sceneAfterLastCustomer; 
 
     public static CharacterManager Active {get; private set; }
   
@@ -76,6 +80,19 @@ public void OnOutroComplete_ActivateNextOnly()
     if (nextManager != null && nextManager.gameObject != null)
     {
         nextManager.gameObject.SetActive(true);
+    } else
+    {
+        // No next manager this was the last NPC in the chain
+        Debug.Log("[CharacterManager] No nextManager. This was the last NPC. Switching scene…");
+
+        if (!string.IsNullOrEmpty(sceneAfterLastCustomer))
+        {
+            SceneManager.LoadScene(sceneAfterLastCustomer);
+        }
+        else
+        {
+            Debug.LogWarning("[CharacterManager] sceneAfterLastCustomer is empty. Assign a scene name in the Inspector.");
+        }
     }
 }
 

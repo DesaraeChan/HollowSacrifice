@@ -21,20 +21,42 @@ MonoBehaviour:
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 
     nextIfB: 
+    nextIfC: 
     goTo: AskForItem
   - nodeName: AskForItem
     text: Gimme Item
     hasChoice: 0
     choiceAText: 
     choiceBText: 
+    choiceCText: 
     repDeltaA: 0
     repDeltaB: 0
+    repDeltaC: 0
     nextIfA: 
     nextIfB: 
-    goTo: 
+    nextIfC: 
+    goTo: AfterSale
+  - nodeName: Positive
+    text: thank
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
   startingReputation: 0
-  npcprefs: []
+  npcprefs:
+  - category: 0
+    repDelta: 1
+    nextNode: Positive

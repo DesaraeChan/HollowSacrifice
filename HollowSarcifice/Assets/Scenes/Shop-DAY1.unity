@@ -148,7 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ae5c39a8aedd408feccd670e6c315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StockInventory
-  entries: []
+  entries:
+  - itemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
+    quantity: 1
 --- !u!4 &12880939
 Transform:
   m_ObjectHideFlags: 0
@@ -990,7 +992,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &172784072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1015,6 +1017,7 @@ MonoBehaviour:
   nextManager: {fileID: 0}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
+  sceneAfterLastCustomer: Street Night
 --- !u!95 &172784073
 Animator:
   serializedVersion: 7
@@ -2831,7 +2834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &650614889
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2951,6 +2954,7 @@ MonoBehaviour:
   nextManager: {fileID: 1320943806}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
+  sceneAfterLastCustomer: Street Night
 --- !u!1 &709035934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4144,6 +4148,7 @@ MonoBehaviour:
   nextManager: {fileID: 172784072}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
+  sceneAfterLastCustomer: Street Night
 --- !u!95 &1320943808
 Animator:
   serializedVersion: 7
