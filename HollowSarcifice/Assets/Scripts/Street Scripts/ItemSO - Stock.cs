@@ -7,6 +7,9 @@ public class ItemSOStock : ScriptableObject
     [TextArea]public string itemDescription;
     public Sprite icon;
 
+      public ItemSO shopItem;
+    public int stockPrice; 
+
     public bool isGold;
 
     

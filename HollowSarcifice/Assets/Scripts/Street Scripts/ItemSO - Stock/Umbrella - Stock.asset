@@ -15,4 +15,6 @@ MonoBehaviour:
   itemName: Gear
   itemDescription: Protective Item
   icon: {fileID: 21300000, guid: f3564dc83abe58243b1fe76d6fddd0d5, type: 3}
+  shopItem: {fileID: 11400000, guid: c61d119b130c3344abb78b26101ab075, type: 2}
+  stockPrice: 8
   isGold: 0

@@ -20,6 +20,19 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private ItemSlot[] itemSlots;
     [SerializeField] private Animator buttonanim;
     [SerializeField] private GameObject arrow;
+
+
+    [Header("Special Visuals")]
+    [SerializeField] private ItemSO soupItemSO;
+    [SerializeField] private GameObject soupObjectToHide;
+        [SerializeField] private GameObject soupObject2ToHide;
+
+    [SerializeField] private ItemSO solzaeItemSO;
+    [SerializeField] private SpriteRenderer backgroundRenderer;
+    [SerializeField] private Sprite bgWithoutSolzaeSprite;
+    [SerializeField] private Sprite bgWithSolzaeSprite; // optional if you want both states
+
+
     
 
     [Header("Rules")]
@@ -43,6 +56,85 @@ private bool IsSellable(ItemSO so)
     
 }
 
+private void UpdateSpecialVisualsFromStock()
+{
+    if (StockInventory.Instance == null) return;
+
+    bool hasSoup = false;
+    bool hasSolzae = false;
+
+    // Check based on the *stock inventory*, which drives the shop
+    foreach (var entry in StockInventory.Instance.GetAllWithQuantity())
+    {
+        if (entry.itemSO == null) continue;
+
+        if (entry.itemSO == soupItemSO)
+            hasSoup = true;
+
+        if (entry.itemSO == solzaeItemSO)
+            hasSolzae = true;
+    }
+
+    // 1) Hide/show the soup-related object
+    if (soupObjectToHide && soupObject2ToHide!= null)
+        soupObjectToHide.SetActive(hasSoup); // hide if no soup
+         soupObject2ToHide.SetActive(hasSoup); // hide if no soup
+
+    // 2) Swap background sprite if Solzae not present
+    if (backgroundRenderer != null)
+    {
+        if (!hasSolzae && bgWithoutSolzaeSprite != null)
+        {
+            backgroundRenderer.sprite = bgWithoutSolzaeSprite;
+        }
+        else if (hasSolzae && bgWithSolzaeSprite != null)
+        {
+            backgroundRenderer.sprite = bgWithSolzaeSprite;
+        }
+    }
+}
+
+public void RefreshShopFromStock()
+    {
+        shopItems.Clear();
+
+        if (StockInventory.Instance == null)
+        {
+            Debug.LogWarning("<color=yellow>[ShopManager]</color> No StockInventory.Instance found. Shop will be empty.");
+            PopulateShopItems();
+            return;
+        }
+
+        var allStock = StockInventory.Instance.GetAllWithQuantity();
+
+        Debug.Log($"<color=cyan>[ShopManager]</color> RefreshShopFromStock: Stock entries count = {allStock.Count}");
+
+        foreach (var entry in allStock)
+        {
+            if (entry == null || entry.itemSO == null)
+            {
+                Debug.LogWarning("<color=yellow>[ShopManager]</color> Found null entry or null itemSO in stock.");
+                continue;
+            }
+
+            if (entry.quantity <= 0)
+            {
+                Debug.Log($"<color=magenta>[ShopManager]</color> Skipping {entry.itemSO.name} because quantity <= 0 ({entry.quantity}).");
+                continue;
+            }
+
+            var so = entry.itemSO;
+            Debug.Log($"<color=green>[ShopManager]</color> Adding shop item from stock: {so.name} x{entry.quantity}, sell price {so.price}");
+
+            shopItems.Add(new ShopItems
+            {
+                itemSO = so,
+                price = so.price
+            });
+        }
+
+        PopulateShopItems();
+    }
 
 
    private void Start(){
@@ -51,6 +143,13 @@ private bool IsSellable(ItemSO so)
     buttonanim.SetBool("Sellable", false);
 
     DayManager.Instance.Night = true;
+     
+
+       RefreshShopFromStock();
+    UpdateSpecialVisualsFromStock();
+
+    //   UpdateSpecialVisualsFromStock();
+    // RefreshShopFromStock();
  
 
      if (sellButton) sellButton.interactable = any;
@@ -61,7 +160,7 @@ private bool IsSellable(ItemSO so)
 
 //this adds the text to the shop items
 
-    PopulateShopItems();
+//    PopulateShopItems();
    }
 
    public void PopulateShopItems(){
@@ -69,6 +168,7 @@ private bool IsSellable(ItemSO so)
         ShopItems shopItem = shopItems[i];
         //each item knows its own price here
         shopSlots[i].InitializeItem(shopItem.itemSO, shopItem.itemSO.price);
+       // shopSlots[i].InitializeItem(shopItem.itemSO, shopItem.itemSO.price);
         shopSlots[i].gameObject.SetActive(true);
 
 
@@ -80,6 +180,28 @@ private bool IsSellable(ItemSO so)
    }
 
 
+private void BuildShopItemsFromStock()
+{
+    shopItems.Clear();
+
+    if (StockInventory.Instance == null) return;
+
+    var allStock = StockInventory.Instance.GetAllWithQuantity();
+    foreach (var entry in allStock)
+    {
+        var so = entry.itemSO;
+        if (so == null) continue;
+
+        // Use the SELL price from normal ItemSO
+        var shopItem = new ShopItems
+        {
+            itemSO = so,
+            price  = so.price   // assuming ItemSO has "price"
+        };
+
+        shopItems.Add(shopItem);
+    }
+}
 
 
 public void RecalculateTotal()

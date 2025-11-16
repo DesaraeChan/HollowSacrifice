@@ -15,4 +15,6 @@ MonoBehaviour:
   itemName: Solzae
   itemDescription: Crystal
   icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  shopItem: {fileID: 11400000, guid: f48e871aa9323144c90804e98510ddac, type: 2}
+  stockPrice: 10
   isGold: 0

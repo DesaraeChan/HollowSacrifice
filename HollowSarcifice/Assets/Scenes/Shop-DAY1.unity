@@ -119,6 +119,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &12880937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 12880939}
+  - component: {fileID: 12880938}
+  m_Layer: 0
+  m_Name: StockInventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &12880938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12880937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f27ae5c39a8aedd408feccd670e6c315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StockInventory
+  entries: []
+--- !u!4 &12880939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12880937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 591.36755, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &38159718
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,9 +378,9 @@ MonoBehaviour:
     price: 3
   - itemSO: {fileID: 11400000, guid: 67dc346fb695a8b48ae2fb9e7cf733fd, type: 2}
     price: 0
-  shopSlots:
-  - {fileID: 4509353950859771304}
-  - {fileID: 432497309}
+  - itemSO: {fileID: 11400000, guid: f48e871aa9323144c90804e98510ddac, type: 2}
+    price: 0
+  shopSlots: []
   inventoryManager: {fileID: 1398316128}
   totalText: {fileID: 139369728}
   sellButton: {fileID: 38159721}
@@ -345,6 +390,13 @@ MonoBehaviour:
   - {fileID: 2058157899}
   buttonanim: {fileID: 38159725}
   arrow: {fileID: 2051443911}
+  soupItemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
+  soupObjectToHide: {fileID: 1455871831}
+  soupObject2ToHide: {fileID: 7335231766012711826}
+  solzaeItemSO: {fileID: 11400000, guid: f48e871aa9323144c90804e98510ddac, type: 2}
+  backgroundRenderer: {fileID: 2098261110}
+  bgWithoutSolzaeSprite: {fileID: 21300000, guid: 36349b84b24237b4a9996d3ca8d17d58, type: 3}
+  bgWithSolzaeSprite: {fileID: 21300000, guid: b729d330a55cc4d4b8e0990ffd9008f8, type: 3}
   NoSellCategory: 010000000600000002000000
 --- !u!4 &46036535
 Transform:
@@ -1627,7 +1679,7 @@ GameObject:
   - component: {fileID: 236841126}
   - component: {fileID: 236841125}
   m_Layer: 0
-  m_Name: Solzae (1)
+  m_Name: Solzae
   m_TagString: NotSlottable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1776,7 +1828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2522,7 +2574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4853,7 +4905,7 @@ GameObject:
   - component: {fileID: 1444549932}
   - component: {fileID: 1444549931}
   m_Layer: 0
-  m_Name: Solzae
+  m_Name: Solzae1
   m_TagString: NotSlottable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5002,7 +5054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6776,7 +6828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &2047871738
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7956,3 +8008,4 @@ SceneRoots:
   - {fileID: 162912239}
   - {fileID: 2047871742}
   - {fileID: 1343988193}
+  - {fileID: 12880939}

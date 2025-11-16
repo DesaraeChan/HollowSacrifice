@@ -17,7 +17,9 @@ public class ShopManagerStock : MonoBehaviour
         for (int i = 0; i < shopItems.Count && i < shopSlots.Length; i++)
         {
             ShopItemsStock shopItem = shopItems[i];
-            shopSlots[i].Initialize(shopItem.itemSO, shopItem.price);
+            shopSlots[i].Initialize(shopItem.itemSO, shopItem.itemSO.stockPrice);
+
+            //shopSlots[i].Initialize(shopItem.itemSO, shopItem.price);
             shopSlots[i].gameObject.SetActive(true);
         }
 
@@ -34,6 +36,11 @@ public class ShopManagerStock : MonoBehaviour
             MoneyCounter.Instance.money -= price;
             // needs to add the item to the game
             //needs to update the amount of money
+
+             if (StockInventory.Instance != null && itemSO.shopItem != null)
+        {
+            StockInventory.Instance.AddStock(itemSO.shopItem, 1);
+        }
         }
     }
 }
@@ -41,5 +48,5 @@ public class ShopManagerStock : MonoBehaviour
 public class ShopItemsStock
 {
     public ItemSOStock itemSO;
-    public int price;
+   // public int price;
 }
