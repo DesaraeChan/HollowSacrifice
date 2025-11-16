@@ -511,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &175648340
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1422,7 +1422,6 @@ GameObject:
   m_Component:
   - component: {fileID: 734911389}
   - component: {fileID: 734911388}
-  - component: {fileID: 734911390}
   m_Layer: 0
   m_Name: Layer1
   m_TagString: Untagged
@@ -1503,19 +1502,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &734911390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734911387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da0ed65a13678d949ba2f7c86d22ee10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScrollingWater
-  scrollSpeed: 0.5
 --- !u!1 &763639093
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class ScrollingWater : MonoBehaviour
     private Material mat;
     private float offsetY;
 
+    [SerializeField] private string textureName = "_WaterTexture";
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,8 +31,9 @@ public class ScrollingWater : MonoBehaviour
             offsetY -= 1f;
 
         // Current X offset stays the same, we only move Y
-        Vector2 offset = mat.GetTextureOffset("_MainTex");
+        Vector2 offset = mat.GetTextureOffset(textureName);
         offset.y = -offsetY;      // negative = scroll downward
-        mat.SetTextureOffset("_MainTex", offset);
+        
+        mat.SetTextureOffset(textureName, offset);
     }
 }
