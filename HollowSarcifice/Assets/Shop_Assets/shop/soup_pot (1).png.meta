@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3694e46a48710e84390aff31cd0f509d
+guid: 94a4fb6f7073d194fbb3021de7347451
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8799247688668659026
-    second: soup_pot_0
+      213: 3461450758731946425
+    second: soup_pot (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: soup_pot_0
+      name: soup_pot (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 156
-        height: 151
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea24a3af8dac2e580800000000000000
-      internalID: -8799247688668659026
+      spriteID: 9b959b1202b890030800000000000000
+      internalID: 3461450758731946425
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      soup_pot_0: -8799247688668659026
+      soup_pot (1)_0: 3461450758731946425
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
