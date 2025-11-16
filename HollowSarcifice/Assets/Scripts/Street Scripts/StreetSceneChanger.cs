@@ -7,6 +7,9 @@ public class StreetSceneChanger : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
     private bool playerInRange = false;
 
+//string for us to assign what scene to load when E pressed
+    public string sceneToLoad = "Home";
+
     void Start()
     {
          fade = FindFirstObjectByType<Fading>();
@@ -17,7 +20,7 @@ public class StreetSceneChanger : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadScene(sceneToLoad);
         
     }
 

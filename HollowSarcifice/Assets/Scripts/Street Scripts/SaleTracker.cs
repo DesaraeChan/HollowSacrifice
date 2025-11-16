@@ -8,7 +8,7 @@ public class SaleTracker : MonoBehaviour
     public int solzaeGearCount = 0;
 
     [Header("Cutscene Threshold")]
-    public int threshold = 4;     // number required to trigger cutscene
+    public int threshold = 7;     // number required to trigger cutscene
 
     public bool cutsceneTriggered = false;
 
