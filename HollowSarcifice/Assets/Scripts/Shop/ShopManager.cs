@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
 public class ShopManager : MonoBehaviour
@@ -32,6 +33,12 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Sprite bgWithoutSolzaeSprite;
     [SerializeField] private Sprite bgWithSolzaeSprite; // optional if you want both states
 
+    [Header("Day 2 NPC Objects")]
+    [SerializeField] private string day2DecisionNPCId = "Homeless";
+    [SerializeField] private GameObject homelessOption0Object;
+    [SerializeField] private GameObject homelessOption1Object;
+    [SerializeField] private string day2SceneName = "Shop-DAY2";
+
 
     
 
@@ -56,6 +63,124 @@ private bool IsSellable(ItemSO so)
     
 }
 
+// private void TrySpawnDay2NPCFromDecision()
+// {
+//     // 1) Make sure we're in the right scene
+//     string sceneName = SceneManager.GetActiveScene().name;
+//     if (sceneName != day2SceneName)
+//     {
+//         // Not Shop Day 2, do nothing
+//         return;
+//     }
+
+//     if (owner == null)
+//     {
+//         Debug.LogWarning("[ShopManager] TrySpawnDay2NPCFromDecision called but 'owner' CharacterManager is null.");
+//         return;
+//     }
+
+//     if (DecisionTracker.Instance == null)
+//     {
+//         Debug.LogWarning("[ShopManager] No DecisionTracker.Instance found.");
+//         return;
+//     }
+
+//     // 2) Read the saved choice
+//     if (!DecisionTracker.Instance.TryGetChoice(day2DecisionNPCId, out int choice))
+//     {
+//         Debug.LogWarning($"[ShopManager] No saved choice found for NPC id '{day2DecisionNPCId}'.");
+//         return;
+//     }
+
+//     // 3) If choice == 0 → spawn this NPC as normal
+//     if (choice == 0)
+//     {
+//         if (day2Option0Profile == null)
+//         {
+//             Debug.LogWarning("[ShopManager] day2Option0Profile is null, cannot begin NPC.");
+//             return;
+//         }
+
+//         Debug.Log($"[ShopManager] Spawning Day 2 NPC with option 0 profile: {day2Option0Profile.name}");
+//         owner.BeginNPC(day2Option0Profile);
+//     }
+//     else
+//     {
+       
+//         Debug.Log($"[ShopManager] Choice {choice} != 0 → skipping this NPC and activating next in chain via CharacterManager.");
+//         owner.OnOutroComplete_ActivateNextOnly();
+//     }
+// }
+private void SimpleActivateDay2NPC()
+{
+    // 0) What scene are we actually in?
+    string sceneName = SceneManager.GetActiveScene().name;
+    Debug.Log($"[ShopManager] SimpleActivateDay2NPC: current scene = '{sceneName}', expected = '{day2SceneName}'");
+
+    if (sceneName != day2SceneName)
+    {
+        Debug.Log("[ShopManager] Not in Day 2 shop scene, skipping NPC activation.");
+        return;
+    }
+
+    // // 1) Safely turn both off first
+    if (homelessOption0Object != null)
+    {
+        homelessOption0Object.SetActive(false);
+        Debug.Log("[ShopManager] Disabled homelessOption0Object at start.");
+    }
+    else
+    {
+        Debug.LogWarning("[ShopManager] homelessOption0Object is NULL.");
+    }
+
+    if (homelessOption1Object != null)
+    {
+        homelessOption1Object.SetActive(false);
+        Debug.Log("[ShopManager] Disabled homelessOption1Object at start.");
+    }
+    else
+    {
+        Debug.LogWarning("[ShopManager] homelessOption1Object is NULL.");
+    }
+
+    // 2) Check DecisionTracker
+    if (DecisionTracker.Instance == null)
+    {
+        Debug.LogWarning("[ShopManager] DecisionTracker.Instance is NULL. Can't read choice.");
+        return;
+    }
+
+    if (!DecisionTracker.Instance.TryGetChoice(day2DecisionNPCId, out int choice))
+    {
+        Debug.LogWarning($"[ShopManager] No saved choice for id '{day2DecisionNPCId}'. Defaulting to choice = 0.");
+        choice = 0; // force something to show so it's obvious
+    }
+
+    Debug.Log($"[ShopManager] Decision for '{day2DecisionNPCId}' is choice = {choice}");
+
+    // 3) Activate based on choice
+    if (choice == 0)
+    {
+        if (homelessOption0Object != null)
+        {
+            homelessOption0Object.SetActive(true);
+            DecisionTracker.Instance.SetChoice("Homeless_Unlock", 1);
+
+            Debug.Log("[ShopManager] Activated homelessOption0Object (choice == 0).");
+        }
+    }
+    else
+    {
+        if (homelessOption1Object != null)
+        {
+            homelessOption1Object.SetActive(true);
+            Debug.Log("[ShopManager] Activated homelessOption1Object (choice != 0).");
+        }
+    }
+}
+
+
 private void UpdateSpecialVisualsFromStock()
 {
     if (StockInventory.Instance == null) return;
@@ -76,10 +201,11 @@ private void UpdateSpecialVisualsFromStock()
     }
 
     // 1) Hide/show the soup-related object
-    if (soupObjectToHide && soupObject2ToHide!= null)
-        soupObjectToHide.SetActive(hasSoup); // hide if no soup
-         soupObject2ToHide.SetActive(hasSoup); // hide if no soup
+    if (soupObjectToHide != null)
+        soupObjectToHide.SetActive(hasSoup);
 
+    if (soupObject2ToHide != null)
+        soupObject2ToHide.SetActive(hasSoup);
     // 2) Swap background sprite if Solzae not present
     if (backgroundRenderer != null)
     {
@@ -147,6 +273,9 @@ public void RefreshShopFromStock()
 
        RefreshShopFromStock();
     UpdateSpecialVisualsFromStock();
+    SimpleActivateDay2NPC();
+    //  TrySpawnDay2NPCFromDecision();
+
 
     //   UpdateSpecialVisualsFromStock();
     // RefreshShopFromStock();

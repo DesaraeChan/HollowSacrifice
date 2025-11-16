@@ -15,8 +15,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private string negativeNode = "Negative";
     [SerializeField] private string neutralNode  = "Neutral";
 
-
-    [Header("This NPC")]
+     [Header("This NPC")]
     [SerializeField] private NPCProfile currentNPC;
     public NPCProfile CurrentNPC => currentNPC;
 
@@ -55,6 +54,8 @@ public void OnOutroBeginSafe()
 {
    IsInAskPhase = false;
    SetDragEnabled(false);
+
+     TryActivatePermanentItem();
     
     if (outroFired) return;
     outroFired = true;
@@ -92,6 +93,28 @@ public void OnOutroComplete_ActivateNextOnly()
         else
         {
             Debug.LogWarning("[CharacterManager] sceneAfterLastCustomer is empty. Assign a scene name in the Inspector.");
+        }
+    }
+//     if (DecisionTracker.Instance.TryGetChoice("Homeless_Unlock", out int unlock) && unlock == 1)
+// {
+//     PermanentUnlockManager.Instance?.ActivateHomelessObject();
+// }
+}
+private void TryActivatePermanentItem()
+{
+    // Only do this if we've flagged it via DecisionTracker
+    if (DecisionTracker.Instance != null &&
+        DecisionTracker.Instance.TryGetChoice("Homeless_Unlock", out int unlock) &&
+        unlock == 1)
+    {
+        if (PermanentUnlockManager.Instance != null)
+        {
+            PermanentUnlockManager.Instance.ActivateHomelessObject();
+            Debug.Log("[CharacterManager] Activated permanent homeless item after final line.");
+        }
+        else
+        {
+            Debug.LogWarning("[CharacterManager] PermanentUnlockManager.Instance is null.");
         }
     }
 }

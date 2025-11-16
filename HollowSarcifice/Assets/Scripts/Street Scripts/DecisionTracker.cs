@@ -5,7 +5,7 @@ public class DecisionTracker : MonoBehaviour
 {
     public static DecisionTracker Instance { get; private set; }
 
-    // simple key -> choice index
+    // simple key choice index
     private Dictionary<string, int> choices = new Dictionary<string, int>();
 
     void Awake()

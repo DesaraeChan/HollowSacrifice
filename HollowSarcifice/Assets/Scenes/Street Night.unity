@@ -1739,7 +1739,7 @@ Transform:
   m_GameObject: {fileID: 407837914}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3080893, y: -2.38, z: 0}
+  m_LocalPosition: {x: 25.560066, y: -2.38, z: 0}
   m_LocalScale: {x: 0.009895839, y: 0.009895839, z: 0.009895839}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7705,7 +7705,7 @@ Transform:
   m_GameObject: {fileID: 1483729060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4359725, y: -2.38, z: 0}
+  m_LocalPosition: {x: 8.51998, y: -2.38, z: 0}
   m_LocalScale: {x: 0.009895839, y: 0.009895839, z: 0.009895839}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7984,7 +7984,7 @@ Transform:
   m_GameObject: {fileID: 1520861549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.18, y: -7.03, z: 0}
+  m_LocalPosition: {x: 42.6, y: -7.03, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8768,7 +8768,7 @@ Transform:
   m_GameObject: {fileID: 1619079788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.871945, y: -2.38, z: 0}
+  m_LocalPosition: {x: 17.03996, y: -2.38, z: 0}
   m_LocalScale: {x: 0.009895839, y: 0.009895839, z: 0.009895839}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8872,7 +8872,7 @@ Transform:
   m_GameObject: {fileID: 1620251810}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.871945, y: -2.38, z: 0}
+  m_LocalPosition: {x: -17.03996, y: -2.38, z: 0}
   m_LocalScale: {x: 0.009895839, y: 0.009895838, z: 0.009895839}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11008,7 +11008,10 @@ MonoBehaviour:
   afterChoiceA: []
   afterChoiceB: []
   clickSkipsWhileTyping: 1
+  hasChoices: 1
+  cutscene: {fileID: 0}
   npcId: Homeless
+  closeupcanvas: {fileID: 0}
 --- !u!61 &1948308138
 BoxCollider2D:
   m_ObjectHideFlags: 0
