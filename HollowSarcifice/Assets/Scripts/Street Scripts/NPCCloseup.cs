@@ -49,6 +49,9 @@ public class NPCCloseup : MonoBehaviour
     int index;
     Coroutine typing;
 
+    public string npcId = "Homeless";
+
+
 
 
     void Awake()
@@ -192,6 +195,11 @@ public class NPCCloseup : MonoBehaviour
     {
         choicePanel.SetActive(false);
         playedChoice = true;
+
+        if (DecisionTracker.Instance != null)
+        {
+            DecisionTracker.Instance.SetChoice(npcId, idx);
+        }
 
         switch (idx)
         {

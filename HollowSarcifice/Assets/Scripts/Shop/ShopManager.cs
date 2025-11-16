@@ -199,6 +199,12 @@ public void SellAllInSlots()
     // 4) Clear sold items
     foreach (var sold in soldItems)
     {
+
+         // Tell SaleTracker what was sold
+        if (SaleTracker.Instance != null)
+        {
+            SaleTracker.Instance.AddSale(sold.itemSO);
+        } 
         var slot = sold.CurrentItemSlot;
         if (slot != null) slot.ClearIfThis(sold);
         sold.gameObject.SetActive(false);

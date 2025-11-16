@@ -345,7 +345,7 @@ MonoBehaviour:
   - {fileID: 2058157899}
   buttonanim: {fileID: 38159725}
   arrow: {fileID: 2051443911}
-  NoSellCategory: 010000000500000002000000
+  NoSellCategory: 010000000600000002000000
 --- !u!4 &46036535
 Transform:
   m_ObjectHideFlags: 0
@@ -2847,7 +2847,7 @@ Transform:
   m_GameObject: {fileID: 650614888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.18, y: 1.25, z: 0}
+  m_LocalPosition: {x: -8.82, y: 1.25, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -4184,6 +4184,54 @@ Transform:
   m_LocalPosition: {x: -8.46, y: 0.26, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1343988191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1343988193}
+  - component: {fileID: 1343988192}
+  m_Layer: 0
+  m_Name: SaleTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1343988192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343988191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c9de7bf066fc145abc426b50e61ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
+  solzaeSoupCount: 0
+  solzaeGearCount: 0
+  threshold: 4
+  cutsceneTriggered: 0
+--- !u!4 &1343988193
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343988191}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.78019, y: -4.08243, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6723,12 +6771,12 @@ GameObject:
   - component: {fileID: 2047871739}
   - component: {fileID: 2047871738}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &2047871738
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6739,7 +6787,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 1
   m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!114 &2047871739
 MonoBehaviour:
@@ -7907,3 +7955,4 @@ SceneRoots:
   - {fileID: 2003558774}
   - {fileID: 162912239}
   - {fileID: 2047871742}
+  - {fileID: 1343988193}
