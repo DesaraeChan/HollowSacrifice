@@ -120,7 +120,7 @@ public void RecalculateTotal()
         if (itemSO == null || inventoryManager == null) return;
         if (!IsSellable(itemSO)) return;     
 
-        inventoryManager.money += price;
+        inventoryManager.countermoney.money += price;
         if (inventoryManager.moneyText)
             inventoryManager.UpdateMoneyUI();
     }
@@ -171,7 +171,7 @@ public void SellAllInSlots()
     // 2) Apply money once
     if (inventoryManager != null && localTotal > 0)
     {
-        inventoryManager.money += localTotal;
+        inventoryManager.countermoney.money += localTotal;
         inventoryManager.UpdateMoneyUI();
     }
 

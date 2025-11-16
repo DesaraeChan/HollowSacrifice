@@ -33,6 +33,9 @@ public class InventoryManager : MonoBehaviour
     }
 
     DontDestroyOnLoad(gameObject);
+
+     if (countermoney == null)
+    countermoney = MoneyCounter.Instance;
 }
 
 

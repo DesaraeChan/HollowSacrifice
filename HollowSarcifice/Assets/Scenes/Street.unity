@@ -249,11 +249,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
   shopItems:
   - itemSO: {fileID: 11400000, guid: 44b6bb1ea7ef6b0439eee3897928ef62, type: 2}
-    price: 1
+    price: 6
   - itemSO: {fileID: 11400000, guid: bfb864b9db83f2547934ffb1803253f2, type: 2}
-    price: 10
+    price: 12
   - itemSO: {fileID: 11400000, guid: 1ad2ff2cfb842d840af4a948231797f0, type: 2}
-    price: 4
+    price: 8
   shopSlots:
   - {fileID: 726435473692359747}
   - {fileID: 1910758569}
@@ -3583,13 +3583,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319683698}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.05, y: 0.81, z: 0}
   m_LocalScale: {x: 1, y: 0.925, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1520861551}
-  m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1319683700
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3637,7 +3637,7 @@ SpriteRenderer:
   m_SortingLayerID: 1876550635
   m_SortingLayer: 6
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 3bcc04da95c79bd4e9cfc0837dbaf4d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71c9c358b677810489e24da5cfb80292, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4937,7 +4937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: price
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: itemSO
@@ -5582,7 +5582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: price
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: itemSO
@@ -6760,7 +6760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!225 &1998648472
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7652,7 +7652,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: price
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6828068735339937363, guid: e11e786d5c858a4409e1ddeb58ed9e30, type: 3}
       propertyPath: itemSO

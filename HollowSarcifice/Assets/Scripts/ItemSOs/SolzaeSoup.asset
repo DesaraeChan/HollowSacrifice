@@ -16,4 +16,4 @@ MonoBehaviour:
   itemDescription: this is solzae + soup
   icon: {fileID: 21300000, guid: 07ae909bf08e08f4fa6edb02ab77dd72, type: 3}
   price: 8
-  category: 6
+  category: 7

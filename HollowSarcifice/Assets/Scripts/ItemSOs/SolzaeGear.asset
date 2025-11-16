@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: SolzaeGear
   itemDescription: this is gear + solzae
   icon: {fileID: -5781844184038680915, guid: b3801b50a12709d42b54e519b3d22dd8, type: 3}
-  price: 9
-  category: 4
+  price: 10
+  category: 5

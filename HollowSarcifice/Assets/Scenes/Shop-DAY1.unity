@@ -4529,7 +4529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 746e1f8f2ebcf354e89b4b6c03f96a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  money: 10
+  money: 0
   countermoney: {fileID: 2003558773}
   moneyText: {fileID: 1637734955}
 --- !u!1 &1402579292

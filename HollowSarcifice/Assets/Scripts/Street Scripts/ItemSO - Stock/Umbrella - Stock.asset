@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5042b4d6f735d664aa395b5cf320d373, type: 3}
   m_Name: Umbrella - Stock
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemName: Umbrella
+  itemName: Gear
   itemDescription: Protective Item
-  icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: f3564dc83abe58243b1fe76d6fddd0d5, type: 3}
   isGold: 0
