@@ -148,7 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27ae5c39a8aedd408feccd670e6c315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StockInventory
-  entries: []
+  entries:
+  - itemSO: {fileID: 11400000, guid: c61d119b130c3344abb78b26101ab075, type: 2}
+    quantity: 0
+  - itemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
+    quantity: 1
+  - itemSO: {fileID: 11400000, guid: f48e871aa9323144c90804e98510ddac, type: 2}
+    quantity: 1
 --- !u!4 &12880939
 Transform:
   m_ObjectHideFlags: 0
@@ -371,15 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db3a5d0ad39a5046897cd42463d8a0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopManager
-  shopItems:
-  - itemSO: {fileID: 11400000, guid: f3a4eca83d9e1f54aaa3637cbbaaf4e9, type: 2}
-    price: 5
-  - itemSO: {fileID: 11400000, guid: c61d119b130c3344abb78b26101ab075, type: 2}
-    price: 3
-  - itemSO: {fileID: 11400000, guid: 67dc346fb695a8b48ae2fb9e7cf733fd, type: 2}
-    price: 0
-  - itemSO: {fileID: 11400000, guid: f48e871aa9323144c90804e98510ddac, type: 2}
-    price: 0
+  shopItems: []
   shopSlots: []
   inventoryManager: {fileID: 1398316128}
   totalText: {fileID: 139369728}
@@ -1703,7 +1701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2447,7 +2445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2821,7 +2819,7 @@ MonoBehaviour:
   negativeNode: Negative
   neutralNode: Neutral
   currentNPC: {fileID: 11400000, guid: b9b94b1f2de7123498bf5de67b3eceb0, type: 2}
-  nextManager: {fileID: 1320943806}
+  nextManager: {fileID: 172784072}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
@@ -4193,8 +4191,8 @@ MonoBehaviour:
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
-  currentNPC: {fileID: 11400000, guid: 1e599e4e84f3e524ea419842aaf131e8, type: 2}
-  nextManager: {fileID: 172784072}
+  currentNPC: {fileID: 11400000, guid: e7c4c2e6abc601f41872d110c8cffbd8, type: 2}
+  nextManager: {fileID: 650614893}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
@@ -5108,7 +5106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5799,7 +5797,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648057910}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4ee82c20bdc6c94f8ee7aeeff63eb4e, type: 3}
   m_Name: 
@@ -6530,7 +6528,7 @@ MonoBehaviour:
   negativeNode: Negative
   neutralNode: Neutral
   currentNPC: {fileID: 11400000, guid: 6426ef5fd0610fe4c9fcc50269e8432d, type: 2}
-  nextManager: {fileID: 650614893}
+  nextManager: {fileID: 1320943806}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
