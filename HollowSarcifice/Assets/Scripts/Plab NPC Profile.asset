@@ -16,8 +16,8 @@ MonoBehaviour:
   type: 0
   portraitSprite: {fileID: 0}
   dialogue:
-  - nodeName: Bob
-    text: Hello, this is line 1!
+  - nodeName: Dialogue 1
+    text: "Hello... \n"
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -28,9 +28,9 @@ MonoBehaviour:
     nextIfA: 0
     nextIfB: 0
     nextIfC: 
-    goTo: Sammy
-  - nodeName: Sammy
-    text: Hello, this is line 2!
+    goTo: Dialogue 2
+  - nodeName: Dialogue 2
+    text: "I\u2019m visiting and needed some supplies before heading home. \n"
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -43,11 +43,13 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
-    text: Hello, this is line with choice options :0
+    text: "I hope you\u2019re willing to sell to me. I have already been refused
+      by two other shopkeepers not far from here."
     hasChoice: 1
-    choiceAText: Option A (good)
-    choiceBText: Option B (bad)
-    choiceCText: neutral
+    choiceAText: "They\u2019d be wrong to think one\u2019s character is reflected
+      in their appearance."
+    choiceBText: The other shopkeepers were right not to let you in.
+    choiceCText: "It is up to the shopkeeper who they sell and don\u2019t sell to."
     repDeltaA: 1
     repDeltaB: -1
     repDeltaC: 0
@@ -56,7 +58,7 @@ MonoBehaviour:
     nextIfC: Option C
     goTo: Dialogue 4
   - nodeName: Option A
-    text: You picked option A
+    text: "I\u2019m glad we share a similar opinion."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -67,9 +69,10 @@ MonoBehaviour:
     nextIfA: 0
     nextIfB: 0
     nextIfC: 
-    goTo: AskForItem
+    goTo: Dialogue 4
   - nodeName: Option B
-    text: That was mean.. im leaving >:(
+    text: "I suppose I was wrong about you. Nevermind the supplies I\u2019ll take
+      my leave."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -81,8 +84,9 @@ MonoBehaviour:
     nextIfB: 0
     nextIfC: 
     goTo: END
-  - nodeName: AskForItem
-    text: I'm asking for item now
+  - nodeName: Option C
+    text: 'I think that the shopkeeper has a choice but that choice should be based
+      on  their character. '
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -93,9 +97,10 @@ MonoBehaviour:
     nextIfA: 0
     nextIfB: 0
     nextIfC: 
-    goTo: Bob
-  - nodeName: AfterSale
-    text: 'Sale has finished now
+    goTo: Dialogue 4
+  - nodeName: Dialogue 4
+    text: 'I would like to purchase some food to comfort me in these dreary times.
+      A hint of Solzae would warm the soul.
 
 '
     hasChoice: 0
@@ -108,9 +113,23 @@ MonoBehaviour:
     nextIfA: 0
     nextIfB: 0
     nextIfC: 
-    goTo: END
-  - nodeName: Neutral
-    text: ' (neutral)'
+    goTo: AskForItem
+  - nodeName: AskForItem
+    text: Soup + Solzae ?
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: Bob
+  - nodeName: Positive
+    text: Ah, a taste that warms the soul. It is much appreciated. Here is your pay.
+      Take care.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -123,9 +142,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Negative
-    text: '(negative)
-
-'
+    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do.Thank
+      you for your service. \n"
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -137,25 +155,9 @@ MonoBehaviour:
     nextIfB: 0
     nextIfC: 
     goTo: END
-  - nodeName: Positive
-    text: '(positive)
-
-'
-    hasChoice: 0
-    choiceAText: 
-    choiceBText: 
-    choiceCText: 
-    repDeltaA: 0
-    repDeltaB: 0
-    repDeltaC: 0
-    nextIfA: 0
-    nextIfB: 0
-    nextIfC: 
-    goTo: END
-  - nodeName: Positive
-    text: 'Neutral option
-
-'
+  - nodeName: Neutral
+    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do.Thank
+      you for your service. \n"
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -171,7 +173,13 @@ MonoBehaviour:
   npcprefs:
   - category: 0
     repDelta: -1
-    nextNode: 
-  - category: 5
+    nextNode: Negative
+  - category: 7
     repDelta: 1
-    nextNode: 
+    nextNode: Positive
+  - category: 4
+    repDelta: -1
+    nextNode: Negative
+  - category: 5
+    repDelta: 0
+    nextNode: Neutral

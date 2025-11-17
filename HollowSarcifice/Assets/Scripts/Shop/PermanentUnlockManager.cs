@@ -22,6 +22,7 @@ public class PermanentUnlockManager : MonoBehaviour
     void Start()
     {
         RefreshUnlockState();
+            homelessPermanentObject.SetActive(false);
     }
 
     public void ActivateHomelessObject()

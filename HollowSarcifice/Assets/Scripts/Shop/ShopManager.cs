@@ -25,6 +25,7 @@ public class ShopManager : MonoBehaviour
 
     [Header("Special Visuals")]
     [SerializeField] private ItemSO soupItemSO;
+      [SerializeField] private ItemSO gearItemSO;
     [SerializeField] private GameObject soupObjectToHide;
         [SerializeField] private GameObject soupObject2ToHide;
 
@@ -38,6 +39,11 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private GameObject homelessOption0Object;
     [SerializeField] private GameObject homelessOption1Object;
     [SerializeField] private string day2SceneName = "Shop-DAY2";
+
+    [Header("Solzae Templates / Visuals")]
+    [SerializeField] private GameObject[] solzaeObjects; // both Solzae GOs (templates, visuals, etc.)
+    [SerializeField] private GameObject gearTemplate;
+    [SerializeField] private GameObject soupTemplate;
 
 
     
@@ -53,6 +59,107 @@ private bool IsSellable(ItemSO so)
         if (so.category == cat) return false;
     return true;
 }
+
+
+// private void UpdateSpecialVisualsFromStock()
+// {
+//     if (StockInventory.Instance == null) return;
+
+//     bool hasSoup = false;
+//     bool hasSolzae = false;
+
+//     foreach (var entry in StockInventory.Instance.GetAllWithQuantity())
+//     {
+//         if (entry.itemSO == null) continue;
+//         if (entry.quantity <= 0) continue;
+
+//         if (entry.itemSO == soupItemSO)
+//             hasSoup = true;
+
+//         if (entry.itemSO == solzaeItemSO)
+//             hasSolzae = true;
+//     }
+
+//     // Soup visuals
+//     if (soupObjectToHide != null)
+//         soupObjectToHide.SetActive(hasSoup);
+
+//     if (soupObject2ToHide != null)
+//         soupObject2ToHide.SetActive(hasSoup);
+
+//     // Background
+//     if (backgroundRenderer != null)
+//     {
+//         if (!hasSolzae && bgWithoutSolzaeSprite != null)
+//             backgroundRenderer.sprite = bgWithoutSolzaeSprite;
+//         else if (hasSolzae && bgWithSolzaeSprite != null)
+//             backgroundRenderer.sprite = bgWithSolzaeSprite;
+//     }
+
+//     // Solzae templates / icons / etc.
+//     if (solzaeObjects != null)
+//     {
+//         foreach (var go in solzaeObjects)
+//             if (go != null)
+//                 go.SetActive(hasSolzae);
+//     }
+// }
+
+private void UpdateSpecialVisualsFromStock()
+{
+    if (StockInventory.Instance == null) return;
+
+    bool hasSoup   = false;
+    bool hasSolzae = false;
+    bool hasGear   = false;
+
+    foreach (var entry in StockInventory.Instance.GetAllWithQuantity())
+    {
+        if (entry.itemSO == null) continue;
+        if (entry.quantity <= 0) continue;
+
+        if (entry.itemSO == soupItemSO)
+            hasSoup = true;
+
+        if (entry.itemSO == solzaeItemSO)
+            hasSolzae = true;
+
+        if (entry.itemSO == gearItemSO)
+            hasGear = true;
+    }
+
+    // 1) Soup visuals (world / background clutter)
+    if (soupObjectToHide != null)
+        soupObjectToHide.SetActive(hasSoup);
+
+    if (soupObject2ToHide != null)
+        soupObject2ToHide.SetActive(hasSoup);
+
+    // 2) Background based on Solzae
+    if (backgroundRenderer != null)
+    {
+        if (!hasSolzae && bgWithoutSolzaeSprite != null)
+            backgroundRenderer.sprite = bgWithoutSolzaeSprite;
+        else if (hasSolzae && bgWithSolzaeSprite != null)
+            backgroundRenderer.sprite = bgWithSolzaeSprite;
+    }
+
+    // 3) Solzae templates / icons (both GOs in solzaeObjects[])
+    if (solzaeObjects != null)
+    {
+        foreach (var go in solzaeObjects)
+            if (go != null)
+                go.SetActive(hasSolzae);
+    }
+
+    // 4) Soup & Gear templates (the drag-from-home buttons)
+    if (soupTemplate != null)
+        soupTemplate.SetActive(hasSoup);
+
+    if (gearTemplate != null)
+        gearTemplate.SetActive(hasGear);
+}
+
 
 
     private CharacterManager owner;
@@ -181,44 +288,98 @@ private void SimpleActivateDay2NPC()
 }
 
 
-private void UpdateSpecialVisualsFromStock()
-{
-    if (StockInventory.Instance == null) return;
+// private void UpdateSpecialVisualsFromStock()
+// {
+//     if (StockInventory.Instance == null) return;
 
-    bool hasSoup = false;
-    bool hasSolzae = false;
+//     bool hasSoup = false;
+//     bool hasSolzae = false;
 
-    // Check based on the *stock inventory*, which drives the shop
-    foreach (var entry in StockInventory.Instance.GetAllWithQuantity())
-    {
-        if (entry.itemSO == null) continue;
+    
 
-        if (entry.itemSO == soupItemSO)
-            hasSoup = true;
+//     // Check based on the *stock inventory*, which drives the shop
+//     foreach (var entry in StockInventory.Instance.GetAllWithQuantity())
+//     {
+//         if (entry.itemSO == null) continue;
 
-        if (entry.itemSO == solzaeItemSO)
-            hasSolzae = true;
-    }
+//         if (entry.itemSO == soupItemSO)
+//             hasSoup = true;
 
-    // 1) Hide/show the soup-related object
-    if (soupObjectToHide != null)
-        soupObjectToHide.SetActive(hasSoup);
+//         if (entry.itemSO == solzaeItemSO)
+//             hasSolzae = true;
 
-    if (soupObject2ToHide != null)
-        soupObject2ToHide.SetActive(hasSoup);
-    // 2) Swap background sprite if Solzae not present
-    if (backgroundRenderer != null)
-    {
-        if (!hasSolzae && bgWithoutSolzaeSprite != null)
-        {
-            backgroundRenderer.sprite = bgWithoutSolzaeSprite;
-        }
-        else if (hasSolzae && bgWithSolzaeSprite != null)
-        {
-            backgroundRenderer.sprite = bgWithSolzaeSprite;
-        }
-    }
-}
+//         if (entry.quantity <= 0)
+//         {
+//             Debug.Log($"<color=magenta>[ShopManager]</color> Skipping {entry.itemSO.name} because quantity <= 0 ({entry.quantity}).");
+//             continue;
+//         }
+//     }
+
+//     // 1) Hide/show the soup-related object
+//     if (soupObjectToHide != null)
+//         soupObjectToHide.SetActive(hasSoup);
+
+//     if (soupObject2ToHide != null)
+//         soupObject2ToHide.SetActive(hasSoup);
+//     // 2) Swap background sprite if Solzae not present
+//     if (backgroundRenderer != null)
+//     {
+//         if (!hasSolzae && bgWithoutSolzaeSprite != null)
+//         {
+//             backgroundRenderer.sprite = bgWithoutSolzaeSprite;
+//         }
+//         else if (hasSolzae && bgWithSolzaeSprite != null)
+//         {
+//             backgroundRenderer.sprite = bgWithSolzaeSprite;
+//         }
+//     }
+// }
+// private void UpdateSpecialVisualsFromStock()
+// {
+//     if (StockInventory.Instance == null) return;
+
+//     bool hasSoup = false;
+//     bool hasSolzae = false;
+
+//     foreach (var entry in StockInventory.Instance.GetAllWithQuantity())
+//     {
+//         if (entry.itemSO == null) continue;
+
+//         // 🔹 Skip zero-quantity entries completely
+//         if (entry.quantity <= 0)
+//         {
+//             Debug.Log($"<color=magenta>[ShopManager]</color> Skipping {entry.itemSO.name} because quantity <= 0 ({entry.quantity}).");
+//             continue;
+//         }
+
+//         if (entry.itemSO == soupItemSO)
+//             hasSoup = true;
+
+//         if (entry.itemSO == solzaeItemSO)
+//             hasSolzae = true;
+//     }
+
+//     // Soup objects
+//     if (soupObjectToHide != null)
+//         soupObjectToHide.SetActive(hasSoup);
+
+//     if (soupObject2ToHide != null)
+//         soupObject2ToHide.SetActive(hasSoup);
+
+//     // Background
+//     if (backgroundRenderer != null)
+//     {
+//         if (!hasSolzae && bgWithoutSolzaeSprite != null)
+//         {
+//             backgroundRenderer.sprite = bgWithoutSolzaeSprite;
+//         }
+//         else if (hasSolzae && bgWithSolzaeSprite != null)
+//         {
+//             backgroundRenderer.sprite = bgWithSolzaeSprite;
+//         }
+//     }
+// }
+
 
 public void RefreshShopFromStock()
     {
