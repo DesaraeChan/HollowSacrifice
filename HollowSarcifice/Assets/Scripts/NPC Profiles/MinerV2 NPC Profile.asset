@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
+  m_Name: MinerV2 NPC Profile
+  m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
+  displayName: Miner
+  type: 2
+  portraitSprite: {fileID: 0}
+  dialogue:
+  - nodeName: Dialogue 1
+    text: "Ay, It\u2019s rough out there isn\u2019t it. I\u2019m here mining for
+      our country but some people are fighting for it."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 2
+  - nodeName: Dialogue 2
+    text: "Anyways I have to feed myself don\u2019t I?"
+    hasChoice: 1
+    choiceAText: All we can do is just live our life, and support them.
+    choiceBText: "Alright, well I think you should order some food if you\u2019re
+      that hungry."
+    choiceCText: "I can\u2019t even begin to imagine what our soldiers are experiencing."
+    repDeltaA: 0
+    repDeltaB: -1
+    repDeltaC: 1
+    nextIfA: Option A
+    nextIfB: Option B
+    nextIfC: Option C
+    goTo: 
+  - nodeName: Option A
+    text: "I suppose you\u2019re right, There\u2019s not a point in thinking about
+      it too much..."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: 
+  - nodeName: Option B
+    text: '
+
+      Do you not concern yourself with our current situation? Do you
+      read the news?
+
+      I think I''d  rather shop someplace else.'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: Option C
+    text: Yes, when I think about it, it makes me wish I could do more.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 3
+  - nodeName: Dialogue 3
+    text: "Ayy, I think I\u2019d like some soup to take with me, and I need some
+      gear to get home."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: AskForItem
+  - nodeName: Neutral
+    text: 'This isn''t exactly what I wanted... '
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: AskForItem
+    text: Soup + Gear ?
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: 
+  - nodeName: Positive
+    text: "Ay thanks, this should last me until I\u2019m back home."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: Negative
+    text: "This doesn\u2019t taste how I thought it would... "
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  startingReputation: 0
+  npcprefs:
+  - category: 0
+    repDelta: 1
+    nextNode: Positive
+  - category: 5
+    repDelta: 0
+    nextNode: Neutral
+  - category: 7
+    repDelta: -1
+    nextNode: Negative
+  - category: 4
+    repDelta: 0
+    nextNode: Neutral
