@@ -25,9 +25,9 @@ public class ShopManager : MonoBehaviour
 
     [Header("Special Visuals")]
     [SerializeField] private ItemSO soupItemSO;
-      [SerializeField] private ItemSO gearItemSO;
+    [SerializeField] private ItemSO gearItemSO;
     [SerializeField] private GameObject soupObjectToHide;
-        [SerializeField] private GameObject soupObject2ToHide;
+    [SerializeField] private GameObject soupObject2ToHide;
 
     [SerializeField] private ItemSO solzaeItemSO;
     [SerializeField] private SpriteRenderer backgroundRenderer;

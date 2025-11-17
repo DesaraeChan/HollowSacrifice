@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
+  m_Name: Plab NPC Profile
+  m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
+  displayName: Plab
+  type: 0
+  portraitSprite: {fileID: 0}
+  dialogue:
+  - nodeName: Dialogue 1
+    text: "Hello... \n"
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: Dialogue 2
+  - nodeName: Dialogue 2
+    text: "I\u2019m visiting and needed some supplies before heading home. \n"
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: Dialogue 3
+  - nodeName: Dialogue 3
+    text: "I hope you\u2019re willing to sell to me. I have already been refused
+      by two other shopkeepers."
+    hasChoice: 1
+    choiceAText: "They\u2019d be wrong to think one\u2019s character is reflected
+      in their appearance."
+    choiceBText: The other shopkeepers were right not to let you in.
+    choiceCText: "It is up to the shopkeeper who they sell and don\u2019t sell to."
+    repDeltaA: 1
+    repDeltaB: -1
+    repDeltaC: 0
+    nextIfA: Option A
+    nextIfB: Option B
+    nextIfC: Option C
+    goTo: Dialogue 4
+  - nodeName: Option A
+    text: "I\u2019m glad we share a similar opinion."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: Dialogue 4
+  - nodeName: Option B
+    text: "I suppose I was wrong about you. Nevermind the supplies I\u2019ll take
+      my leave."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: END
+  - nodeName: Option C
+    text: 'I think that the shopkeeper has a choice but that choice should be based
+      on  their character. '
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: Dialogue 4
+  - nodeName: Dialogue 4
+    text: 'I would like to purchase some food to comfort me in these dreary times.
+      A hint of Solzae would warm the soul.
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: AskForItem
+  - nodeName: AskForItem
+    text: Soup + Solzae ?
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: Bob
+  - nodeName: Positive
+    text: Ah, a taste that warms the soul. It is much appreciated. Here is your pay.
+      Take care.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: END
+  - nodeName: Negative
+    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do.Thank
+      you for your service. \n"
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: END
+  - nodeName: Neutral
+    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do.Thank
+      you for your service. \n"
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 0
+    nextIfB: 0
+    nextIfC: 
+    goTo: END
+  startingReputation: 0
+  npcprefs:
+  - category: 0
+    repDelta: -1
+    nextNode: Negative
+  - category: 7
+    repDelta: 1
+    nextNode: Positive
+  - category: 4
+    repDelta: -1
+    nextNode: Negative
+  - category: 5
+    repDelta: 0
+    nextNode: Neutral
