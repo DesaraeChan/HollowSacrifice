@@ -21,7 +21,6 @@ public class StreetSceneChanger : MonoBehaviour
         fade.FadeIn();
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(sceneToLoad);
-        
     }
 
 

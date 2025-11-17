@@ -27,7 +27,8 @@ public class DayManager : MonoBehaviour
         Night = false;
         Debug.Log("Day advanced to: " + currentDay);
 
-
+        FindFirstObjectByType<ShowNews>(FindObjectsInactive.Include).OpenNews();
+        FindFirstObjectByType<CutsceneStarter>(FindObjectsInactive.Include).restart();
         FindFirstObjectByType<ShowWindowImage>(FindObjectsInactive.Include).UpdateVisuals();
         FindFirstObjectByType<OpenMoneyMenu>(FindObjectsInactive.Include).CloseFinancial();;
     }
