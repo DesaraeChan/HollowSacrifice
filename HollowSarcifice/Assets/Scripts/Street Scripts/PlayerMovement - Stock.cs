@@ -14,11 +14,13 @@ public class PlayerMovement : MonoBehaviour
     float xInput;
     float yInput;
 
+    public VectorValue startPosition;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        transform.position = startPosition.initialValue;
     }
 
     // Update is called once per frame
@@ -27,9 +29,6 @@ public class PlayerMovement : MonoBehaviour
         GetInput();
         moveWithInput();
 
-      
-
-       
     }
 
     void FixedUpdate()
@@ -60,15 +59,6 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
-    
-    // void handleJump()
-    // {
-    //     if (Mathf.Abs(yInput) > 0 && CheckGround())
-    //     {
-    //         body.linearVelocity = new Vector2(body.linearVelocity.x, yInput * speed);
-
-    //     }
-    // }
 
     void ApplyFriction()
     {

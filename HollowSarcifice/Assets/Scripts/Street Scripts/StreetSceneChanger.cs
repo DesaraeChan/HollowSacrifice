@@ -6,6 +6,8 @@ public class StreetSceneChanger : MonoBehaviour
     public Fading fade;
     public KeyCode interactKey = KeyCode.E;
     private bool playerInRange = false;
+    public Vector2 playerPosition;
+    public VectorValue playerStorage;
 
 //string for us to assign what scene to load when E pressed
     public string sceneToLoad = "Home";
@@ -20,6 +22,7 @@ public class StreetSceneChanger : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
+        playerStorage.initialValue = playerPosition;
         SceneManager.LoadScene(sceneToLoad);
     }
 

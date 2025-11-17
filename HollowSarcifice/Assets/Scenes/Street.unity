@@ -5125,6 +5125,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
+  startPosition: {fileID: 0}
 --- !u!58 &1520861553
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8139,6 +8140,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StreetSceneChanger
   fade: {fileID: 1846688592}
   interactKey: 101
+  playerPosition: {x: 0, y: 0}
+  playerStorage: {fileID: 11400000, guid: 6be255cec1fa3d742b50766b265c84f8, type: 2}
   sceneToLoad: Home
 --- !u!1 &1998648471
 GameObject:

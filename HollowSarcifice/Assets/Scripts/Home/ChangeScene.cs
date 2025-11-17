@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     public Fading fade;
+    public Vector2 playerPosition;
+    public VectorValue playerStorage;
 
     void Start()
     {
@@ -23,6 +25,7 @@ public class ChangeScene : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
+        playerStorage.initialValue = playerPosition;
         SceneManager.LoadScene("Street Night");
         
     }
