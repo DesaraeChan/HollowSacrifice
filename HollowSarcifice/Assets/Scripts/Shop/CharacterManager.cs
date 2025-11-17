@@ -29,6 +29,9 @@ public class CharacterManager : MonoBehaviour
     [Header("Flow After Last NPC")]
     [SerializeField] private string sceneAfterLastCustomer; 
 
+    public Vector2 playerPosition;
+    public VectorValue playerStorage;
+
     public static CharacterManager Active {get; private set; }
   
     private bool busy;
@@ -87,7 +90,8 @@ public void OnOutroComplete_ActivateNextOnly()
         Debug.Log("[CharacterManager] No nextManager. This was the last NPC. Switching scene…");
 
         if (!string.IsNullOrEmpty(sceneAfterLastCustomer))
-        {
+            {
+            playerStorage.initialValue = playerPosition;
             SceneManager.LoadScene(sceneAfterLastCustomer);
         }
         else

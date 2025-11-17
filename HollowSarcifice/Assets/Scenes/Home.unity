@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795a634112f7cca4ca953a712025b850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
-  money: 0
+  money: 80
   family: 0
   sentToFamily: 0
 --- !u!4 &104022263
@@ -1118,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83b234dc7e1d5449a254e5d6c41acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  currentDay: 1
+  currentDay: 2
   Night: 0
   unlockDay: 0
 --- !u!4 &433095209
@@ -5917,7 +5917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1774434122
 CanvasRenderer:
   m_ObjectHideFlags: 0

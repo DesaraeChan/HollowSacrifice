@@ -34,6 +34,8 @@ public class DayDisplay : MonoBehaviour
             SubHeader.text = "War Turns in Zaetia’s Favor Against Plab Aggression";
             SubBody.text = "Zaetian forces now hold a tactical advantage over our Plab neighbours.";
         }
+
+// Change back to 2
         else if (DayManager.Instance.currentDay == 2)
         {
             Header.text = "Hostiliies resume in Plab-Zaetian Conflict";

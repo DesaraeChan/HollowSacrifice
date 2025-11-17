@@ -888,6 +888,8 @@ MonoBehaviour:
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
+  playerPosition: {x: 43, y: -8}
+  playerStorage: {fileID: 11400000, guid: 6be255cec1fa3d742b50766b265c84f8, type: 2}
 --- !u!95 &172784073
 Animator:
   serializedVersion: 7
@@ -2823,6 +2825,8 @@ MonoBehaviour:
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
+  playerPosition: {x: 43, y: -8}
+  playerStorage: {fileID: 11400000, guid: 6be255cec1fa3d742b50766b265c84f8, type: 2}
 --- !u!1 &709035934
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,6 +4200,8 @@ MonoBehaviour:
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
+  playerPosition: {x: 43, y: -8}
+  playerStorage: {fileID: 11400000, guid: 6be255cec1fa3d742b50766b265c84f8, type: 2}
 --- !u!95 &1320943808
 Animator:
   serializedVersion: 7
@@ -6532,6 +6538,8 @@ MonoBehaviour:
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
+  playerPosition: {x: 0, y: 0}
+  playerStorage: {fileID: 0}
 --- !u!95 &1967673674
 Animator:
   serializedVersion: 7

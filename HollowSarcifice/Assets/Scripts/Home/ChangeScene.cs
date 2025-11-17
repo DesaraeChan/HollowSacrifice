@@ -17,6 +17,7 @@ public class ChangeScene : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
+        playerStorage.initialValue = playerPosition;
         SceneManager.LoadScene("Street");
         
     }

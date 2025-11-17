@@ -1328,6 +1328,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StreetSceneChanger
   fade: {fileID: 343683449}
   interactKey: 101
+  playerPosition: {x: 0, y: 0}
+  playerStorage: {fileID: 11400000, guid: 6be255cec1fa3d742b50766b265c84f8, type: 2}
   sceneToLoad: Alley
 --- !u!1 &335338802
 GameObject:
@@ -6523,6 +6525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StreetSceneChanger
   fade: {fileID: 343683449}
   interactKey: 101
+  playerPosition: {x: 0, y: 0}
+  playerStorage: {fileID: 11400000, guid: 6be255cec1fa3d742b50766b265c84f8, type: 2}
   sceneToLoad: Home
 --- !u!61 &1313820106
 BoxCollider2D:
