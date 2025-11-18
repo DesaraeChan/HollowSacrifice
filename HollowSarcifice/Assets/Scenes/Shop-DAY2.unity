@@ -150,11 +150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StockInventory
   entries:
   - itemSO: {fileID: 11400000, guid: c61d119b130c3344abb78b26101ab075, type: 2}
-    quantity: 1
+    quantity: 0
   - itemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
-    quantity: 1
+    quantity: 0
   - itemSO: {fileID: 11400000, guid: f48e871aa9323144c90804e98510ddac, type: 2}
-    quantity: 1
+    quantity: 0
 --- !u!4 &12880939
 Transform:
   m_ObjectHideFlags: 0
@@ -6512,7 +6512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1967673673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6765,7 +6765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795a634112f7cca4ca953a712025b850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
-  money: 10
+  money: 0
   family: 0
   sentToFamily: 0
 --- !u!4 &2003558774

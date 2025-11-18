@@ -7310,7 +7310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795a634112f7cca4ca953a712025b850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
-  money: 50
+  money: 0
   family: 0
   sentToFamily: 0
 --- !u!4 &1920015579

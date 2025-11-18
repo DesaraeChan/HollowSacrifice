@@ -18,7 +18,10 @@ public class StreetToShop : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Shop-DAY1");
+         SceneManager.LoadScene("Shop-DAY2");
+
+        //FIX LATER FOR PROPER DAYS
+        //SceneManager.LoadScene("Shop-DAY1");
         
     }
 

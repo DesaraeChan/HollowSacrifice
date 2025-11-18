@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 795a634112f7cca4ca953a712025b850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
-  money: 80
+  money: 33
   family: 0
   sentToFamily: 0
 --- !u!4 &104022263
@@ -2895,7 +2895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1106126815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4530,7 +4530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b39b0e147dfa541bdc5767cb28e6c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShowWindowImage
-  Canvas: {fileID: 0}
+  Canvas: {fileID: 1081653276}
   dayImages:
   - {fileID: 21300000, guid: 2f3cafd18f22ebf4682a1c2002779404, type: 3}
   - {fileID: 21300000, guid: 3cc509acf79a5c54e883fe019056bf75, type: 3}

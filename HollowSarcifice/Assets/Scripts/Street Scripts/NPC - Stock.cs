@@ -10,7 +10,7 @@ public class NPCStock : MonoBehaviour
     public GameObject closeupCanvas;     // The dialogue closeup canvas (opens DURING cutscene)
 
     [Header("Input")]
-    public KeyCode interactKey = KeyCode.E;
+    public KeyCode interactKey = KeyCode.D;
 
     private bool playerInRange = false;
 

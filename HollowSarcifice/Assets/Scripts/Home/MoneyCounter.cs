@@ -54,7 +54,7 @@ public class MoneyCounter : MonoBehaviour
         float amount = 0;
         if (family)
         {
-            amount += 30;
+            amount += 20;
         }
         return amount;
     }
