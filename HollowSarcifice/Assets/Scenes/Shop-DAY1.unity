@@ -182,7 +182,6 @@ GameObject:
   - component: {fileID: 38159723}
   - component: {fileID: 38159722}
   - component: {fileID: 38159721}
-  - component: {fileID: 38159720}
   - component: {fileID: 38159725}
   m_Layer: 0
   m_Name: SellButton
@@ -212,26 +211,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1151, y: -554}
   m_SizeDelta: {x: 92, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &38159720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38159718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcae14a9c257dbe498f40c2fda7d31ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragDrop
-  canvas: {fileID: 65564850}
-  shopManager: {fileID: 46036534}
-  spawnCloneOnDrag: 0
-  dragLayer: {fileID: 0}
-  itemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
-  itemNameText: {fileID: 980782582457159451}
-  itempriceText: {fileID: 3281960578133866357}
-  itemImage: {fileID: 3266203965810505231}
 --- !u!114 &38159721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -829,6 +808,7 @@ MonoBehaviour:
   currentDay: 1
   Night: 0
   unlockDay: 0
+  newsActive: 1
 --- !u!4 &162912239
 Transform:
   m_ObjectHideFlags: 0
