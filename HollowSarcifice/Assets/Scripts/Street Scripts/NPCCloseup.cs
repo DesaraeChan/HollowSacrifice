@@ -103,7 +103,8 @@ public class NPCCloseup : MonoBehaviour
 
     public void StartCloseup(){
         if (DialogueDone) return;
-        if(isOpen) return;
+        if (isOpen) return;
+        if (DayManager.Instance.currentDay > 1) return;
 
         OpenDialogue();
     }

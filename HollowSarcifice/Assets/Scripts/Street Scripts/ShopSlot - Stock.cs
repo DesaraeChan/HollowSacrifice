@@ -12,34 +12,36 @@ public class ShopSlotStock : MonoBehaviour
     [SerializeField] private ShopManagerStock shopManager;
     public int price;
 
-    void Update()
-    {
-        UpdateButtonState();
-        //This is hella in efficent but i think its good right now for bug fixing purposes
-    }
+    // void Update()
+    // {
+    //     UpdateButtonState();
+    //     //This is hella in efficent but i think its good right now for bug fixing purposes
+    // }
     public void Initialize(ItemSOStock newItemSO, int price)
     {
         itemSO = newItemSO;
         itemNameText.text = itemSO.itemName;
         this.price = price;
         priceText.text = price.ToString();
-        UpdateButtonState();
+        // UpdateButtonState();
     }
 
     public void OnBuyButtonClicked()
+{
+    if (shopManager.TryBuyItem(itemSO, price))
     {
-        shopManager.TryBuyItem(itemSO, price);
-        UpdateButtonState();
-        //set inactive once bought
+        buyButton.interactable = false;   
     }
+}
 
-    public void UpdateButtonState()
-    {
-        if (MoneyCounter.Instance != null)
-        {
-            buyButton.interactable = MoneyCounter.Instance.money >= price;
-        }
-    }
+    // public void UpdateButtonState()
+    // {   
+
+    //     if (MoneyCounter.Instance != null)
+    //     {
+    //         buyButton.interactable = MoneyCounter.Instance.money >= price;
+    //     }
+    // }
 
    
 }

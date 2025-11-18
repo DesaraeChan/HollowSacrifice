@@ -11,7 +11,7 @@ public class ShowWindowImage : MonoBehaviour
     void Start()
     {
         Canvas = GetComponentInParent<Canvas>();
-        
+
         UpdateVisuals();
         if (uiImage != null)
         {
@@ -25,6 +25,7 @@ public class ShowWindowImage : MonoBehaviour
         if (uiImage != null)
         {
             Image.SetActive(true);
+            UpdateVisuals();
         }
     }
 
@@ -38,12 +39,34 @@ public class ShowWindowImage : MonoBehaviour
     }
 
 
+   
     public void UpdateVisuals()
     {
+        if(DayManager.Instance.Night == false)
+        {
+            if(SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount > 4)
+            {
+                uiImage.sprite = dayImages[1];
+            }
+            else
+            {
+                uiImage.sprite = dayImages[0];
+            }
 
-        int index = Mathf.Clamp(DayManager.Instance.currentDay - 1, 0, dayImages.Length - 1);
-        uiImage.sprite = dayImages[index];
+            
+        } else if (DayManager.Instance.Night == true)
+        {
+            if(SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount > 4)
+            {
+                uiImage.sprite = dayImages[3];
+            }
+            else
+            {
+                uiImage.sprite = dayImages[2];
+            }
+            
+        }
+        
     }
-    
-    
-}
+    }
+

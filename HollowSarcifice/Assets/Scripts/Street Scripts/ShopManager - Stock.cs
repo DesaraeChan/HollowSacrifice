@@ -29,20 +29,22 @@ public class ShopManagerStock : MonoBehaviour
         }
     }
 
-    public void TryBuyItem(ItemSOStock itemSO, int price)
+    public bool TryBuyItem(ItemSOStock itemSO, int price)
+{
+    if (itemSO != null && MoneyCounter.Instance.money >= price)
     {
-        if(itemSO != null && MoneyCounter.Instance.money >= price)
-        {
-            MoneyCounter.Instance.money -= price;
-            // needs to add the item to the game
-            //needs to update the amount of money
+        MoneyCounter.Instance.money -= price;
 
-             if (StockInventory.Instance != null && itemSO.shopItem != null)
+        if (StockInventory.Instance != null && itemSO.shopItem != null)
         {
             StockInventory.Instance.AddStock(itemSO.shopItem, 1);
         }
-        }
+
+        return true; // purchase successful
     }
+
+    return false; // not enough money
+}
 }
 [System.Serializable]
 public class ShopItemsStock

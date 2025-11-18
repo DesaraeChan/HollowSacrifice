@@ -400,7 +400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &113492888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 241562821}
   - component: {fileID: 241562820}
   - component: {fileID: 241562819}
+  - component: {fileID: 241562824}
   m_Layer: 5
   m_Name: FinancialMenu
   m_TagString: Untagged
@@ -716,6 +717,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &241562824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241562818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ba26b74092440848a4300d72930e053, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToggleCallers
+  familyToggle: {fileID: 1919369321}
 --- !u!1 &261887358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,9 +1132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83b234dc7e1d5449a254e5d6c41acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  currentDay: 2
+  currentDay: 1
   Night: 0
   unlockDay: 0
+  newsActive: 1
 --- !u!4 &433095209
 Transform:
   m_ObjectHideFlags: 0
@@ -2354,6 +2369,54 @@ RectTransform:
   m_AnchoredPosition: {x: -13, y: -4.5895}
   m_SizeDelta: {x: 184.0427, y: 67.179}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!1 &948917579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 948917581}
+  - component: {fileID: 948917580}
+  m_Layer: 0
+  m_Name: SaleTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &948917580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948917579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29c9de7bf066fc145abc426b50e61ba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
+  solzaeSoupCount: 0
+  solzaeGearCount: 0
+  threshold: 4
+  cutsceneTriggered: 0
+--- !u!4 &948917581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948917579}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.78019, y: -4.08243, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1005697302
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,9 +2579,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104022262}
-        m_TargetAssemblyTypeName: MoneyCounter, Assembly-CSharp
-        m_MethodName: sendMoney
+      - m_Target: {fileID: 241562824}
+        m_TargetAssemblyTypeName: ToggleCallers, Assembly-CSharp
+        m_MethodName: buttonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3564,10 +3627,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1233763003}
   - component: {fileID: 1233763002}
-  - component: {fileID: 1233763001}
   - component: {fileID: 1233763000}
-  - component: {fileID: 1233763005}
   - component: {fileID: 1233763004}
+  - component: {fileID: 1233763005}
   m_Layer: 0
   m_Name: Window Sprite
   m_TagString: Untagged
@@ -3633,36 +3695,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1233763001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233762999}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: -4882918461518551987, guid: df5132b546fe6124aaf0dc68c9d5aae6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1233763002
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3745,13 +3777,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1233762999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4c977330bb60154b90cb1ea9b1b9a2e, type: 3}
+  m_Script: {fileID: 11500000, guid: 80591b1b0ffff5c40a6d7bac464da4e3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoverSwapSprite
-  normalSprite: {fileID: -4882918461518551987, guid: df5132b546fe6124aaf0dc68c9d5aae6, type: 3}
-  hoverSprite: {fileID: 2686617765436475272, guid: 11baaceb1c090cd4e84adfb57014aaa8, type: 3}
-  normalNightSprite: {fileID: 8050699660332863169, guid: a6a33d2cf84576142a48b545ed84f149, type: 3}
-  hoverNightSprite: {fileID: 7669102838955425694, guid: c695ab1914e7eb143bdd37c6f99bf455, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::HoverSwapWindow
+  Images:
+  - {fileID: -4882918461518551987, guid: df5132b546fe6124aaf0dc68c9d5aae6, type: 3}
+  - {fileID: 8782512053172796616, guid: 715509452adc91c448f2ffbea8885426, type: 3}
+  - {fileID: 8050699660332863169, guid: a6a33d2cf84576142a48b545ed84f149, type: 3}
+  - {fileID: 7007096443540625540, guid: 1082462f03ef5b7469ffcf34462afeb5, type: 3}
+  ImageHover:
+  - {fileID: 2686617765436475272, guid: 11baaceb1c090cd4e84adfb57014aaa8, type: 3}
+  - {fileID: 828565588967573800, guid: c773e2626f4010b43ac947395f8bf91d, type: 3}
+  - {fileID: 7669102838955425694, guid: c695ab1914e7eb143bdd37c6f99bf455, type: 3}
+  - {fileID: 128981587287315132, guid: fba5cd4f30408904993b12c4c2df4921, type: 3}
 --- !u!1 &1236718479
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,7 +4571,9 @@ MonoBehaviour:
   Canvas: {fileID: 1081653276}
   dayImages:
   - {fileID: 21300000, guid: 2f3cafd18f22ebf4682a1c2002779404, type: 3}
+  - {fileID: 21300000, guid: efa7d47f15469094586a71e4443b7a8e, type: 3}
   - {fileID: 21300000, guid: 3cc509acf79a5c54e883fe019056bf75, type: 3}
+  - {fileID: 21300000, guid: c268d5aa66af347438989d0d62d5262e, type: 3}
   Image: {fileID: 1081653272}
   uiImage: {fileID: 1326133122}
 --- !u!114 &1326133125
@@ -5245,8 +5285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2827e98330fc9dd498b379ad428ff421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToggleConnector
-  familyToggle: {fileID: 1919369321}
-  sendMoneyButton: {fileID: 1029114345}
 --- !u!1 &1680536376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5917,7 +5955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1774434122
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6293,9 +6331,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 104022262}
-        m_TargetAssemblyTypeName: MoneyCounter, Assembly-CSharp
-        m_MethodName: FamilyBool
+      - m_Target: {fileID: 241562824}
+        m_TargetAssemblyTypeName: ToggleCallers, Assembly-CSharp
+        m_MethodName: OnToggleChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7007,8 +7045,9 @@ SceneRoots:
   - {fileID: 1617772430}
   - {fileID: 1081653277}
   - {fileID: 35018734}
-  - {fileID: 433095209}
-  - {fileID: 104022263}
   - {fileID: 241562823}
   - {fileID: 1995582941}
   - {fileID: 1774434126}
+  - {fileID: 433095209}
+  - {fileID: 104022263}
+  - {fileID: 948917581}

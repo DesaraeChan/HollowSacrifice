@@ -530,9 +530,10 @@ public void RecalculateTotal()
     public void TrySellItem(ItemSO itemSO, int price)
     {
         if (itemSO == null || inventoryManager == null) return;
-        if (!IsSellable(itemSO)) return;     
+        if (!IsSellable(itemSO)) return;
 
         inventoryManager.countermoney.money += price;
+       
         if (inventoryManager.moneyText)
             inventoryManager.UpdateMoneyUI();
     }
@@ -562,6 +563,7 @@ public void SellAllInSlots()
         if (IsSellable(item.itemSO))
         {
             localTotal += item.itemSO.price;
+            MoneyCounter.Instance.money += localTotal;
             soldItems.Add(item);
         }
         else

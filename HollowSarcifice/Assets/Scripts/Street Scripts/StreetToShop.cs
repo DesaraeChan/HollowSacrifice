@@ -16,9 +16,19 @@ public class StreetToShop : MonoBehaviour
 
     public IEnumerator _ChangeSceneShop()
     {
+
+
         fade.FadeIn();
         yield return new WaitForSeconds(1);
-         SceneManager.LoadScene("Shop-DAY2");
+
+        if(DayManager.Instance.currentDay == 1){
+            SceneManager.LoadScene("Shop-DAY1");
+        }
+        else if (DayManager.Instance.currentDay == 2)
+        {
+            SceneManager.LoadScene("Shop-DAY2");
+        }
+         
 
         //FIX LATER FOR PROPER DAYS
         //SceneManager.LoadScene("Shop-DAY1");
