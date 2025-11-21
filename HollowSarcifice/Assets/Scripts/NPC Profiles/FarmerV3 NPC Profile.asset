@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
-  m_Name: Miner NPC Profile
+  m_Name: FarmerV3 NPC Profile
   m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
-  displayName: Miner
-  type: 2
+  displayName: Farmer
+  type: 1
   portraitSprite: {fileID: 0}
   dialogue:
   - nodeName: Dialogue 1
-    text: "Ay, how are you today? I was hoping I could get some food, I\u2019m quite
-      hungry after working my morning shift."
+    text: 'Hello. I saw you were selling some umbrellas...  And I saw you had some
+      food supply.
+
+'
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -31,48 +33,10 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: Manual labour is essential but oh boy does it make a person hungry!
-    hasChoice: 1
-    choiceAText: Why become a miner if you could take a job with less physical requirements?
-    choiceBText: "People like you supply my shop. I\u2019m grateful for your hard
-      work."
-    choiceCText: I bet you burn more calories than anyone else around here.
-    repDeltaA: -1
-    repDeltaB: 1
-    repDeltaC: 0
-    nextIfA: Option A
-    nextIfB: Option B
-    nextIfC: Option C
-    goTo: 
-  - nodeName: Option A
-    text: "Ehh... sometimes we don\u2019t have a lot of options do we? I think I\u2019ll
-      shop elsewhere."
-    hasChoice: 0
-    choiceAText: 
-    choiceBText: 
-    choiceCText: 
-    repDeltaA: 0
-    repDeltaB: 0
-    repDeltaC: 0
-    nextIfA: 
-    nextIfB: 
-    nextIfC: 
-    goTo: END
-  - nodeName: Option B
-    text: Thank you for the kind words. We need more people like you.
-    hasChoice: 0
-    choiceAText: 
-    choiceBText: 
-    choiceCText: 
-    repDeltaA: 0
-    repDeltaB: 0
-    repDeltaC: 0
-    nextIfA: 
-    nextIfB: 
-    nextIfC: 
-    goTo: Dialogue 3
-  - nodeName: Option C
-    text: Ay, well all the mining I do takes more energy than one would think.
+    text: 'I have a pretty strict diet, I believe that we should only consume that
+      of which comes from our earth.
+
+'
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -85,7 +49,24 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
-    text: Ay I could go for one of your soups as well as some Solzae gear.
+    text: 'And not things that appear spontaneously...
+
+'
+    hasChoice: 1
+    choiceAText: Everything is made from our world. It all has the same origin.
+    choiceBText: "I do think that\u2019s a good mindset, if you have the means to
+      afford the food."
+    choiceCText: I admire your dedication to eating quite natural.
+    repDeltaA: -1
+    repDeltaB: 0
+    repDeltaC: 1
+    nextIfA: Option A
+    nextIfB: Option B
+    nextIfC: Option C
+    goTo: 
+  - nodeName: Option C
+    text: "Aw shucks. I really do try to maintain a healthy lifestyle to the best
+      of my ability. It\u2019s nice to hear that."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -96,9 +77,24 @@ MonoBehaviour:
     nextIfA: 
     nextIfB: 
     nextIfC: 
-    goTo: AskForItem
-  - nodeName: Neutral
-    text: "This isn\u2019t quite what I wanted but it\u2019ll do."
+    goTo: Dialogue 5
+  - nodeName: Option B
+    text: "Ah you\u2019re right. I should be a bit more considerate. I had forgotten
+      some are lesser off than I."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 5
+  - nodeName: Option A
+    text: "Think what you think I guess. Sorry, but I think I\u2019d prefer to go
+      someplace else."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -110,8 +106,23 @@ MonoBehaviour:
     nextIfB: 
     nextIfC: 
     goTo: END
+  - nodeName: Dialogue 5
+    text: 'I need some gear, and I wanted to buy some food for my wife and I.
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: AskForItem
   - nodeName: AskForItem
-    text: Soup + Solzae Gear ?
+    text: Soup + Gear ?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -124,7 +135,34 @@ MonoBehaviour:
     nextIfC: 
     goTo: 
   - nodeName: Positive
-    text: 'Ahhh! Thanks much. This smells amazing after inhaling coal all day. '
+    text: "mmm MMMM MMMM! My wifes going to love this soup. \nHave a good day!"
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: Neutral
+    text: 
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: Negative
+    text: "What is this? This feels odd? Did you put Solzae in here?\nAh were you
+      listening to what I said earlier? ... I\u2019ll take it anyways."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -141,12 +179,12 @@ MonoBehaviour:
   - category: 0
     repDelta: 1
     nextNode: 
-  - category: 5
+  - category: 4
     repDelta: 1
     nextNode: 
   - category: 7
-    repDelta: 0
+    repDelta: -1
     nextNode: 
-  - category: 4
-    repDelta: 0
+  - category: 5
+    repDelta: -1
     nextNode: 

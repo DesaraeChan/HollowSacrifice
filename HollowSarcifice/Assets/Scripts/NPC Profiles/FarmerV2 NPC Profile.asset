@@ -178,13 +178,13 @@ MonoBehaviour:
   npcprefs:
   - category: 0
     repDelta: 1
-    nextNode: Positive
+    nextNode: 
   - category: 4
     repDelta: 1
-    nextNode: Positive
+    nextNode: 
   - category: 7
     repDelta: -1
-    nextNode: Negative
+    nextNode: 
   - category: 5
     repDelta: -1
-    nextNode: Negative
+    nextNode: 

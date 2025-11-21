@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
-  m_Name: Miner NPC Profile
+  m_Name: MinerV3 NPC Profile 1
   m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
   displayName: Miner
   type: 2
   portraitSprite: {fileID: 0}
   dialogue:
   - nodeName: Dialogue 1
-    text: "Ay, how are you today? I was hoping I could get some food, I\u2019m quite
-      hungry after working my morning shift."
+    text: "Ay, It\u2019s rough out there isn\u2019t it. I\u2019m here mining for
+      our country but some people are fighting for it."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -31,35 +31,22 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: Manual labour is essential but oh boy does it make a person hungry!
+    text: "Anyways I have to feed myself don\u2019t I?"
     hasChoice: 1
-    choiceAText: Why become a miner if you could take a job with less physical requirements?
-    choiceBText: "People like you supply my shop. I\u2019m grateful for your hard
-      work."
-    choiceCText: I bet you burn more calories than anyone else around here.
-    repDeltaA: -1
-    repDeltaB: 1
-    repDeltaC: 0
+    choiceAText: All we can do is just live our life, and support them.
+    choiceBText: "Alright, well I think you should order some food if you\u2019re
+      that hungry."
+    choiceCText: "I can\u2019t even begin to imagine what our soldiers are experiencing."
+    repDeltaA: 0
+    repDeltaB: -1
+    repDeltaC: 1
     nextIfA: Option A
     nextIfB: Option B
     nextIfC: Option C
     goTo: 
   - nodeName: Option A
-    text: "Ehh... sometimes we don\u2019t have a lot of options do we? I think I\u2019ll
-      shop elsewhere."
-    hasChoice: 0
-    choiceAText: 
-    choiceBText: 
-    choiceCText: 
-    repDeltaA: 0
-    repDeltaB: 0
-    repDeltaC: 0
-    nextIfA: 
-    nextIfB: 
-    nextIfC: 
-    goTo: END
-  - nodeName: Option B
-    text: Thank you for the kind words. We need more people like you.
+    text: "I suppose you\u2019re right, There\u2019s not a point in thinking about
+      it too much..."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -71,8 +58,26 @@ MonoBehaviour:
     nextIfB: 
     nextIfC: 
     goTo: Dialogue 3
+  - nodeName: Option B
+    text: '
+
+      Do you not concern yourself with our current situation? Do you
+      read the news?
+
+      I think I''d  rather shop someplace else.'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
   - nodeName: Option C
-    text: Ay, well all the mining I do takes more energy than one would think.
+    text: Yes, when I think about it, it makes me wish I could do more.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -85,7 +90,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
-    text: Ay I could go for one of your soups as well as some Solzae gear.
+    text: "Ayy, I think I\u2019d like some soup to take with me, and I need some
+      gear to get home."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -98,7 +104,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: "This isn\u2019t quite what I wanted but it\u2019ll do."
+    text: DAmn that ass thic
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -111,7 +117,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: AskForItem
-    text: Soup + Solzae Gear ?
+    text: Soup + Gear ?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -124,7 +130,20 @@ MonoBehaviour:
     nextIfC: 
     goTo: 
   - nodeName: Positive
-    text: 'Ahhh! Thanks much. This smells amazing after inhaling coal all day. '
+    text: "Ay thanks, this should last me until I\u2019m back home."
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: Negative
+    text: "This doesn\u2019t taste how I thought it would... "
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -141,11 +160,8 @@ MonoBehaviour:
   - category: 0
     repDelta: 1
     nextNode: 
-  - category: 5
-    repDelta: 1
-    nextNode: 
   - category: 7
-    repDelta: 0
+    repDelta: -1
     nextNode: 
   - category: 4
     repDelta: 0

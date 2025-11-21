@@ -86,6 +86,7 @@ public class NPCCloseup : MonoBehaviour
 
     void FinishDialogue()
 {
+
     DialogueDone = true;
 
     // Close UI
@@ -95,9 +96,15 @@ public class NPCCloseup : MonoBehaviour
     var pm = FindFirstObjectByType<PlayerMovement>();
     if (pm) pm.enabled = true;
 
-    // Prevent retriggering this closeup
-    // var col = GetComponent<Collider2D>();
-    // if (col) col.enabled = false;
+    if (npcId != "Seller")
+        {
+                // Prevent retriggering this closeup
+    var col = GetComponent<Collider2D>();
+    if (col) col.enabled = false;
+
+        }
+
+    
 }
 
 

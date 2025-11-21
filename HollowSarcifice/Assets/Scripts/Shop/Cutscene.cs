@@ -91,8 +91,7 @@ public class Cutscene : MonoBehaviour
         gameObject.SetActive(false);
           if (shopCanvas.gameObject) shopCanvas.gameObject.SetActive(true);
         
-        //SCENE TRANSITION SHOULD BE HERE
-        // characterAnimator.SetTrigger("DialogueDone");
+        
         }
     }
 }

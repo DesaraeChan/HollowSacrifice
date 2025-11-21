@@ -57,7 +57,7 @@ MonoBehaviour:
     nextIfA: 
     nextIfB: 
     nextIfC: 
-    goTo: 
+    goTo: Dialogue 3
   - nodeName: Option B
     text: '
 
@@ -159,13 +159,13 @@ MonoBehaviour:
   npcprefs:
   - category: 0
     repDelta: 1
-    nextNode: Positive
+    nextNode: 
   - category: 5
     repDelta: 0
-    nextNode: Neutral
+    nextNode: 
   - category: 7
     repDelta: -1
-    nextNode: Negative
+    nextNode: 
   - category: 4
     repDelta: 0
-    nextNode: Neutral
+    nextNode: 
