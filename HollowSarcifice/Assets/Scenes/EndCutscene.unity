@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Dialogue
   characterAnimator: {fileID: 0}
-  nextSceneName: Home
+  nextSceneName: 
   textComponent: {fileID: 1773173846}
   lines: []
   textSpeed: 0.08

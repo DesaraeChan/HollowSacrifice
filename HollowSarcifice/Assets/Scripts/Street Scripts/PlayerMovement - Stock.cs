@@ -9,10 +9,10 @@ public class PlayerMovement : MonoBehaviour
     [Range(0f, 1f)]
     public float groundDecay;
     public BoxCollider2D groundCheck;
+    public Animator animator;
 
     public LayerMask groundMask;
     float xInput;
-    float yInput;
 
     public VectorValue startPosition;
 
@@ -28,42 +28,42 @@ public class PlayerMovement : MonoBehaviour
     {
         GetInput();
         moveWithInput();
-
-    }
-
-    void FixedUpdate()
-    {
         ApplyFriction();
-        
     }
 
     void GetInput()
     {
         xInput = Input.GetAxis("Horizontal");
-        yInput = Input.GetAxis("Vertical");
     }
 
     void moveWithInput()
     {
+        
         if (Mathf.Abs(xInput) > 0)
         {
+            animator.SetBool("isWalking", true);
 
             float increment = xInput * acceleration;
             float newSpeed = Mathf.Clamp(body.linearVelocity.x + increment, -speed, speed);
 
             body.linearVelocity = new Vector2(newSpeed, body.linearVelocity.y);
 
-            float direction = Mathf.Sign(xInput);
-            transform.localScale = new Vector3(direction, 1, 1);
-        }
+
+            animator.SetFloat("InputX", xInput);
+            animator.SetFloat("LastInputX", Mathf.Sign(xInput));
+        } else{
+            animator.SetBool("isWalking", false);
+             
+            }
 
 
     }
 
     void ApplyFriction()
     {
-        if ( xInput == 0)
+        if ( xInput < 0.2 && xInput > -0.2)
         {
+             
             body.linearVelocity *= groundDecay;
         }
     }
