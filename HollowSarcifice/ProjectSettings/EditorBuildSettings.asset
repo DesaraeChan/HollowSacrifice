@@ -26,6 +26,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop-DAY2.unity
     guid: 04491d0bf48952f42b0a4848edd01390
+  - enabled: 1
+    path: Assets/Scenes/Shop-DAY3.unity
+    guid: 4624260ce2193ef47be47afbba67c6b9
+  - enabled: 1
+    path: Assets/Scenes/Shop-DAY4.unity
+    guid: 68065dedd643d7145b122847efa72d5f
+  - enabled: 1
+    path: Assets/Scenes/ShopSICK-DAY.unity
+    guid: a9a4d192e1523be4f8a8b36aa9163e7c
+  - enabled: 1
+    path: Assets/Scenes/EndCutscene.unity
+    guid: 76d88ee587911734288f255aab966b5b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

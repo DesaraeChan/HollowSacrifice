@@ -91,6 +91,7 @@ public void OnOutroComplete_ActivateNextOnly()
 
         if (!string.IsNullOrEmpty(sceneAfterLastCustomer))
             {
+            if(DayManager.Instance.currentDay == 4){sceneAfterLastCustomer = "Home";}
             DayManager.Instance.unlockDay = false;
             playerStorage.initialValue = playerPosition;
             SceneManager.LoadScene(sceneAfterLastCustomer);

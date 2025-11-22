@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83b234dc7e1d5449a254e5d6c41acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  currentDay: 1
+  currentDay: 4
   Night: 0
   unlockDay: 0
   newsActive: 1
@@ -884,8 +884,8 @@ MonoBehaviour:
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
-  currentNPC: {fileID: 11400000, guid: b61ef6e36807b2946b5e1015b8fee348, type: 2}
-  nextManager: {fileID: 1320943806}
+  currentNPC: {fileID: 11400000, guid: 89c615967016f8a4ba4655c4a7bdea85, type: 2}
+  nextManager: {fileID: 0}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
@@ -1267,7 +1267,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f496e9aa4f48f6c419903fb12b1c0219, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34e32df6fe419ae4fbf52dd4697bf77c, type: 2}
   m_sharedMaterial: {fileID: 634491492705835386, guid: f496e9aa4f48f6c419903fb12b1c0219, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   m_margin: {x: 74.11633, y: 9.898621, z: 984.55237, w: 138.52185}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &202395546
@@ -2821,8 +2821,8 @@ MonoBehaviour:
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
-  currentNPC: {fileID: 11400000, guid: 5b679f768126c534e87eaa2140a18aca, type: 2}
-  nextManager: {fileID: 0}
+  currentNPC: {fileID: 11400000, guid: 5368abea9bc78104c876ee5717adcae9, type: 2}
+  nextManager: {fileID: 1320943806}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
@@ -4080,7 +4080,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f496e9aa4f48f6c419903fb12b1c0219, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34e32df6fe419ae4fbf52dd4697bf77c, type: 2}
   m_sharedMaterial: {fileID: 634491492705835386, guid: f496e9aa4f48f6c419903fb12b1c0219, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -4146,7 +4146,7 @@ MonoBehaviour:
   m_margin: {x: 84.61493, y: 103.418304, z: 61.979248, w: 64.24466}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1255747303
@@ -4196,8 +4196,8 @@ MonoBehaviour:
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
-  currentNPC: {fileID: 11400000, guid: 60b757bd41a6d8a4e809a5876a6ec315, type: 2}
-  nextManager: {fileID: 650614893}
+  currentNPC: {fileID: 11400000, guid: 86f71b86b17d7274d910018ca4922967, type: 2}
+  nextManager: {fileID: 172784072}
   askForItemBox: {fileID: 1246360314}
   askDialogue: {fileID: 1246360316}
   sceneAfterLastCustomer: Street Night
@@ -7207,7 +7207,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34e32df6fe419ae4fbf52dd4697bf77c, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

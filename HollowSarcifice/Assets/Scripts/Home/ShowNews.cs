@@ -6,11 +6,13 @@ public class ShowNews : MonoBehaviour
 {
     public Canvas Canvas;
     public GameObject News;
+    private ChangeScene changeScene;
 
 
     void Start()
     {
         Canvas = GetComponentInParent<Canvas>();
+        changeScene = FindFirstObjectByType<ChangeScene>(FindObjectsInactive.Include);
     }
     
     void Update()
@@ -31,6 +33,7 @@ public class ShowNews : MonoBehaviour
     {
         News.SetActive(false);
         DayManager.Instance.newsActive = false;
+        changeScene.StartCoroutine(changeScene._ChangeScene2D());
 
     }
 }
