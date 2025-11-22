@@ -17,8 +17,11 @@ MonoBehaviour:
   portraitSprite: {fileID: 0}
   dialogue:
   - nodeName: Dialogue 1
-    text: "Greetings, I am visiting and although I don\u2019t want to interact with
-      someone like you...\n\n"
+    text: 'Hello. You sell supplies then? I need some food to take back with me and
+      some gear for the trip.
+
+
+'
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -31,7 +34,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: 'I do need supplies and gear before I head home. '
+    text: I know this war is affecting both of our peoples. I share sympathy towards
+      you and your people.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -47,10 +51,9 @@ MonoBehaviour:
     text: I hope you know we will eventually gain the upper hand against Zaetia.
       If you would...
     hasChoice: 1
-    choiceAText: There are no winners in wars like these.
-    choiceBText: "I\u2019m just a shopkeeper. I can sell you items if you\u2019d
-      like."
-    choiceCText: Yes you, Plabs scare me but, I still want a profit
+    choiceAText: I think your people have treated us like dirt.
+    choiceBText: "I would rather not share my opinion with you if that\u2019s alright."
+    choiceCText: Yes I know this war is affecting both sides greatly...
     repDeltaA: -1
     repDeltaB: 0
     repDeltaC: 1
@@ -59,7 +62,7 @@ MonoBehaviour:
     nextIfC: Option C
     goTo: Dialogue 4
   - nodeName: Option A
-    text: "I don\u2019t want to further engage with you. Forget the supplies."
+    text: Ah well then, you'd be much better of without my patronage.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -72,7 +75,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Option B
-    text: "Yes, well that\u2019s what I\u2019m here for."
+    text: "Ah yes, that\u2019s alright. I suppose you are entitled to your own opinion."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -85,7 +88,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 4
   - nodeName: Option C
-    text: You should be scared. Ah ha.. ha ha... AH HEM. Anyways.
+    text: and with our victory, our nations will be stronger together.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -98,10 +101,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 4
   - nodeName: Dialogue 4
-    text: 'I would like to purchase some gear and some food for my trip. Solzae included
-      of course.
-
-'
+    text: "I\u2019m quite thirsty and I haven\u2019t ate lunch. I want something
+      to drink and eat with Solzae included."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -114,7 +115,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: AskForItem
-    text: Solzae Soup + Solzae Gear ?
+    text: Solzae Soup + drink ?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -127,7 +128,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: 
   - nodeName: Positive
-    text: Thank you this is just what I needed. Farewell.
+    text: 'This is satisfactory thank you. '
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -154,8 +155,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Neutral
-    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do.Thank
-      you for your service. \n"
+    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do."
     hasChoice: 0
     choiceAText: 
     choiceBText: 

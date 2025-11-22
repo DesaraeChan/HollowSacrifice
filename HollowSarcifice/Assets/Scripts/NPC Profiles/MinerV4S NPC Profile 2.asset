@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
+  m_Name: MinerV4S NPC Profile 2
+  m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
+  displayName: Miner
+  type: 2
+  portraitSprite: {fileID: 0}
+  dialogue:
+  - nodeName: Dialogue 1
+    text: Everything is a lie. The government is out to get us.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 2
+  - nodeName: Dialogue 2
+    text: Those Plabs set us up. This is the end of Zaetia.
+    hasChoice: 1
+    choiceAText: Can I help you sir...?
+    choiceBText: We're closed.
+    choiceCText: What are you talking about?
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: Option A
+    nextIfB: Option B
+    nextIfC: Option C
+    goTo: 
+  - nodeName: Option A
+    text: You are mind controlled.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 3
+  - nodeName: Option B
+    text: Everything you know is a lie.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 3
+  - nodeName: Option C
+    text: Try reading some time. Its a good idea.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 3
+  - nodeName: Dialogue 3
+    text: Solzae was a ploy to posion the working class.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 4
+  startingReputation: 0
+  npcprefs:
+  - category: 0
+    repDelta: 0
+    nextNode: 
+  - category: 7
+    repDelta: 0
+    nextNode: 
+  - category: 4
+    repDelta: 0
+    nextNode: 
+  - category: 5
+    repDelta: 0
+    nextNode: 

@@ -17,8 +17,8 @@ MonoBehaviour:
   portraitSprite: {fileID: 0}
   dialogue:
   - nodeName: Dialogue 1
-    text: "Ay, It\u2019s rough out there isn\u2019t it. I\u2019m here mining for
-      our country but some people are fighting for it."
+    text: "Ay, I\u2019m quite tired. Keeping up the good work even with this war
+      going on. "
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -31,12 +31,11 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: "Anyways I have to feed myself don\u2019t I?"
+    text: Those god damn Plabs, make our lives harder than they already are.
     hasChoice: 1
-    choiceAText: All we can do is just live our life, and support them.
-    choiceBText: "Alright, well I think you should order some food if you\u2019re
-      that hungry."
-    choiceCText: "I can\u2019t even begin to imagine what our soldiers are experiencing."
+    choiceAText: "They\u2019re not really affecting me personally."
+    choiceBText: "I think we\u2019re making their lives harder too."
+    choiceCText: "They really aren\u2019t helping my family\u2019s situation..."
     repDeltaA: 0
     repDeltaB: -1
     repDeltaC: 1
@@ -45,8 +44,7 @@ MonoBehaviour:
     nextIfC: Option C
     goTo: 
   - nodeName: Option A
-    text: "I suppose you\u2019re right, There\u2019s not a point in thinking about
-      it too much..."
+    text: "I think it\u2019ll affect your life in ways you might not realize."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -59,12 +57,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Option B
-    text: '
-
-      Do you not concern yourself with our current situation? Do you
-      read the news?
-
-      I think I''d  rather shop someplace else.'
+    text: "I think I will find supplies elsewhere... We\u2019re definitely suffering
+      more than they are."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -77,7 +71,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Option C
-    text: Yes, when I think about it, it makes me wish I could do more.
+    text: "Ay, I\u2019m sorry to hear that friend. They\u2019re suffering for our
+      freedoms."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -90,8 +85,20 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
-    text: "Ayy, I think I\u2019d like some soup to take with me, and I need some
-      gear to get home."
+    text: 'I could go for some soup right now to comfort me after a long day... '
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 4
+  - nodeName: Dialogue 4
+    text: None of that Solzae crap. You see what they said in the paper?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -104,7 +111,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: DAmn that ass thic
+    text: "This soup it hot but, it got a Solzae taste to it. Ah it\u2019s fine thanks
+      anyways."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -117,7 +125,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: AskForItem
-    text: Soup + Gear ?
+    text: Soup ?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -130,7 +138,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: 
   - nodeName: Positive
-    text: "Ay thanks, this should last me until I\u2019m back home."
+    text: Ah hot soup! What keeps a person going in dark times.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -143,7 +151,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Negative
-    text: "This doesn\u2019t taste how I thought it would... "
+    text: What is this stuff? Are you trying to poison me?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -165,4 +173,7 @@ MonoBehaviour:
     nextNode: 
   - category: 4
     repDelta: 0
+    nextNode: 
+  - category: 5
+    repDelta: -1
     nextNode: 
