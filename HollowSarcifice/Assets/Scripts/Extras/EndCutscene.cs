@@ -36,7 +36,7 @@ public class EndCutscene : MonoBehaviour
     {
        textComponent.text = string.Empty;
        StartDialogue();
-       cutscene.sprite = slideshow[0];
+       if(slideshow.Length > 0) cutscene.sprite = slideshow[0];
        //change this later to make it change if family is made
     }
 
