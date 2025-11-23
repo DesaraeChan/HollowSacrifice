@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class Cutscene : MonoBehaviour
 
 
@@ -14,6 +14,8 @@ public class Cutscene : MonoBehaviour
 
     public TextMeshProUGUI textComponent;
     public string[] lines;
+    public Sprite[] slideshow;
+    public Image cutscene;
     public float textSpeed;
     public NPCStock shopCanvas;
 
@@ -24,6 +26,7 @@ public class Cutscene : MonoBehaviour
 
 //track where we are within the text
     private int index;
+    private int slideshowIndex;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -35,7 +38,8 @@ public class Cutscene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        cutscene.sprite = slideshow[slideshowIndex];
         if (Input.GetMouseButtonDown(0) && (!inNPCZone || allowSkip))
         {
             if(textComponent.text == lines[index])
@@ -57,6 +61,7 @@ public class Cutscene : MonoBehaviour
         DialogueDone = false;
         textComponent.text = string.Empty;
         index = 0;
+        slideshowIndex = 0;
         StartCoroutine(TypeLine());
     }
 
@@ -83,9 +88,14 @@ public class Cutscene : MonoBehaviour
     void NextLine(){
         if(index <lines.Length -1){
             index++;
+            if(index == 2){
+                slideshowIndex = 1;
+            } else if (index == 4){
+                slideshowIndex = 2;
+            }
             textComponent.text = string.Empty;
             StartCoroutine(TypeLine());
-
+            
         }else{
             //close text box
         gameObject.SetActive(false);
