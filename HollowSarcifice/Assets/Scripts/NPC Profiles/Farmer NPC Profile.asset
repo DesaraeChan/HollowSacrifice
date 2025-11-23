@@ -201,6 +201,16 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   startingReputation: 0
+  typingSoundClips:
+  - {fileID: 8300000, guid: 95b6adaf40613554ba08677e685dc40f, type: 3}
+  - {fileID: 8300000, guid: 641ad85ffa4677845ad2672aa82e4b9f, type: 3}
+  - {fileID: 8300000, guid: 405f47c37699fb94a85a6850a7f2db21, type: 3}
+  minPitch: 0.76
+  maxPitch: 1
+  frequencyLevel: 3
+  volume: 0.602
+  makePredictable: 1
+  stopAudioSource: 1
   npcprefs:
   - category: 7
     repDelta: 1

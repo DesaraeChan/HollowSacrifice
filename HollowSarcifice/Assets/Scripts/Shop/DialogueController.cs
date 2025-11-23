@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine.UI;
@@ -19,6 +20,25 @@ public class DialogueController : MonoBehaviour
 
     [Header("Typing")]
     [SerializeField] private float textSpeed = 0.1f;
+
+    [Header("Audio")]
+    [SerializeField] private AudioClip[] dialogueTypingSoundClips;
+    [Range(1,5)]
+    [SerializeField] private bool stopAudioSource;
+    [SerializeField] private bool makePredictable;
+    [SerializeField] private int frequencyLevel = 3;
+    
+    [Range(-3,3)]
+    [SerializeField] private float minPitch = 0.5f;
+    [Range(-3,3)]
+    [SerializeField] private float maxPitch = 3f;
+
+    
+    [Range(0f, 1f)]
+    [SerializeField] private float dialogueVolume = 0.7f;
+   
+
+    private AudioSource audioSource;
 
     private NPCProfile npc;
     private NPCProfile pendingProfile;
@@ -63,6 +83,13 @@ public class DialogueController : MonoBehaviour
 
 
    }
+
+   private void Awake(){
+    audioSource = this.gameObject.AddComponent<AudioSource>();
+
+   }
+
+
 
    
 
@@ -112,6 +139,27 @@ private void BeginInternal()
     npc       = pendingProfile;
     gameState = pendingState;
     owner     = pendingOwner;
+
+     if (npc.typingSoundClips != null && npc.typingSoundClips.Length > 0)
+        dialogueTypingSoundClips = npc.typingSoundClips;
+
+            // assign frequency
+    frequencyLevel = npc.frequencyLevel;
+
+    // assign volume
+    dialogueVolume = npc.volume;
+
+    // assign predictable / stopAudioSource flags
+    makePredictable  = npc.makePredictable;
+    stopAudioSource  = npc.stopAudioSource;
+
+    minPitch = npc.minPitch;
+maxPitch = npc.maxPitch;
+
+        //  Debug.Log("[Dialogue] Using NPC typing clips for " + npc.displayName +
+        // ": " + string.Join(", ", System.Array.ConvertAll(dialogueTypingSoundClips, c => c.name)));
+
+
 
     //default start
     index = 0;
@@ -192,6 +240,8 @@ public void JumpToNode(string nodeName)
                 StopCoroutine(typing);
                 typing = null;
                 textComponent.text = npc.dialogue[index].text;
+
+                audioSource.Stop(); //stop audio if skipped
                 waitingForClick = true; // now ready to advance or show choices
                 return;
             }
@@ -244,14 +294,68 @@ public void JumpToNode(string nodeName)
     private IEnumerator TypeLine(string line)
     {
         float delay = (textSpeed > 0f) ? textSpeed : 0f;
+
+       int charCount = 0;
         foreach (char c in line)
         {
+           
             textComponent.text += c;
+            charCount++;
+            PlayDialogueSound(charCount, c);
             if (delay > 0f) yield return new WaitForSeconds(delay);
             else yield return null;
         }
+        audioSource.Stop(); //stop audio clip when not tpying
         typing = null;
         waitingForClick = true; // click will either show choices or advance
+    }
+
+    private void PlayDialogueSound ( int currentDisplayedCharacterCount, char currentCharacter){
+        //play the sound every other character
+        if(currentDisplayedCharacterCount % frequencyLevel == 0){
+            
+            if (stopAudioSource){
+                audioSource.Stop();
+            }
+
+           
+
+            AudioClip soundClip = null;
+
+            if (makePredictable){
+
+                int hashCode = currentCharacter.GetHashCode();
+
+                int predictableIndex = hashCode % dialogueTypingSoundClips.Length;
+                soundClip = dialogueTypingSoundClips[predictableIndex];
+
+                int minPitchInt = (int) (minPitch * 100);
+                int maxPitchInt = (int) (maxPitch * 100);
+                int pitchRangeInt = maxPitchInt - minPitchInt;
+
+                if(pitchRangeInt != 0){
+
+                    int predictablePitchInt = (hashCode % pitchRangeInt) + minPitchInt;
+                    float predictablePitch = predictablePitchInt / 100f;
+                    audioSource.pitch = predictablePitch;
+
+                }
+                else{
+                    audioSource.pitch = minPitch;
+                }
+
+            }
+            else{
+            
+            int randomIndex = Random.Range(0, dialogueTypingSoundClips.Length);
+            soundClip = dialogueTypingSoundClips[randomIndex];
+            audioSource.pitch = Random.Range(minPitch,maxPitch);
+            audioSource.volume = dialogueVolume;
+            }
+          
+            audioSource.PlayOneShot(soundClip);
+
+        }
     }
 
    private void ShowChoices(DialogueNode node)
