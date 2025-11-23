@@ -83,7 +83,7 @@ MonoBehaviour:
     nextIfA: 
     nextIfB: 
     nextIfC: 
-    goTo: Dialogue 5
+    goTo: END
   - nodeName: Dialogue 5
     text: 2 Soups. One for me and one for Mr. Cabbage.
     hasChoice: 0

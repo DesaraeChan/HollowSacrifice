@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83b234dc7e1d5449a254e5d6c41acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  currentDay: 1
+  currentDay: 4
   Night: 0
   unlockDay: 0
   newsActive: 1
@@ -1210,7 +1210,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Body 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 143e560d47b0eac458d3ace44a770a08, type: 2}
   m_sharedMaterial: {fileID: -1612181358677865598, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1276,7 +1276,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &475133766
@@ -1346,7 +1346,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sincerely, Dad
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 143e560d47b0eac458d3ace44a770a08, type: 2}
   m_sharedMaterial: {fileID: -1612181358677865598, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1377,7 +1377,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1412,7 +1412,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &672498596
@@ -3405,7 +3405,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Body 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 143e560d47b0eac458d3ace44a770a08, type: 2}
   m_sharedMaterial: {fileID: -1612181358677865598, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3436,7 +3436,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -3471,7 +3471,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1226678415
@@ -7316,7 +7316,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dear ___,
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 143e560d47b0eac458d3ace44a770a08, type: 2}
   m_sharedMaterial: {fileID: -1612181358677865598, guid: cc8278ff727f95143bd1680fc52acfe8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7347,7 +7347,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -7382,7 +7382,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2132744029

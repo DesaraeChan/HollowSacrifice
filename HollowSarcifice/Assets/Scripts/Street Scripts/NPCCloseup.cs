@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Linq;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Collider2D))]
 public class NPCCloseup : MonoBehaviour
@@ -49,6 +51,7 @@ public class NPCCloseup : MonoBehaviour
     //public bool DialogueDone => donedialogue;             
     string[] currentLines;
     int index;
+    public Fading fade;
     Coroutine typing;
 
     public Cutscene cutscene;
@@ -59,16 +62,21 @@ public class NPCCloseup : MonoBehaviour
 
 
     public string npcId = "";
+    private int lastChoice = -1; 
+    
 
     [SerializeField] Canvas closeupcanvas;
 
-
+    void Start(){
+        fade = FindFirstObjectByType<Fading>();
+    }
 
 
     void Awake()
     {
         if (dialogueRoot) dialogueRoot.SetActive(false);
         if (choicePanel) choicePanel.SetActive(false);
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -103,6 +111,9 @@ public class NPCCloseup : MonoBehaviour
     if (col) col.enabled = false;
 
         }
+    if(npcId == "SickGuy"){
+            DayManager.Instance.alleyInteractions++;
+        }
 
     
 }
@@ -111,7 +122,53 @@ public class NPCCloseup : MonoBehaviour
     public void StartCloseup(){
         if (DialogueDone) return;
         if (isOpen) return;
+
+        //seller extra dialogue
+        if(DayManager.Instance.currentDay == 4 && npcId == "Seller"){
+            hasChoices = true;
+            introLines = new string[]
+        {
+            "Oh you’re here? I guess I didn’t expect to see you here today.",  "You know there’s a riot happening right?",
+            "You’ve seen it haven’t you? People are dying. Innocent good people.",
+            "I wouldn’t interfere, otherwise I don’t think you’d live to see another day. You’d be fighting your own nation.",
+            "Will you be buying anything today then?"
+        };
+
+        // Replace choice labels
+        choiceALabel = "I think I'll take the day off.";
+        choiceBLabel = "I will still purchase some stock today.";
+
+        // Replace choice response lines safely
+        afterChoiceA = new string[]
+        {
+            "Right, I think the safest option for you would be to hold up at your home."
+        };
+
+        afterChoiceB = new string[]
+        {
+            "Suit Yourself. Don’t say I didn’t warn ya."
+        };
+        }
+
+        //seller Alleyway dialogue
         
+        if(npcId == "SickGuy" && DayManager.Instance.alleyInteractions == 1){
+            introLines = new string[]
+        {
+            "Oh, it’s you. You came back?",  "You left, why would you come back?",
+            "...",
+            "Well, don’t be a stranger. Not like any of us have a choice to be here.",
+            "Atleast we get to look at a nice view.", "Do you ever wonder if your life could be better?", "I think about it everyday if I’m being honest with you."
+        };
+        } else if(npcId == "SickGuy" && DayManager.Instance.alleyInteractions == 2){
+            introLines = new string[]
+        {
+            "I’m glad you’re back again. You’re now my favourite person to talk to.",
+            "I’ve already talked a lot with everyone else in here.",
+            "There’s not much else to do. Nothing really changes around here.",
+            "...", "You’d be surprised how much people have to say when they have nothing better to do.", "Thanks for coming by. I appreciate your company"
+        };
+        }
 
         OpenDialogue();
     }
@@ -119,6 +176,8 @@ public class NPCCloseup : MonoBehaviour
    
     void Update()
     {
+
+        
         // Open/close with E inside trigger
         if (playerInRange && Input.GetKeyDown(interactKey)&& !DialogueDone)
         {
@@ -203,6 +262,19 @@ public class NPCCloseup : MonoBehaviour
         // optional: re-enable movement
         var pm = FindFirstObjectByType<PlayerMovement>();
         if (pm) pm.enabled = true;
+
+        if(DayManager.Instance.currentDay == 4 && npcId == "Seller" && lastChoice == 0) { //choice a
+            StartCoroutine(goHome());
+        }
+        
+    }
+
+    public IEnumerator goHome()
+    {
+        fade.FadeIn();
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("Home");
+        
     }
 
     void StartTypingCurrent()
@@ -251,6 +323,7 @@ public class NPCCloseup : MonoBehaviour
 
     void PickChoice(int idx)
     {
+        lastChoice = idx;
         choicePanel.SetActive(false);
         playedChoice = true;
 

@@ -43,5 +43,18 @@ public class DayDisplay : MonoBehaviour
             SubHeader.text = "Wave of Sudden Illness floods hospitals with No Cure";
             SubBody.text = "Hospitals are swarmed by ill patients at a record breaking pace";
         }
+        else if (DayManager.Instance.currentDay == 3)
+        {
+            Header.text = "The Minsters, Cenavin, Takri and Brecci Come To Zaetia";
+            BodyText.text = "They come to discuss the increasing deaths possibly linked to Solzae";
+            SubHeader.text = "Plab Council Deliberates Future of Zaetian Trade4";
+            SubBody.text = "Plab ministers and board continue to discuss deal regarding Solzae refinement profits.";
+        } else if (DayManager.Instance.currentDay == 4)
+        {
+            Header.text = "BREAKING NEWS";
+            BodyText.text = "Minister Brecci leads revolt against the use of solzae";
+            SubHeader.text = "The fall of Zaetia is imminent";
+            SubBody.text = "Zaetian civil conflict nation wide. Stay home. Riots are targetting public institutions and stores.";
+        }
     }
 }

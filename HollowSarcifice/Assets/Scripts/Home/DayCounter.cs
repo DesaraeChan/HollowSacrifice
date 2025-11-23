@@ -7,7 +7,7 @@ public class DayManager : MonoBehaviour
     public bool Night = false;
     //False = day - True = Night 
     public bool unlockDay = false;
-
+    public int alleyInteractions = 0;
     public bool newsActive = true;
 
     void Awake()

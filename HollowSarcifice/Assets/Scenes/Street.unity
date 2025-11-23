@@ -1517,6 +1517,7 @@ MonoBehaviour:
   afterChoiceB: []
   clickSkipsWhileTyping: 1
   hasChoices: 0
+  fade: {fileID: 1846688592}
   cutscene: {fileID: 2128177496}
   npcId: Seller
   closeupcanvas: {fileID: 854526675}
@@ -4610,7 +4611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83b234dc7e1d5449a254e5d6c41acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  currentDay: 2
+  currentDay: 4
   Night: 0
   unlockDay: 0
   newsActive: 1
@@ -7744,6 +7745,7 @@ MonoBehaviour:
   - "I\u2019ll use this, and won\u2019t waste it AHARHA!"
   clickSkipsWhileTyping: 1
   hasChoices: 1
+  fade: {fileID: 0}
   cutscene: {fileID: 95689911}
   npcId: Homeless
   closeupcanvas: {fileID: 738963589}
@@ -8187,7 +8189,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!225 &1998648472
 CanvasGroup:
   m_ObjectHideFlags: 0
