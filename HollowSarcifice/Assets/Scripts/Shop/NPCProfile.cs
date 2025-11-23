@@ -9,6 +9,25 @@ public class NPCProfile : ScriptableObject
     public DialogueNode[] dialogue;         // the whole conversation graph
     public int startingReputation = 0;
 
+    [Header("Dialogue Audio")]
+public AudioClip[] typingSoundClips;
+
+[Range(-3, 3)]
+public float minPitch = 0.8f;
+
+[Range(-3, 3)]
+public float maxPitch = 1.2f;
+
+[Range(1, 10)]
+public int frequencyLevel = 3;
+
+[Range(0f, 1f)]
+public float volume = 0.7f;
+
+public bool makePredictable = false;
+public bool stopAudioSource = false;
+
+
     [System.Serializable]
     public struct NPCpref //this is a small data structure
     {

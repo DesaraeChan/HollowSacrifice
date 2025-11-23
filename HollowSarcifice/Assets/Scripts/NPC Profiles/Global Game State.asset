@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameState
   reps:
   - type: 0
-    reputation: 5
+    reputation: -1
   - type: 1
-    reputation: 6
+    reputation: 0
   - type: 2
     reputation: 0
   - type: 3

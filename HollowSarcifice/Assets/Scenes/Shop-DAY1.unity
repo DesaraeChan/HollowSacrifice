@@ -808,6 +808,7 @@ MonoBehaviour:
   currentDay: 1
   Night: 0
   unlockDay: 0
+  alleyInteractions: 0
   newsActive: 1
 --- !u!4 &162912239
 Transform:
@@ -1770,6 +1771,13 @@ MonoBehaviour:
   choiceBText: {fileID: 0}
   choiceCText: {fileID: 0}
   textSpeed: 0.03
+  dialogueTypingSoundClips: []
+  stopAudioSource: 0
+  makePredictable: 0
+  frequencyLevel: 3
+  minPitch: 0.5
+  maxPitch: 3
+  dialogueVolume: 0.7
 --- !u!114 &244782302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3708,6 +3716,13 @@ MonoBehaviour:
   choiceBText: {fileID: 1119091715}
   choiceCText: {fileID: 0}
   textSpeed: 0.03
+  dialogueTypingSoundClips: []
+  stopAudioSource: 0
+  makePredictable: 0
+  frequencyLevel: 3
+  minPitch: 0.5
+  maxPitch: 3
+  dialogueVolume: 0.7
 --- !u!114 &1246360317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6301,6 +6316,13 @@ MonoBehaviour:
   choiceBText: {fileID: 0}
   choiceCText: {fileID: 0}
   textSpeed: 0.03
+  dialogueTypingSoundClips: []
+  stopAudioSource: 0
+  makePredictable: 0
+  frequencyLevel: 3
+  minPitch: 0.5
+  maxPitch: 3
+  dialogueVolume: 0.7
 --- !u!114 &1999246405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7231,6 +7253,13 @@ MonoBehaviour:
   choiceBText: {fileID: 1892483994}
   choiceCText: {fileID: 1474793021}
   textSpeed: 0.03
+  dialogueTypingSoundClips: []
+  stopAudioSource: 1
+  makePredictable: 1
+  frequencyLevel: 4
+  minPitch: 1
+  maxPitch: 1
+  dialogueVolume: 0.232
 --- !u!1 &6434726287734155
 GameObject:
   m_ObjectHideFlags: 0
