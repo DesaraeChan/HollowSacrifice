@@ -85,6 +85,7 @@ public class RiotCutscene : MonoBehaviour
 
          if (!string.IsNullOrEmpty(nextSceneName))
         {
+            DayManager.Instance.FinalSequence = true;
             SceneManager.LoadScene(nextSceneName);
         }
     }

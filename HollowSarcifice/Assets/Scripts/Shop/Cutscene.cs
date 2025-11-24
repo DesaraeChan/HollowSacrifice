@@ -128,4 +128,6 @@ public class Cutscene : MonoBehaviour
                 shopCanvas.gameObject.SetActive(true);
         }
     }
+
+    
 }

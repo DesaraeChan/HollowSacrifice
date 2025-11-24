@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class DayManager : MonoBehaviour
 {
     public static DayManager Instance;
@@ -10,6 +10,7 @@ public class DayManager : MonoBehaviour
     public int alleyInteractions = 0;
     public bool newsActive = true;
     public bool homeOrwork = false; //home = false, work = true
+    public bool FinalSequence = false;
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,6 +27,9 @@ public class DayManager : MonoBehaviour
     {
         unlockDay = true;
         currentDay++;
+        if(currentDay == 5){
+            SceneManager.LoadScene("EndCutscene");
+        }
         Night = false;
         Debug.Log("Day advanced to: " + currentDay);
 

@@ -338,7 +338,7 @@ public class NPCCloseup : MonoBehaviour
         fade.FadeIn();
         yield return new WaitForSeconds(1);
         DayManager.Instance.homeOrwork = false;
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadScene("Riot");
         
     }
 

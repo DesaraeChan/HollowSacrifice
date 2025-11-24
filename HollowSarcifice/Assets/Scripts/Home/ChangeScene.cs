@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class ChangeScene : MonoBehaviour
 {
     public Fading fade;
     public Vector2 playerPosition;
     public VectorValue playerStorage;
+    public TMP_Text text;
 
     void Start()
     {
@@ -43,18 +45,28 @@ public class ChangeScene : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void SceneOutside()
     {
-        if(DayManager.Instance.currentDay == 4 && SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount > 10){
-                StartCoroutine(_ChangeSceneDay4Shop());
-        } else{
-        if(!DayManager.Instance.Night){
-                  
-                  FindFirstObjectByType<ShowNews>(FindObjectsInactive.Include).OpenNews();
-        } else {
-                 StartCoroutine(_ChangeScene2DNight());
-             }
-       
-        }
+        if(!DayManager.Instance.FinalSequence){
+            if(DayManager.Instance.currentDay == 4 && SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount > 10){
+                    StartCoroutine(_ChangeSceneDay4Shop());
+            } else{
+            if(!DayManager.Instance.Night){
+                    
+                    FindFirstObjectByType<ShowNews>(FindObjectsInactive.Include).OpenNews();
+            } else {
+                    StartCoroutine(_ChangeScene2DNight());
+                }
         
+            }
+        } else {
+            text.text = "I can't go outside.";
+            StartCoroutine(ShowBedMessage());
+        }
     }
+
+    private IEnumerator ShowBedMessage()
+        {
+    yield return new WaitForSeconds(2f);   // wait 2 seconds (change if you want)
+    text.text = "I think I should go to bed...";
+        }
 
 }
