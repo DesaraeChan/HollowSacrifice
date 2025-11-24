@@ -43,6 +43,23 @@ public class NPCCloseup : MonoBehaviour
     [SerializeField] private bool clickSkipsWhileTyping = true; // left-click to skip current line reveal
 
     [SerializeField] private bool hasChoices = true;
+
+    [Header("Typing Audio")]
+    [SerializeField] private AudioClip[] typingSoundClips;
+    [SerializeField] private bool makePredictable = false;
+    [SerializeField] private bool stopAudioSource = false;
+    [SerializeField] private int frequencyLevel = 3;
+
+    [Range(-3f, 3f)]
+    [SerializeField] private float minPitch = 0.8f;
+    [Range(-3f, 3f)]
+    [SerializeField] private float maxPitch = 1.2f;
+
+    [Range(0f, 1f)]
+    [SerializeField] private float typingVolume = 0.7f;
+
+    private AudioSource typingAudioSource;
+
     // runtime
     bool playerInRange;
     bool isOpen;
@@ -76,6 +93,11 @@ public class NPCCloseup : MonoBehaviour
     {
         if (dialogueRoot) dialogueRoot.SetActive(false);
         if (choicePanel) choicePanel.SetActive(false);
+
+        //adding audio source
+         typingAudioSource = GetComponent<AudioSource>();
+        if (typingAudioSource == null)
+            typingAudioSource = gameObject.AddComponent<AudioSource>();
         
     }
 
@@ -91,6 +113,41 @@ public class NPCCloseup : MonoBehaviour
         playerInRange = false;
         CloseDialogue();
     }
+
+    //same as NPC shop dialogue
+        private void PlayDialogueSound(int currentDisplayedCharacterCount, char currentCharacter)
+    {
+        if (typingSoundClips == null || typingSoundClips.Length == 0)
+            return;
+
+        if (currentDisplayedCharacterCount % frequencyLevel != 0)
+            return;
+
+        if (stopAudioSource)
+            typingAudioSource.Stop();
+
+        AudioClip clip;
+
+        if (makePredictable)
+        {
+            int hash = currentCharacter.GetHashCode();
+            int idx = Mathf.Abs(hash) % typingSoundClips.Length;
+            clip = typingSoundClips[idx];
+
+            // predictable pitch within min/max
+            float t = (Mathf.Abs(hash) % 100) / 100f; // 0..1
+            typingAudioSource.pitch = Mathf.Lerp(minPitch, maxPitch, t);
+        }
+        else
+        {
+            clip = typingSoundClips[Random.Range(0, typingSoundClips.Length)];
+            typingAudioSource.pitch = Random.Range(minPitch, maxPitch);
+        }
+
+        typingAudioSource.volume = typingVolume;
+        typingAudioSource.PlayOneShot(clip);
+    }
+
 
     void FinishDialogue()
 {
@@ -141,7 +198,7 @@ public class NPCCloseup : MonoBehaviour
         // Replace choice response lines safely
         afterChoiceA = new string[]
         {
-            "Right, I think the safest option for you would be to hold up at your home."
+            "Right, I think the safest option for you would be to hole up at your home."
         };
 
         afterChoiceB = new string[]
@@ -200,6 +257,9 @@ public class NPCCloseup : MonoBehaviour
                     StopCoroutine(typing);
                     typing = null;
                     textBox.text = currentLines[index];
+
+                    //stop audio from playing when skipping
+                    typingAudioSource.Stop();
                 }
                 return;
             }
@@ -268,6 +328,8 @@ public class NPCCloseup : MonoBehaviour
         } else if (DayManager.Instance.currentDay == 4 && npcId == "Seller" && lastChoice == 1){
             DayManager.Instance.homeOrwork = true;
         }
+
+        if (typingAudioSource) typingAudioSource.Stop();
         
     }
 
@@ -290,12 +352,18 @@ public class NPCCloseup : MonoBehaviour
     {
         textBox.text = "";
         float d = Mathf.Max(0f, charDelay);
+
+        int charCount = 0;
         foreach (char c in line)
         {
             textBox.text += c;
+            charCount++;
+
+            PlayDialogueSound(charCount, c);
             if (d > 0f) yield return new WaitForSeconds(d);
             else yield return null;
         }
+        typingAudioSource.Stop();
         typing = null;
     }
 

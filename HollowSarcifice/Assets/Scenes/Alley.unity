@@ -192,6 +192,15 @@ MonoBehaviour:
   afterChoiceB: []
   clickSkipsWhileTyping: 1
   hasChoices: 0
+  typingSoundClips:
+  - {fileID: 8300000, guid: f8a27a064d55ada449fd3126f82ef8df, type: 3}
+  - {fileID: 8300000, guid: 25ba3fedb0c6fb241901f0de0c954eb7, type: 3}
+  makePredictable: 1
+  stopAudioSource: 1
+  frequencyLevel: 4
+  minPitch: 0.16
+  maxPitch: 0.49
+  typingVolume: 0.7
   fade: {fileID: 0}
   cutscene: {fileID: 1907046164}
   npcId: SickGuy

@@ -172,10 +172,11 @@ MonoBehaviour:
   startingReputation: 0
   typingSoundClips:
   - {fileID: 8300000, guid: 641ad85ffa4677845ad2672aa82e4b9f, type: 3}
+  - {fileID: 8300000, guid: 4b6304bd0e8b72d478858d9694a1ad54, type: 3}
   minPitch: 0.5
   maxPitch: 1.5
   frequencyLevel: 4
-  volume: 0.7
+  volume: 1
   makePredictable: 1
   stopAudioSource: 1
   npcprefs:
