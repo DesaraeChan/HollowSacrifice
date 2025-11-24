@@ -9,7 +9,7 @@ public class DayManager : MonoBehaviour
     public bool unlockDay = false;
     public int alleyInteractions = 0;
     public bool newsActive = true;
-
+    public bool homeOrwork = false; //home = false, work = true
     void Awake()
     {
         if (Instance != null && Instance != this)

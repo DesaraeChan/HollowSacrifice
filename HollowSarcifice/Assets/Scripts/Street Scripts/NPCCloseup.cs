@@ -265,6 +265,8 @@ public class NPCCloseup : MonoBehaviour
 
         if(DayManager.Instance.currentDay == 4 && npcId == "Seller" && lastChoice == 0) { //choice a
             StartCoroutine(goHome());
+        } else if (DayManager.Instance.currentDay == 4 && npcId == "Seller" && lastChoice == 1){
+            DayManager.Instance.homeOrwork = true;
         }
         
     }
@@ -273,6 +275,7 @@ public class NPCCloseup : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
+        DayManager.Instance.homeOrwork = false;
         SceneManager.LoadScene("Home");
         
     }
