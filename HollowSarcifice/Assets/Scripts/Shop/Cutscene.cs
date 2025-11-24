@@ -18,6 +18,10 @@ public class Cutscene : MonoBehaviour
     public float textSpeed;
     public NPCStock shopCanvas;
 
+    [SerializeField] private AudioSource lineSoundSource;
+    [SerializeField] private AudioClip[] lineSoundClips;
+
+
     public bool inNPCZone = false;
     public bool allowSkip = true;
 
@@ -25,6 +29,10 @@ public class Cutscene : MonoBehaviour
 
     private int index;
     private int slideshowIndex;
+
+    private Coroutine typingRoutine;     // track typing only
+    private Coroutine fadeRoutine;       // track line sound fade only
+    
 
     void Start()
     {
@@ -48,6 +56,17 @@ public class Cutscene : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && (!inNPCZone || allowSkip))
         {
+             // If still typing, skip to end of line
+            if (typingRoutine != null)
+            {
+                StopCoroutine(typingRoutine);
+                typingRoutine = null;
+                textComponent.text = lines[index];
+
+                //StopLineSoundImmediately(); // stop cleanly on skip (no coroutines killed)
+                return;
+            }
+
             if (textComponent.text == lines[index])
             {
                 NextLine();
@@ -75,6 +94,8 @@ public class Cutscene : MonoBehaviour
         textComponent.text = string.Empty;
         index = 0;
         slideshowIndex = 0;
+
+        PlayCurrentLineSound();
 
         StartCoroutine(TypeLine());
     }
@@ -110,7 +131,7 @@ public class Cutscene : MonoBehaviour
         if (index < lines.Length - 1)
         {
             index++;
-
+            
             // Safe slideshow swaps
             if (index == 2 && slideshow != null && slideshow.Length > 1)
                 slideshowIndex = 1;
@@ -118,6 +139,7 @@ public class Cutscene : MonoBehaviour
                 slideshowIndex = 2;
 
             textComponent.text = string.Empty;
+            PlayCurrentLineSound(); 
             StartCoroutine(TypeLine());
         }
         else
@@ -128,4 +150,51 @@ public class Cutscene : MonoBehaviour
                 shopCanvas.gameObject.SetActive(true);
         }
     }
+
+    void PlayCurrentLineSound()
+{
+    if (lineSoundSource == null || lineSoundClips == null || lineSoundClips.Length == 0)
+        return;
+
+    int clipIndex = index % lineSoundClips.Length;
+    AudioClip clip = lineSoundClips[clipIndex];
+
+    if(fadeRoutine !=null){
+        StopCoroutine(fadeRoutine);
+    }
+
+        fadeRoutine = StartCoroutine(PlayLineSoundFaded(clip));
+    }
+
+
+IEnumerator PlayLineSoundFaded(AudioClip clip)
+{
+    // quick fade out if something is playing
+    float fadeTime = 0.02f; // 20ms = enough to kill clicks
+    float startVol = lineSoundSource.volume;
+
+    if (lineSoundSource.isPlaying)
+    {
+        for (float t = 0; t < fadeTime; t += Time.deltaTime)
+        {
+            lineSoundSource.volume = Mathf.Lerp(startVol, 0f, t / fadeTime);
+            yield return null;
+        }
+        lineSoundSource.volume = 0f;
+        lineSoundSource.Stop();
+    }
+
+    // play new tone
+    lineSoundSource.PlayOneShot(clip);
+
+    // quick fade in
+    for (float t = 0; t < fadeTime; t += Time.deltaTime)
+    {
+        lineSoundSource.volume = Mathf.Lerp(0f, startVol, t / fadeTime);
+        yield return null;
+    }
+    lineSoundSource.volume = startVol;
+}
+
+
 }
