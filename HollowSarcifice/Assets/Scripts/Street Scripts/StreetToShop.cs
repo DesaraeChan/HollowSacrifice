@@ -27,6 +27,10 @@ public class StreetToShop : MonoBehaviour
         else if (DayManager.Instance.currentDay == 2)
         {
             SceneManager.LoadScene("Shop-DAY2");
+        } else if (DayManager.Instance.currentDay == 3){
+            SceneManager.LoadScene("Shop-DAY3");
+        } else if (DayManager.Instance.currentDay == 4){
+            SceneManager.LoadScene("Shop-DAY4");
         }
          
 

@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
+  m_Name: MinerV4 NPC Profile
+  m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
+  displayName: Miner
+  type: 2
+  portraitSprite: {fileID: 0}
+  dialogue:
+  - nodeName: Dialogue 1
+    text: Ay, I saw you lights were on. Are you still open today?
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 2
+  - nodeName: Dialogue 2
+    text: Be careful today. The riot is coming towards this street.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 3
+  - nodeName: Dialogue 3
+    text: "It isn\u2019t safe for you to sell today just a heads up. It would hide
+      at home if I were you.\n"
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 4
+  - nodeName: Dialogue 4
+    text: "There\u2019s still time before-"
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 5
+  - nodeName: Dialogue 5
+    text: WATCH OUT!
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: 
+  startingReputation: 0
+  typingSoundClips:
+  - {fileID: 8300000, guid: 5afb695f1d18ede43b29e4049017e11a, type: 3}
+  - {fileID: 8300000, guid: 96a709757f326784590e23681b40d2e8, type: 3}
+  minPitch: 0.6
+  maxPitch: 0.9
+  frequencyLevel: 4
+  volume: 0.05
+  makePredictable: 1
+  stopAudioSource: 1
+  npcprefs:
+  - category: 0
+    repDelta: 1
+    nextNode: 
+  - category: 7
+    repDelta: -1
+    nextNode: 
+  - category: 4
+    repDelta: 0
+    nextNode: 
+  - category: 5
+    repDelta: -1
+    nextNode: 
