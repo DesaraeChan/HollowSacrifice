@@ -4,16 +4,16 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     [Header("Player Money")]
-    public int money;
-    public MoneyCounter countermoney;                     // the actual player money value
+   // public int money;
+   // public MoneyCounter countermoney;                     // the actual player money value
     public TMP_Text moneyText;            // UI text showing the money
 
     private void Start()
     {
         // Initialize the UI text when the game starts
         if (moneyText != null)
-        {
-            moneyText.text = countermoney.money.ToString();
+         {
+            moneyText.text = MoneyCounter.Instance.money.ToString();
         }
         else
         {
@@ -34,8 +34,8 @@ public class InventoryManager : MonoBehaviour
 
     DontDestroyOnLoad(gameObject);
 
-     if (countermoney == null)
-    countermoney = MoneyCounter.Instance;
+    // if (countermoney == null)
+    //countermoney = MoneyCounter.Instance;
 }
 
 
@@ -44,7 +44,7 @@ public class InventoryManager : MonoBehaviour
         // Call this anytime the money value changes
         if (moneyText != null)
         {
-            moneyText.text = countermoney.money.ToString();
+            moneyText.text = MoneyCounter.Instance.money.ToString();
         }
     }
 }

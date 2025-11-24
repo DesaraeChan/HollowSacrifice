@@ -811,6 +811,7 @@ MonoBehaviour:
   alleyInteractions: 0
   newsActive: 1
   homeOrwork: 0
+  FinalSequence: 0
 --- !u!4 &162912239
 Transform:
   m_ObjectHideFlags: 0
@@ -4368,8 +4369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 746e1f8f2ebcf354e89b4b6c03f96a8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  money: 0
-  countermoney: {fileID: 2003558773}
   moneyText: {fileID: 1637734955}
 --- !u!1 &1402579292
 GameObject:
