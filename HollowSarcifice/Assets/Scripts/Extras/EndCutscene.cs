@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class EndCutscene : MonoBehaviour
@@ -13,9 +14,12 @@ public class EndCutscene : MonoBehaviour
   
 
     public TextMeshProUGUI textComponent;
+    public Image cutscene;
 
     
     public string[] lines;
+    public Sprite[] slideshow;
+    public int[] imageSwap;
     public float textSpeed;
     public NPCStock shopCanvas;
 
@@ -32,6 +36,8 @@ public class EndCutscene : MonoBehaviour
     {
        textComponent.text = string.Empty;
        StartDialogue();
+       if(slideshow.Length > 0) cutscene.sprite = slideshow[0];
+       //change this later to make it change if family is made
     }
 
     // Update is called once per frame

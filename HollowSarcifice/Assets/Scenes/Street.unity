@@ -378,6 +378,9 @@ MonoBehaviour:
   textComponent: {fileID: 1182265924}
   lines:
   - ' You! Yes you. Come over here.'
+  slideshow:
+  - {fileID: 0}
+  cutscene: {fileID: 0}
   textSpeed: 0.05
   shopCanvas: {fileID: 0}
   inNPCZone: 0
@@ -4614,6 +4617,7 @@ MonoBehaviour:
   currentDay: 4
   Night: 0
   unlockDay: 0
+  alleyInteractions: 0
   newsActive: 1
 --- !u!4 &1394473338
 Transform:
@@ -5151,7 +5155,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  startPosition: {fileID: 0}
+  startPosition: {fileID: 11400000, guid: 6be255cec1fa3d742b50766b265c84f8, type: 2}
 --- !u!58 &1520861553
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8838,6 +8842,8 @@ MonoBehaviour:
   textComponent: {fileID: 2106113666}
   lines:
   - ' So what''ll it be today?'
+  slideshow: []
+  cutscene: {fileID: 0}
   textSpeed: 0.05
   shopCanvas: {fileID: 0}
   inNPCZone: 0
