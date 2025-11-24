@@ -1520,6 +1520,15 @@ MonoBehaviour:
   afterChoiceB: []
   clickSkipsWhileTyping: 1
   hasChoices: 0
+  typingSoundClips:
+  - {fileID: 8300000, guid: 4af6a1ab8775a9649b046f5f92cb8ccc, type: 3}
+  - {fileID: 8300000, guid: e9e10d8a2e67f1f4d83e48cfdf090092, type: 3}
+  makePredictable: 1
+  stopAudioSource: 1
+  frequencyLevel: 4
+  minPitch: 0.8
+  maxPitch: 1
+  typingVolume: 0.7
   fade: {fileID: 1846688592}
   cutscene: {fileID: 2128177496}
   npcId: Seller
@@ -7749,6 +7758,15 @@ MonoBehaviour:
   - "I\u2019ll use this, and won\u2019t waste it AHARHA!"
   clickSkipsWhileTyping: 1
   hasChoices: 1
+  typingSoundClips:
+  - {fileID: 8300000, guid: 2a4ddc9737ac675439b54ed236c54ef7, type: 3}
+  - {fileID: 8300000, guid: b086c408203cb68428f13fba6b284d6f, type: 3}
+  makePredictable: 1
+  stopAudioSource: 1
+  frequencyLevel: 4
+  minPitch: 0.75
+  maxPitch: 0.95
+  typingVolume: 0.7
   fade: {fileID: 0}
   cutscene: {fileID: 95689911}
   npcId: Homeless
