@@ -352,7 +352,7 @@ public void JumpToNode(string nodeName)
             audioSource.pitch = Random.Range(minPitch,maxPitch);
             audioSource.volume = dialogueVolume;
             }
-          
+            audioSource.volume = dialogueVolume;
             audioSource.PlayOneShot(soundClip);
 
         }
