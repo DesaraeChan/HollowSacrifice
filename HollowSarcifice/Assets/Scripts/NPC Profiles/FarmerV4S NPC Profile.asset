@@ -112,12 +112,12 @@ MonoBehaviour:
   typingSoundClips:
   - {fileID: 8300000, guid: b8de314f935994a48bc7f47b3045ed0f, type: 3}
   - {fileID: 8300000, guid: 5afb695f1d18ede43b29e4049017e11a, type: 3}
-  minPitch: 0.8
-  maxPitch: 1.2
-  frequencyLevel: 3
-  volume: 0.7
-  makePredictable: 0
-  stopAudioSource: 0
+  minPitch: 0.9
+  maxPitch: 1.3
+  frequencyLevel: 4
+  volume: 0.05
+  makePredictable: 1
+  stopAudioSource: 1
   npcprefs:
   - category: 0
     repDelta: 1
