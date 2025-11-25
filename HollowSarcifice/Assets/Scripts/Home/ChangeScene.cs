@@ -21,6 +21,7 @@ public class ChangeScene : MonoBehaviour
         yield return new WaitForSeconds(1);
         playerStorage.initialValue = playerPosition;
         SceneManager.LoadScene("Street");
+        SoundManager.Instance.PlaySFX("HomeDoorOpen");
         
     }
 
@@ -52,6 +53,7 @@ public class ChangeScene : MonoBehaviour
             if(!DayManager.Instance.Night){
                     
                     FindFirstObjectByType<ShowNews>(FindObjectsInactive.Include).OpenNews();
+                      
             } else {
                     StartCoroutine(_ChangeScene2DNight());
                 }
@@ -59,6 +61,7 @@ public class ChangeScene : MonoBehaviour
             }
         } else {
             text.text = "I can't go outside.";
+            SoundManager.Instance.PlaySFX("GoWork");
             StartCoroutine(ShowBedMessage());
         }
     }
@@ -67,6 +70,7 @@ public class ChangeScene : MonoBehaviour
         {
     yield return new WaitForSeconds(2f);   // wait 2 seconds (change if you want)
     text.text = "I think I should go to bed...";
+   
         }
 
 }

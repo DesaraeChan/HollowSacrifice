@@ -20,12 +20,14 @@ public class ShowNews : MonoBehaviour
         if(DayManager.Instance.newsActive == false)
         {
             News.SetActive(false);
+         
         }
     }
 
     public void OpenNews()
     {
         News.SetActive(true);
+        SoundManager.Instance.PlaySFX("Newspaper");
         DayManager.Instance.newsActive = true;
     }
 

@@ -35,12 +35,16 @@ public class OpenMoneyMenu : MonoBehaviour
         if (DayManager.Instance.unlockDay)
         {
             Debug.Log("Its time to go to work");
+            //play not allowed ot sleep sound here
+            SoundManager.Instance.PlaySFX("GoWork");
             return;
         }
 
         if (Canvas != null)
         {
+            EventSystem.current.SetSelectedGameObject(null); 
             Canvas.SetActive(true);
+            SoundManager.Instance.PlaySFX("BedSound");
         }
     }
 
