@@ -17,3 +17,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: a40b6100ae1c48442900545b6a6354c5, type: 3}
   price: 0
   category: 1
+  dragStartSfxId: BowlDrag
+  dropStartSfxId: BowlDrop

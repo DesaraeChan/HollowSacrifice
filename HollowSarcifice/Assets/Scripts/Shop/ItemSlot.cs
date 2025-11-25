@@ -9,6 +9,8 @@ public class ItemSlot : MonoBehaviour, IDropHandler
 
     [SerializeField] private ShopManager shopManager;
 
+    private ItemSO itemSO;
+
 
 // CurrentItem points to what item is currently in the slot
 //{get; private set;}  makes this a property instead of a plain variable
@@ -20,6 +22,7 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData e)
     {
         //pointerDrag is the obj being dragged, when mouse relased over slot call OnDrop()
+       
         var go = e.pointerDrag;
         if (!go) return;
 
@@ -71,6 +74,7 @@ itemRT.anchoredPosition = localPt;
 
     //Sets wasdropped to true so obj snaps to slot and not home pos
         dragItem.WasDropped  = true;
+         
         // records which slot the item is in
         dragItem.CurrentItemSlot = this;
 
@@ -78,7 +82,11 @@ itemRT.anchoredPosition = localPt;
 
         if (dragItem.itemSO){
             Debug.Log($" {dragItem.itemSO.itemName} (${dragItem.itemSO.price})");
-        }
+                if (!string.IsNullOrEmpty(dragItem.itemSO.dropStartSfxId))
+            SoundManager.Instance.PlaySFX(dragItem.itemSO.dropStartSfxId);
+        else
+            Debug.LogWarning("dropStartSfxId is empty on this ItemSO");
+            }
 
         if (shopManager){
             shopManager.RecalculateTotal();

@@ -28,7 +28,8 @@ public class MoneyCounter : MonoBehaviour
                 sentToFamily++;
             }
             money -= setAmount();
-            DayManager.Instance.NextDay();
+            SoundManager.Instance.PlaySFX("Money");
+               DayManager.Instance.NextDay();
         } else
         {
             Debug.Log("You poor");

@@ -111,6 +111,10 @@ public void OnBeginDrag(PointerEventData e)
 
     if (spawnCloneOnDrag)
     {
+        if (itemSO != null && !string.IsNullOrEmpty(itemSO.dragStartSfxId))
+         SoundManager.Instance.PlaySFX(itemSO.dragStartSfxId);
+
+        
         var parent = dragLayer ? dragLayer :
                      (canvas ? canvas.transform as RectTransform : (RectTransform)transform.parent);
 
@@ -210,6 +214,8 @@ public void OnBeginDrag(PointerEventData e)
             
             if (itemBeingDragged != null)
             {
+                
+
                 bool isUnslottable = itemBeingDragged.CompareTag("NotSlottable"); //tag for not slottable item
                 // If a slot didn’t mark it as dropped, destroy the clone
                 if (isUnslottable || !itemBeingDragged.WasDropped)
@@ -238,6 +244,8 @@ public void OnBeginDrag(PointerEventData e)
             // If you prefer reverting to home instead of destroying, swap these lines:
             // Rect.anchoredPosition = homePos;
             // CurrentSlot = null;
+            if (itemSO != null )
+                SoundManager.Instance.PlaySFX("ItemDrop");
             Destroy(gameObject);
             return;
         }

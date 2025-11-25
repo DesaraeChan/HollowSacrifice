@@ -62,6 +62,8 @@ public void OnOutroBeginSafe()
     
     if (outroFired) return;
     outroFired = true;
+     SoundManager.Instance.PlaySFX("ShopFootsteps");
+     
 
     // Hide UI and trigger exit
     if (dialogueBox != null) dialogueBox.SetActive(false);
@@ -158,6 +160,7 @@ private void TryActivatePermanentItem()
     // 1) Apply reputation if there is a delta
     if (repDelta != 0 && currentNPC != null)
         ApplyReputation(currentNPC.type, repDelta);
+       
 
    
    
@@ -214,6 +217,9 @@ private bool NodeExistsInMain(string nodeName)
         }
 //change this so that it shows after anim is done
         characterAnimator.SetTrigger("Character_Enter");
+
+        SoundManager.Instance.PlaySFX("ShopFootsteps");
+        SoundManager.Instance.PlaySFX("ShopDoor");
         
         Debug.Log("[CharacterManager] SetTrigger(Character_Enter) fired.");
         
@@ -231,6 +237,8 @@ private bool NodeExistsInMain(string nodeName)
 
         OnReputationApplied?.Invoke(delta); //anything subscribed to onrepapplied gets called when rep is applied
     }
+
+
 
     public void ShowTextBox() //this is an animation event
 {

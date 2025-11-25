@@ -542,6 +542,7 @@ public void RecalculateTotal()
 public void SellAllInSlots()
 {
     
+   
     if (selling) return;
     selling = true;
 
@@ -563,6 +564,9 @@ public void SellAllInSlots()
         if (IsSellable(item.itemSO))
         {
             localTotal += item.itemSO.price;
+            //play button sound
+            SoundManager.Instance.PlaySFX("BellPress");
+            CharacterManager.OnReputationApplied?.Invoke(repSum);
            // MoneyCounter.Instance.money += localTotal;
             soldItems.Add(item);
         }
@@ -587,6 +591,7 @@ public void SellAllInSlots()
     {
         MoneyCounter.Instance.money += localTotal;
         inventoryManager.UpdateMoneyUI();
+        SoundManager.Instance.PlaySFX("Money");
     }
 
     // 3) Reputation / follow-up node based only on sold items
@@ -609,6 +614,8 @@ public void SellAllInSlots()
 
     if (owner != null)
         owner.OnItemsSoldResult(repSum, chosenNode);
+        
+ 
 
     // 4) Clear sold items
     foreach (var sold in soldItems)

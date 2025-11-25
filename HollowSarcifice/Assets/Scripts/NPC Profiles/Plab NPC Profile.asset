@@ -86,7 +86,7 @@ MonoBehaviour:
     goTo: END
   - nodeName: Option C
     text: 'I think that the shopkeeper has a choice but that choice should be based
-      on  their character. '
+      on their character. '
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -142,7 +142,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Negative
-    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do.Thank
+    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do. Thank
       you for your service. \n"
     hasChoice: 0
     choiceAText: 
@@ -189,6 +189,6 @@ MonoBehaviour:
   - category: 4
     repDelta: -1
     nextNode: 
-  - category: 5
+  - category: 0
     repDelta: 0
     nextNode: 

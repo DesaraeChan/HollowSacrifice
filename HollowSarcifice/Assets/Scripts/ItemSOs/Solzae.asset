@@ -17,3 +17,6 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 92b663d7fe8971649bbb1e090b0cfc90, type: 3}
   price: 0
   category: 6
+  dragStartSfxId: SolzaeGrab
+  dropStartSfxId: SolzaeDrop
+  onCombineResultSfxId: 

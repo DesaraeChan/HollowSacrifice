@@ -32,6 +32,7 @@ public class DragCombine : MonoBehaviour
 
     private bool combinedOnce;
 
+
     void Awake()
     {
         // if (!host) host = GetComponent<DragDrop>();
@@ -56,6 +57,8 @@ public class DragCombine : MonoBehaviour
         // Decide result ItemSO
         var result = ResolveResultSO(host?.itemSO, incoming.itemSO);
         if (result == null) return;
+
+        PlayResultSound(result);
 
         // Swap host to result (updates sprite/name/price)
         // Your DragDrop has InitializeItem(ItemSO, int)
@@ -99,5 +102,18 @@ public class DragCombine : MonoBehaviour
 
         // 3) Fallback result (explicit)
         return fallbackResultSO;
+    }
+
+     private void PlayResultSound(ItemSO result)
+    {
+        if (result == null) return;
+        if (SoundManager.Instance == null) return;
+
+        // uses ItemSO's own id
+        if (!string.IsNullOrEmpty(result.onCombineResultSfxId))
+        {
+            SoundManager.Instance.PlaySFX(result.onCombineResultSfxId);
+
+        }
     }
 }

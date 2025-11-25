@@ -73,6 +73,8 @@ public class CombineTarget : MonoBehaviour
             return false;
         }
 
+         PlayResultSound(result);
+
         host.InitializeItem(result, result.price);
 
         if (verboseLogs)
@@ -109,4 +111,19 @@ public class CombineTarget : MonoBehaviour
         }
         return null;
     }
+
+    private void PlayResultSound(ItemSO result)
+    {
+        if (result == null) return;
+        if (SoundManager.Instance == null) return;
+
+        // uses ItemSO's own id
+        if (!string.IsNullOrEmpty(result.onCombineResultSfxId))
+        {
+            SoundManager.Instance.PlaySFX(result.onCombineResultSfxId);
+
+            if (verboseLogs)
+                Debug.Log($"[CombineTarget:{name}] Played result SFX '{result.onCombineResultSfxId}' for '{result.name}'");
+        }
+    } 
 }

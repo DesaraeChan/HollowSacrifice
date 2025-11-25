@@ -11,11 +11,11 @@ public class RepPopupUI : MonoBehaviour
         CharacterManager.OnReputationApplied += HandleRep;
     }
 
-    void OnDisable()
-    {
-        Debug.Log("[RepPopupUI] Disabled, unsubscribing from OnReputationApplied");
-        CharacterManager.OnReputationApplied -= HandleRep;
-    }
+    // void OnDisable()
+    // {
+    //     Debug.Log("[RepPopupUI] Disabled, unsubscribing from OnReputationApplied");
+    //     CharacterManager.OnReputationApplied -= HandleRep;
+    // }
 
     private void HandleRep(int delta)
     {
@@ -24,12 +24,26 @@ public class RepPopupUI : MonoBehaviour
         if (delta == 0) return;
 
         if (amountText){
-            if (delta > 0)
+            if (delta > 0){
                 amountText.text = $"+{delta} Rep Point";
-            else
+                SoundManager.Instance.PlaySFX("RepUp");
+            }else{
                 amountText.text = $"{delta} Rep Point";
+                SoundManager.Instance.PlaySFX("RepDown");
+            }
+                
         }
 
-        if (animator) animator.SetTrigger(delta > 0 ? "Up" : "Down");
+        if (animator) 
+        {
+             string stateName = delta> 0 ? "Up" : "Down";
+
+        // Force the animation to restart even if already in that state
+        animator.Play(stateName, 0, 0f);
+        }
+       
+        //animator.SetTrigger(delta > 0 ? "Up" : "Down");
+
+        
     }
 }
