@@ -3314,8 +3314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c9de7bf066fc145abc426b50e61ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
-  solzaeSoupCount: 5
-  solzaeGearCount: 5
+  solzaeSoupCount: 0
+  solzaeGearCount: 0
   threshold: 4
   cutsceneTriggered: 0
 --- !u!4 &948917581
@@ -4558,6 +4558,7 @@ GameObject:
   - component: {fileID: 1233763002}
   - component: {fileID: 1233763000}
   - component: {fileID: 1233763004}
+  - component: {fileID: 1233763005}
   m_Layer: 0
   m_Name: Window Sprite
   m_TagString: Untagged
@@ -4696,6 +4697,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.8, y: 3.23}
   m_EdgeRadius: 0
+--- !u!114 &1233763005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233762999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80591b1b0ffff5c40a6d7bac464da4e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoverSwapWindow
+  Images:
+  - {fileID: -4882918461518551987, guid: df5132b546fe6124aaf0dc68c9d5aae6, type: 3}
+  - {fileID: 8782512053172796616, guid: 715509452adc91c448f2ffbea8885426, type: 3}
+  - {fileID: 8050699660332863169, guid: a6a33d2cf84576142a48b545ed84f149, type: 3}
+  - {fileID: 7007096443540625540, guid: 1082462f03ef5b7469ffcf34462afeb5, type: 3}
+  ImageHover:
+  - {fileID: 2686617765436475272, guid: 11baaceb1c090cd4e84adfb57014aaa8, type: 3}
+  - {fileID: 828565588967573800, guid: c773e2626f4010b43ac947395f8bf91d, type: 3}
+  - {fileID: 7669102838955425694, guid: c695ab1914e7eb143bdd37c6f99bf455, type: 3}
+  - {fileID: 128981587287315132, guid: fba5cd4f30408904993b12c4c2df4921, type: 3}
 --- !u!1 &1236718479
 GameObject:
   m_ObjectHideFlags: 0
@@ -6516,7 +6539,6 @@ GameObject:
   - component: {fileID: 1680536379}
   - component: {fileID: 1680536378}
   - component: {fileID: 1680536381}
-  - component: {fileID: 1680536382}
   m_Layer: 0
   m_Name: Window
   m_TagString: Untagged
@@ -6631,7 +6653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -4882918461518551987, guid: df5132b546fe6124aaf0dc68c9d5aae6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6664,28 +6686,6 @@ MonoBehaviour:
   tooltipPanel: {fileID: 861041945}
   tooltipText: {fileID: 1585962039}
   offset: {x: -75, y: -25}
---- !u!114 &1680536382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1680536376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80591b1b0ffff5c40a6d7bac464da4e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoverSwapWindow
-  Images:
-  - {fileID: -4882918461518551987, guid: df5132b546fe6124aaf0dc68c9d5aae6, type: 3}
-  - {fileID: 8782512053172796616, guid: 715509452adc91c448f2ffbea8885426, type: 3}
-  - {fileID: 8050699660332863169, guid: a6a33d2cf84576142a48b545ed84f149, type: 3}
-  - {fileID: 7007096443540625540, guid: 1082462f03ef5b7469ffcf34462afeb5, type: 3}
-  ImageHover:
-  - {fileID: 2686617765436475272, guid: 11baaceb1c090cd4e84adfb57014aaa8, type: 3}
-  - {fileID: 828565588967573800, guid: c773e2626f4010b43ac947395f8bf91d, type: 3}
-  - {fileID: 7669102838955425694, guid: c695ab1914e7eb143bdd37c6f99bf455, type: 3}
-  - {fileID: 128981587287315132, guid: fba5cd4f30408904993b12c4c2df4921, type: 3}
 --- !u!1 &1708479901
 GameObject:
   m_ObjectHideFlags: 0
