@@ -17,12 +17,14 @@ public class StreetToShop : MonoBehaviour
     public IEnumerator _ChangeSceneShop()
     {
 
-
+        
         fade.FadeIn();
+      
         yield return new WaitForSeconds(1);
 
         if(DayManager.Instance.currentDay == 1){
             SceneManager.LoadScene("Shop-DAY1");
+            
         }
         else if (DayManager.Instance.currentDay == 2)
         {
@@ -44,6 +46,7 @@ public class StreetToShop : MonoBehaviour
     public void SceneShop()
     {
         StartCoroutine(_ChangeSceneShop());
+       
     }
 
     
@@ -56,12 +59,19 @@ public class StreetToShop : MonoBehaviour
         // Check for input when player is inside collider
         if (playerInRange && Input.GetKeyDown(interactKey) && hasInventory)
         {
+               SoundManager.Instance.PlaySFX("ShopDoor"); 
             SceneShop();
+           
         }
+       
+          
+
+                  
 
         if(playerInRange && Input.GetKeyDown(interactKey) && !hasInventory)
         {
             Debug.Log("you need to get stock for the day");
+        
         }
         
     }

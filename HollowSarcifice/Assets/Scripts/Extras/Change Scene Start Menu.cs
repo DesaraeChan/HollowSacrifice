@@ -12,7 +12,7 @@ public class ChangeSceneStartMenu : MonoBehaviour
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadScene("IntroCutscene");
         
     }
 

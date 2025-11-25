@@ -43,6 +43,7 @@ public class StreetSceneChanger : MonoBehaviour
         // Check for input when player is inside collider
         if (playerInRange && Input.GetKeyDown(interactKey))
         {
+            SoundManager.Instance.PlaySFX("HomeDoor"); 
             SceneHome();
         }
         
