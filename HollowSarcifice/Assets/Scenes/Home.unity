@@ -3314,8 +3314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c9de7bf066fc145abc426b50e61ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
-  solzaeSoupCount: 0
-  solzaeGearCount: 0
+  solzaeSoupCount: 3
+  solzaeGearCount: 2
   threshold: 4
   cutsceneTriggered: 0
 --- !u!4 &948917581

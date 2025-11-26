@@ -3,6 +3,7 @@ using UnityEngine;
 public class SolzaeTrigger : MonoBehaviour
 {
     public VignettePulse vignettePulse;   // assign in Inspector
+    [SerializeField] GameObject vignettePulseSound;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class SolzaeTrigger : MonoBehaviour
 
         if (combined >= 4)
         {
+            vignettePulseSound.SetActive(true);
             // whatever else you already do (animations etc)
             if (vignettePulse != null)
                 vignettePulse.PlayPulse();

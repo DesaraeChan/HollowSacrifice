@@ -50,24 +50,7 @@ public class SaleTracker : MonoBehaviour
         //CheckCutsceneCondition();
     }
 
-    // private void CheckCutsceneCondition()
-    // {
-    //     if (cutsceneTriggered) return;
 
-    //     int total = solzaeSoupCount + solzaeGearCount;
-
-    //     if (total >= threshold)
-    //     {
-    //         cutsceneTriggered = true;
-
-    //         Debug.Log(">>> CUTSCENE SHOULD PLAY NOW!");
-
-    //         // Example for Sleep in Day:
-    //         // SceneManager.LoadScene("SolzaeCutscene");
-
-            
-    //     }
-    // }
 
     public void AddSale(ItemSO item)
     {
