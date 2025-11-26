@@ -174,3 +174,9 @@ MonoBehaviour:
   - category: 5
     repDelta: -1
     nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
+    repDelta: -1
+    nextNode: 

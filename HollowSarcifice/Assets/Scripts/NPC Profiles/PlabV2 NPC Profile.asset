@@ -154,8 +154,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Neutral
-    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do.Thank
-      you for your service. \n"
+    text: "Mmm that\u2019s only half right. Tch. It\u2019s fine, thank you for the
+      food. "
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -188,4 +188,10 @@ MonoBehaviour:
     nextNode: 
   - category: 5
     repDelta: 1
+    nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
+    repDelta: 0
     nextNode: 

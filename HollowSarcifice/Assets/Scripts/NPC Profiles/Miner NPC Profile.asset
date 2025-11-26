@@ -98,7 +98,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: "This isn\u2019t quite what I wanted but it\u2019ll do."
+    text: What the? Only one of these has the Solzae I requested. Nevermind i'll
+      take both items.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -157,5 +158,11 @@ MonoBehaviour:
     repDelta: 0
     nextNode: 
   - category: 4
+    repDelta: 0
+    nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
     repDelta: 0
     nextNode: 

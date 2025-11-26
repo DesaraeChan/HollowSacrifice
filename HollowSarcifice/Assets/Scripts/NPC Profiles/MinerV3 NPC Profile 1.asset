@@ -111,8 +111,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: "This soup it hot but, it got a Solzae taste to it. Ah it\u2019s fine thanks
-      anyways."
+    text: "This has got a Solzae smell to it. Ah it\u2019s fine thanks anyways."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -184,5 +183,11 @@ MonoBehaviour:
     repDelta: 0
     nextNode: 
   - category: 5
+    repDelta: -1
+    nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
     repDelta: -1
     nextNode: 

@@ -148,7 +148,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Neutral
-    text: 
+    text: "Oh you put Solzae in here. Won\u2019t be giving that to my wife... the
+      other item is fine though. I\u2019ll take my leave."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -161,7 +162,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Negative
-    text: "What is this? This feels odd? Did you put Solzae in here?\nAh were you
+    text: "What is this? This feels odd? Did you put Solzae in here? Ah were you
       listening to what I said earlier? ... I\u2019ll take it anyways."
     hasChoice: 0
     choiceAText: 
@@ -195,5 +196,11 @@ MonoBehaviour:
     repDelta: -1
     nextNode: 
   - category: 5
+    repDelta: -1
+    nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
     repDelta: -1
     nextNode: 

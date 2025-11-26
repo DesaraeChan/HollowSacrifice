@@ -155,7 +155,9 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Neutral
-    text: "This isn\u2019t quite what I wanted, but I suppose it\u2019ll do."
+    text: 'Eh you seemed to only partially listen to my request...
+
+'
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -188,4 +190,10 @@ MonoBehaviour:
     nextNode: 
   - category: 5
     repDelta: 1
+    nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
+    repDelta: 0
     nextNode: 

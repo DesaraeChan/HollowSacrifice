@@ -59,12 +59,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Option B
-    text: '
-
-      Do you not concern yourself with our current situation? Do you
-      read the news?
-
-      I think I''d  rather shop someplace else.'
+    text: Do you not concern yourself with our current situation? Do you read the
+      news? I think I'd  rather shop someplace else.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -104,7 +100,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: 'This isn''t exactly what I wanted... '
+    text: Why would you put Solzae in one of my items. Ay, whatever ill take them.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -177,4 +173,10 @@ MonoBehaviour:
     nextNode: 
   - category: 4
     repDelta: 0
+    nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
+    repDelta: -1
     nextNode: 
