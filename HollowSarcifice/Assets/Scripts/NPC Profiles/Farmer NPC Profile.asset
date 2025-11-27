@@ -202,12 +202,12 @@ MonoBehaviour:
     goTo: END
   startingReputation: 0
   typingSoundClips:
-  - {fileID: 8300000, guid: 065c3288ef586fd418e882ed4a3374e1, type: 3}
-  - {fileID: 8300000, guid: f4f8f4f0be4d18a40a9520c1caddcf69, type: 3}
-  - {fileID: 8300000, guid: 26f5406064e6d08498d795272bdcb96d, type: 3}
+  - {fileID: 8300000, guid: efa52c2653e78ec488828fe698aba0ce, type: 3}
+  - {fileID: 8300000, guid: 8b066263f586bd54fa3b6892d25eaebc, type: 3}
+  - {fileID: 8300000, guid: 45da36521f3cb5c43a44273d34f535d3, type: 3}
   minPitch: 0.95
   maxPitch: 1.24
-  frequencyLevel: 8
+  frequencyLevel: 6
   volume: 0.3
   makePredictable: 1
   stopAudioSource: 0

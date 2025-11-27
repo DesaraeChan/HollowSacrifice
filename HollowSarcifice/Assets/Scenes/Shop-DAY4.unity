@@ -2493,7 +2493,7 @@ MonoBehaviour:
     loop: 0
   - id: GlassBreak
     clip: {fileID: 8300000, guid: f68f7dcf88102d04faef9161a7b7fc20, type: 3}
-    volume: 0.4
+    volume: 0.2
     pitch: 1
     loop: 0
   sfxSource: {fileID: 1661610863}

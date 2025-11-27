@@ -171,14 +171,14 @@ MonoBehaviour:
     goTo: END
   startingReputation: 0
   typingSoundClips:
-  - {fileID: 8300000, guid: 641ad85ffa4677845ad2672aa82e4b9f, type: 3}
-  - {fileID: 8300000, guid: 4b6304bd0e8b72d478858d9694a1ad54, type: 3}
-  minPitch: 0.5
-  maxPitch: 1.5
-  frequencyLevel: 4
-  volume: 1
+  - {fileID: 8300000, guid: cf71efd9549d62c4b94113fcd0bc3940, type: 3}
+  - {fileID: 8300000, guid: a866b3de25bd0c44da286eb168a73373, type: 3}
+  minPitch: 0.63
+  maxPitch: 1.25
+  frequencyLevel: 7
+  volume: 0.3
   makePredictable: 1
-  stopAudioSource: 1
+  stopAudioSource: 0
   npcprefs:
   - category: 0
     repDelta: -1
