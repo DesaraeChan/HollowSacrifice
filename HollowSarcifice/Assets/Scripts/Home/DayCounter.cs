@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 public class DayManager : MonoBehaviour
 {
     public static DayManager Instance;
@@ -41,5 +43,11 @@ public class DayManager : MonoBehaviour
     public void UnlockNextDay()
     {
         unlockDay = false;
+    }
+
+    public IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
     }
 }

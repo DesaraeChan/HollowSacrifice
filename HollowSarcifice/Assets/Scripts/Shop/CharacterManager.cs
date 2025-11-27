@@ -1,6 +1,8 @@
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using System.Collections;
+
 
 public class CharacterManager : MonoBehaviour
 {
@@ -63,6 +65,15 @@ public void OnOutroBeginSafe()
     if (outroFired) return;
     outroFired = true;
      SoundManager.Instance.PlaySFX("ShopFootsteps");
+
+      string currentSceneName = SceneManager.GetActiveScene().name;
+    if (DayManager.Instance.currentDay == 4 &&
+        DayManager.Instance.homeOrwork &&
+        currentSceneName == "Shop-DAY4")
+    {
+        SoundManager.Instance?.PlaySFX("GlassBreak");
+        
+    }
      
 
     // Hide UI and trigger exit
@@ -85,7 +96,8 @@ public void OnOutroComplete_ActivateNextOnly()
     // wake next NPC (its Start() will run now and call BeginNPC(currentNPC))
     if (nextManager != null && nextManager.gameObject != null)
     {
-        nextManager.gameObject.SetActive(true);
+        
+              nextManager.gameObject.SetActive(true);
     } else
     {
         // No next manager this was the last NPC in the chain
@@ -93,7 +105,16 @@ public void OnOutroComplete_ActivateNextOnly()
 
         if (!string.IsNullOrEmpty(sceneAfterLastCustomer))
             {
-            if(DayManager.Instance.currentDay == 4 && DayManager.Instance.homeOrwork){sceneAfterLastCustomer = "Riot";}
+                string currentSceneName = SceneManager.GetActiveScene().name;
+                
+            if(DayManager.Instance.currentDay == 4 && DayManager.Instance.homeOrwork && currentSceneName == "Shop-DAY4"){
+          
+                sceneAfterLastCustomer = "Riot";
+                DayManager.Instance.StartCoroutine(
+             DayManager.Instance.LoadSceneAfterDelay(sceneAfterLastCustomer, 1f)
+            );
+             return;
+                }
             else if(DayManager.Instance.currentDay == 4){sceneAfterLastCustomer = "Home";}
             DayManager.Instance.unlockDay = false;
             playerStorage.initialValue = playerPosition;
@@ -109,6 +130,13 @@ public void OnOutroComplete_ActivateNextOnly()
 //     PermanentUnlockManager.Instance?.ActivateHomelessObject();
 // }
 }
+
+private IEnumerator DelaySceneLoad(string sceneName, float delay)
+{
+    yield return new WaitForSeconds(delay);
+    SceneManager.LoadScene(sceneName);
+}
+
 private void TryActivatePermanentItem()
 {
     // Only do this if we've flagged it via DecisionTracker
