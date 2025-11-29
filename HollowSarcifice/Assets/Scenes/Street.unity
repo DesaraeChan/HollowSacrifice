@@ -2628,7 +2628,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 43494c9e817ba2a4f9465ae3109d2c15, type: 3}
   makePredictable: 1
   stopAudioSource: 0
-  frequencyLevel: 7
+  frequencyLevel: 6
   minPitch: 0.8
   maxPitch: 1
   typingVolume: 0.4
@@ -14117,14 +14117,15 @@ MonoBehaviour:
   clickSkipsWhileTyping: 1
   hasChoices: 1
   typingSoundClips:
-  - {fileID: 8300000, guid: 2a4ddc9737ac675439b54ed236c54ef7, type: 3}
-  - {fileID: 8300000, guid: b086c408203cb68428f13fba6b284d6f, type: 3}
+  - {fileID: 8300000, guid: c4fe5ac2c8b8dea43a3bf474a3102c42, type: 3}
+  - {fileID: 8300000, guid: 332519aad06c04145bde672e51ca16d0, type: 3}
+  - {fileID: 8300000, guid: b476cb0eddca4384bb225be7f1ce9b5f, type: 3}
   makePredictable: 1
-  stopAudioSource: 1
-  frequencyLevel: 4
-  minPitch: 0.75
-  maxPitch: 0.95
-  typingVolume: 0.7
+  stopAudioSource: 0
+  frequencyLevel: 6
+  minPitch: 0.8
+  maxPitch: 1
+  typingVolume: 0.6
   fade: {fileID: 0}
   cutscene: {fileID: 95689911}
   npcId: Homeless

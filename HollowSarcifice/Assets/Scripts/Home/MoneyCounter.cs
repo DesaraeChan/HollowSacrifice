@@ -32,6 +32,7 @@ public class MoneyCounter : MonoBehaviour
                DayManager.Instance.NextDay();
         } else
         {
+            SoundManager.Instance.PlaySFX("GoWork");
             Debug.Log("You poor");
         }
     }
