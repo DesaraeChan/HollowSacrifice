@@ -3513,8 +3513,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 185, y: 75}
-  m_SizeDelta: {x: -1464.939, y: -1072.5673}
+  m_AnchoredPosition: {x: 188.71552, y: 75}
+  m_SizeDelta: {x: -1472.369, y: -1072.5673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1005697304
 MonoBehaviour:
@@ -3537,7 +3537,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c3c556fe1ba2a454f9db6e950dc37f95, type: 3}
+    m_Font: {fileID: 12800000, guid: 77fe456f19887b04e86dd53152a94e35, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -3546,7 +3546,7 @@ MonoBehaviour:
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Your family on the battlefield needs financial support '
