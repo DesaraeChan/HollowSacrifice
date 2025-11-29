@@ -1,9 +1,9 @@
 using UnityEngine;
-
+using TMPro;
 public class EndingMessageScript : MonoBehaviour
 {
     public GameObject Message; 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public TMP_Text message;
     void Start()
     {
         

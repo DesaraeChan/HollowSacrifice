@@ -4,20 +4,31 @@ using System.Collections;
 
 public class WindowDialogueManager : MonoBehaviour
 {
-    [Header("UI Elements")]
     public Canvas windowCanvas;
     public TextMeshProUGUI dialogueText;
 
-    [Header("Dialogue Settings")]
     public float textSpeed = 0.03f;
-    public string[] dayLines;      // One line per day index
+    public string[] dayLines;
     public string[] nightLines;
     public string[] fogLines;
+
     private int index = 0;
     private bool isTyping = false;
 
-    void Start()
+    void Awake()
     {
+        // Preload TMP *before the first frame*
+        StartCoroutine(PreloadTMP());
+    }
+
+    private IEnumerator PreloadTMP()
+    {
+        windowCanvas.gameObject.SetActive(true);
+        dialogueText.text = " ";   // force TMP to build atlas
+        dialogueText.ForceMeshUpdate(true, true);
+
+        yield return null;         // allow TMP + Canvas to finish building
+
         windowCanvas.gameObject.SetActive(false);
     }
 
@@ -25,26 +36,20 @@ public class WindowDialogueManager : MonoBehaviour
     {
         index = DayManager.Instance.currentDay - 1;
 
-        
-
-        // Ensure the canvas is visible
         windowCanvas.gameObject.SetActive(true);
-
-        // Start dialogue
         StopAllCoroutines();
-        if(DayManager.Instance.Night){
-            if(SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount >= 8){
-                StartCoroutine(TypeLine(fogLines[1]));
-            } else {
-                StartCoroutine(TypeLine(nightLines[index]));
-            }
-             
-        } else if(SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount >= 8){
-            StartCoroutine(TypeLine(fogLines[0]));
-        } else{
-            StartCoroutine(TypeLine(dayLines[index]));
-        }
-        
+        StartCoroutine(TypeLine(GetLine()));
+    }
+
+    private string GetLine()
+    {
+        bool night = DayManager.Instance.Night;
+        int sales = SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount;
+
+        if (night)
+            return sales >= 8 ? fogLines[1] : nightLines[index];
+        else
+            return sales >= 8 ? fogLines[0] : dayLines[index];
     }
 
     private IEnumerator TypeLine(string line)
@@ -52,7 +57,7 @@ public class WindowDialogueManager : MonoBehaviour
         isTyping = true;
         dialogueText.text = "";
 
-        foreach (char c in line.ToCharArray())
+        foreach (char c in line)
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(textSpeed);
@@ -69,14 +74,12 @@ public class WindowDialogueManager : MonoBehaviour
         {
             if (isTyping)
             {
-                // Skip typing
                 StopAllCoroutines();
-                dialogueText.text = dayLines[index];
+                dialogueText.text = GetLine();
                 isTyping = false;
             }
             else
             {
-                // Close window after finishing
                 windowCanvas.gameObject.SetActive(false);
             }
         }

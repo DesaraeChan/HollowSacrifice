@@ -1246,7 +1246,7 @@ MonoBehaviour:
   - {fileID: 6802583306969708892, guid: 031116ede2cb99c4e920e30451c80990, type: 3}
   - {fileID: 3573036208370857778, guid: 003d2c136b68100439793b1cb9088101, type: 3}
   cutscene: {fileID: 1533724593}
-  textSpeed: 0.08
+  textSpeed: 0.06
   shopCanvas: {fileID: 771163762}
   lineSoundSource: {fileID: 549869807}
   lineSoundClips:
