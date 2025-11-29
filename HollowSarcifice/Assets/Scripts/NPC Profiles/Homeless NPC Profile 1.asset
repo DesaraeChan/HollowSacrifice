@@ -75,12 +75,13 @@ MonoBehaviour:
     goTo: END
   startingReputation: 0
   typingSoundClips:
-  - {fileID: 8300000, guid: 2a4ddc9737ac675439b54ed236c54ef7, type: 3}
-  - {fileID: 8300000, guid: b086c408203cb68428f13fba6b284d6f, type: 3}
-  minPitch: 0.75
-  maxPitch: 0.95
-  frequencyLevel: 4
-  volume: 0.7
+  - {fileID: 8300000, guid: 97095001ad98f4c49aeacb3d714eb8ca, type: 3}
+  - {fileID: 8300000, guid: c7f172789e00bbe49ac757c51e7155dd, type: 3}
+  - {fileID: 8300000, guid: 8fc95edf41182864aa56d014cef8030b, type: 3}
+  minPitch: 0.8
+  maxPitch: 1
+  frequencyLevel: 7
+  volume: 0.6
   makePredictable: 1
-  stopAudioSource: 1
+  stopAudioSource: 0
   npcprefs: []

@@ -144,8 +144,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7a33288306fee6147b2454eb288d0c6b, type: 3}
   minPitch: 0.8
   maxPitch: 0.9
-  frequencyLevel: 8
-  volume: 0.25
+  frequencyLevel: 9
+  volume: 0.18
   makePredictable: 1
   stopAudioSource: 0
   npcprefs:

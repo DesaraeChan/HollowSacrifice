@@ -177,7 +177,7 @@ MonoBehaviour:
   minPitch: 0.8
   maxPitch: 0.95
   frequencyLevel: 8
-  volume: 0.3
+  volume: 0.2
   makePredictable: 1
   stopAudioSource: 0
   npcprefs:
