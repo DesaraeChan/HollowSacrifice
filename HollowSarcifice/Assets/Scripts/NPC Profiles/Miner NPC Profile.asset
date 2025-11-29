@@ -139,12 +139,13 @@ MonoBehaviour:
     goTo: END
   startingReputation: 0
   typingSoundClips:
-  - {fileID: 8300000, guid: 7f0a8c8cbf023e141a8a10eba9e6ce04, type: 3}
-  - {fileID: 8300000, guid: 4efc8c33116cc05418bd041136624f29, type: 3}
+  - {fileID: 8300000, guid: cf71efd9549d62c4b94113fcd0bc3940, type: 3}
+  - {fileID: 8300000, guid: 9b0d2f44993b82f4fb18f55a4b214902, type: 3}
+  - {fileID: 8300000, guid: 7a33288306fee6147b2454eb288d0c6b, type: 3}
   minPitch: 0.8
   maxPitch: 0.9
-  frequencyLevel: 6
-  volume: 0.07
+  frequencyLevel: 8
+  volume: 0.25
   makePredictable: 1
   stopAudioSource: 0
   npcprefs:
