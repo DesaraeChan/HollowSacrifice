@@ -13,6 +13,7 @@ public class ShowNews : MonoBehaviour
     {
         Canvas = GetComponentInParent<Canvas>();
         changeScene = FindFirstObjectByType<ChangeScene>(FindObjectsInactive.Include);
+        News.SetActive(false);
     }
     
     void Update()

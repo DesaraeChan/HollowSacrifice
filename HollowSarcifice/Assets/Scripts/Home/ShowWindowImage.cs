@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class ShowWindowImage : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class ShowWindowImage : MonoBehaviour
         }
 
     }
+
 
     public void OpenImage()
     {
