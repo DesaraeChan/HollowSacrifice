@@ -1242,9 +1242,9 @@ MonoBehaviour:
     war against the Plabs.
   - It is up to you to generate income to support yourself and your father
   slideshow:
-  - {fileID: 4127010475547030713, guid: 4a3c4b8566fe91c4f849bb4c783288c3, type: 3}
-  - {fileID: 6802583306969708892, guid: 031116ede2cb99c4e920e30451c80990, type: 3}
-  - {fileID: 3573036208370857778, guid: 003d2c136b68100439793b1cb9088101, type: 3}
+  - {fileID: 21300000, guid: 88d63a418f1ce68429c997899e1106ff, type: 3}
+  - {fileID: 21300000, guid: 4e3764594dad7264c87602df0c06c2f5, type: 3}
+  - {fileID: 21300000, guid: 86bfcbec9683ca94fac332e518a41810, type: 3}
   cutscene: {fileID: 1533724593}
   textSpeed: 0.05
   shopCanvas: {fileID: 771163762}
