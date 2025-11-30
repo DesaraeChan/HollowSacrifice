@@ -844,7 +844,6 @@ MonoBehaviour:
   footstepClips:
   - {fileID: 8300000, guid: b72f6f9304754bc429416b6234683a3a, type: 3}
   - {fileID: 8300000, guid: 0ee6268d0e9e7434ebad9d617a2cf427, type: 3}
-  - {fileID: 8300000, guid: 0f96d57f7ea6cfd4e93dc09ea421d966, type: 3}
   source: {fileID: 259737321}
   maxVolume: 0.45
   stepInterval: 0.56

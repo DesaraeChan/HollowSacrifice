@@ -23,6 +23,10 @@ public class HoverSwapSprite : MonoBehaviour
         
     }
 
+    public void bedTime(){
+        sr.sprite = normalSprite;
+    }
+
     void OnMouseEnter()
     {
         if(DayManager.Instance.Night)

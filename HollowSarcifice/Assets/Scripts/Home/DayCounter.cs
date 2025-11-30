@@ -33,6 +33,7 @@ public class DayManager : MonoBehaviour
             SceneManager.LoadScene("EndCutscene");
         }
         Night = false;
+        newsActive = true;
         Debug.Log("Day advanced to: " + currentDay);
 
         FindFirstObjectByType<CutsceneStarter>(FindObjectsInactive.Include).restart();

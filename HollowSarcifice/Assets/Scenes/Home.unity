@@ -843,6 +843,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToggleCallers
   familyToggle: {fileID: 1919369321}
+  bed: {fileID: 1283721359}
+  door: {fileID: 1724210843}
+  window: {fileID: 1233763005}
 --- !u!1 &261887358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,7 +1249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
   currentDay: 1
-  Night: 1
+  Night: 0
   unlockDay: 0
   alleyInteractions: 0
   newsActive: 1
@@ -1300,9 +1303,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 854320193}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 427.155, y: -222.5898}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 854.31, y: 363.6396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475133765
@@ -2797,7 +2800,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -374.3, y: 238}
-  m_SizeDelta: {x: 100, y: 404.40958}
+  m_SizeDelta: {x: 100, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854320194
 MonoBehaviour:
@@ -4457,7 +4460,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 427.1534, y: -15.385}
-  m_SizeDelta: {x: 854.3068, y: 30.77}
+  m_SizeDelta: {x: 854.3068, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1226678414
 MonoBehaviour:
@@ -7683,7 +7686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!222 &1774434122
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -35,6 +35,17 @@ public class HoverSwapWindow : MonoBehaviour
         
     }
 
+    public void bedTime(){
+         if (SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount > 4)
+            {
+                sr.sprite = Images[1];
+            }
+            else
+            {
+                sr.sprite = Images[0];
+            }
+    }
+
     void OnMouseEnter()
     {
         if(DayManager.Instance.Night)

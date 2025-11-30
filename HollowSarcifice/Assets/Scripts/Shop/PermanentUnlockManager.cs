@@ -2,27 +2,20 @@ using UnityEngine;
 
 public class PermanentUnlockManager : MonoBehaviour
 {
-    public static PermanentUnlockManager Instance { get; private set; }
+    
 
     [Header("Object permanently visible after unlock")]
     [SerializeField] private GameObject homelessPermanentObject;
 
-    void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);  // stays across scenes
-    }
-
     void Start()
-    {
+    {   
+        
         RefreshUnlockState();
+        if(DayManager.Instance.currentDay == 2){
             homelessPermanentObject.SetActive(false);
+        }
+        
+            
     }
 
     public void ActivateHomelessObject()

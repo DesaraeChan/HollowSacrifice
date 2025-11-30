@@ -177,8 +177,7 @@ public class NPCCloseup : MonoBehaviour
 
 
     public void StartCloseup(){
-        if (DialogueDone) return;
-        if (isOpen) return;
+        if (DialogueDone || isOpen) return;
 
         //seller extra dialogue
         if(DayManager.Instance.currentDay == 4 && npcId == "Seller"){
@@ -224,6 +223,11 @@ public class NPCCloseup : MonoBehaviour
             "I’ve already talked a lot with everyone else in here.",
             "There’s not much else to do. Nothing really changes around here.",
             "...", "You’d be surprised how much people have to say when they have nothing better to do.", "Thanks for coming by. I appreciate your company"
+        };
+        } else if(npcId == "SickGuy" && DayManager.Instance.alleyInteractions > 2){
+            introLines = new string[]
+        {
+            "It's nice to see you, buddy."
         };
         }
 

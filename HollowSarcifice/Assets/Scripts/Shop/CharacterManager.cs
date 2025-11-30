@@ -12,6 +12,7 @@ public class CharacterManager : MonoBehaviour
     [SerializeField] private DialogueController mainDialogue;
     [SerializeField] private GameState gameState;
     [SerializeField] private ShopManager shop;
+    [SerializeField] private PermanentUnlockManager charm;
 
     [SerializeField] private string positiveNode = "Positive";
     [SerializeField] private string negativeNode = "Negative";
@@ -144,9 +145,9 @@ private void TryActivatePermanentItem()
         DecisionTracker.Instance.TryGetChoice("Homeless_Unlock", out int unlock) &&
         unlock == 1)
     {
-        if (PermanentUnlockManager.Instance != null)
+        if (charm != null)
         {
-            PermanentUnlockManager.Instance.ActivateHomelessObject();
+            charm.ActivateHomelessObject();
             Debug.Log("[CharacterManager] Activated permanent homeless item after final line.");
         }
         else

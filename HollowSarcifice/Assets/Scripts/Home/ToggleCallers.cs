@@ -3,6 +3,9 @@ using UnityEngine.UI;
 public class ToggleCallers : MonoBehaviour
 {
     public Toggle familyToggle;
+    public HoverSwapSprite bed;
+    public HoverSwapSprite door;
+    public HoverSwapWindow window;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,6 +25,9 @@ public class ToggleCallers : MonoBehaviour
     public void buttonClicked()
     {
         MoneyCounter.Instance.sendMoney();
+        bed.bedTime();
+        door.bedTime();
+        window.bedTime();
     }
 
 }

@@ -16,9 +16,9 @@ MonoBehaviour:
   - type: 0
     reputation: 0
   - type: 1
-    reputation: 12
+    reputation: 0
   - type: 2
-    reputation: 12
+    reputation: 0
   - type: 3
     reputation: 0
   - type: 4

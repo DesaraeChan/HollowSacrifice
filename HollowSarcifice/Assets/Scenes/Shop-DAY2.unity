@@ -182,7 +182,6 @@ GameObject:
   - component: {fileID: 38159723}
   - component: {fileID: 38159722}
   - component: {fileID: 38159721}
-  - component: {fileID: 38159720}
   - component: {fileID: 38159725}
   m_Layer: 0
   m_Name: SellButton
@@ -212,26 +211,6 @@ RectTransform:
   m_AnchoredPosition: {x: 1151, y: -554}
   m_SizeDelta: {x: 92, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &38159720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38159718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcae14a9c257dbe498f40c2fda7d31ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DragDrop
-  canvas: {fileID: 65564850}
-  shopManager: {fileID: 46036534}
-  spawnCloneOnDrag: 0
-  dragLayer: {fileID: 0}
-  itemSO: {fileID: 11400000, guid: 47c98d0b35440ee4eaddeca8ee9debff, type: 2}
-  itemNameText: {fileID: 980782582457159451}
-  itempriceText: {fileID: 3281960578133866357}
-  itemImage: {fileID: 3266203965810505231}
 --- !u!114 &38159721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,6 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46036535}
   - component: {fileID: 46036534}
+  - component: {fileID: 46036536}
   m_Layer: 0
   m_Name: ShopManager
   m_TagString: Untagged
@@ -421,6 +401,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46036536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46036533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca75d875d4d469447bf1bf964340189c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PermanentUnlockManager
+  homelessPermanentObject: {fileID: 879135379}
 --- !u!1 &65564846
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1042,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
   shop: {fileID: 46036534}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
@@ -3528,6 +3522,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
   shop: {fileID: 46036534}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
@@ -4457,51 +4452,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 342.5, y: 181.16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &938557251
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 938557253}
-  - component: {fileID: 938557252}
-  m_Layer: 0
-  m_Name: PermanentUnlockManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &938557252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938557251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca75d875d4d469447bf1bf964340189c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PermanentUnlockManager
-  homelessPermanentObject: {fileID: 879135379}
---- !u!4 &938557253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938557251}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.82, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5476,6 +5426,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
   shop: {fileID: 46036534}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
@@ -8658,6 +8609,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
   shop: {fileID: 46036534}
+  charm: {fileID: 46036536}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
@@ -10183,7 +10135,6 @@ SceneRoots:
   - {fileID: 1343988193}
   - {fileID: 12880939}
   - {fileID: 1648057912}
-  - {fileID: 938557253}
   - {fileID: 879135381}
   - {fileID: 917567071}
   - {fileID: 535910127}

@@ -18,19 +18,12 @@ public class StreetSceneChanger : MonoBehaviour
     }
 
 
-    public IEnumerator _ChangeSceneHome()
+    public IEnumerator _ChangeScene()
     {
         fade.FadeIn();
         yield return new WaitForSeconds(1);
         playerStorage.initialValue = playerPosition;
         SceneManager.LoadScene(sceneToLoad);
-    }
-
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void SceneHome()
-    {
-        StartCoroutine(_ChangeSceneHome());
     }
 
     
@@ -43,8 +36,7 @@ public class StreetSceneChanger : MonoBehaviour
         // Check for input when player is inside collider
         if (playerInRange && Input.GetKeyDown(interactKey))
         {
-            SoundManager.Instance.PlaySFX("HomeDoor"); 
-            SceneHome();
+            StartCoroutine(_ChangeScene());
         }
         
     }

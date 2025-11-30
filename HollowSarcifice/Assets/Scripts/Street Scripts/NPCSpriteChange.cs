@@ -16,6 +16,11 @@ public class NPCSpriteChange : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         if (sr == null)
             Debug.LogError("[SpriteChanger] No SpriteRenderer found on this object!");
+
+        if(DayManager.Instance.currentDay != 1) {
+            gameObject.SetActive(false);
+        }
+
     }
 
     void Start()

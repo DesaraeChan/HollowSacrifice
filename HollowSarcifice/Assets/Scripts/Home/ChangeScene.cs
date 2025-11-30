@@ -51,11 +51,15 @@ public class ChangeScene : MonoBehaviour
                     StartCoroutine(_ChangeSceneDay4Shop());
             } else{
             if(!DayManager.Instance.Night){
-                    
+                    if(DayManager.Instance.newsActive){
                     FindFirstObjectByType<ShowNews>(FindObjectsInactive.Include).OpenNews();
+                    } else {
+                        StartCoroutine(_ChangeScene2D());
+                    }
                       
             } else {
                     StartCoroutine(_ChangeScene2DNight());
+                    
                 }
         
             }
