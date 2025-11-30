@@ -372,7 +372,7 @@ MonoBehaviour:
   bgWithSolzaeSprite: {fileID: 21300000, guid: b729d330a55cc4d4b8e0990ffd9008f8, type: 3}
   day2DecisionNPCId: Homeless
   homelessOption0Object: {fileID: 1967673672}
-  homelessOption1Object: {fileID: 650614888}
+  homelessOption1Object: {fileID: 1320943805}
   day2SceneName: Shop-DAY2
   solzaeObjects:
   - {fileID: 1444549929}

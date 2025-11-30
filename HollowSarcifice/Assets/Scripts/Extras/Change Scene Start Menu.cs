@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneStartMenu : MonoBehaviour
 {
     public Fading fade;
+    
 
     void Start(){
         fade = FindFirstObjectByType<Fading>();
