@@ -189,7 +189,7 @@ MonoBehaviour:
   - nodeName: Negative
     text: "Did you not listen to what I said? Anyways I\u2019ll take it regardless,
       thanks..."
-    hasChoice: 1
+    hasChoice: 0
     choiceAText: 
     choiceBText: 
     choiceCText: 
