@@ -9139,7 +9139,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Dear ___,
+  m_text: Dear Alex,
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 143e560d47b0eac458d3ace44a770a08, type: 2}
   m_sharedMaterial: {fileID: -6293602643402227744, guid: 143e560d47b0eac458d3ace44a770a08, type: 2}
