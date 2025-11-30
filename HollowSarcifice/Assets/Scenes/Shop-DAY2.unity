@@ -3369,6 +3369,11 @@ MonoBehaviour:
     volume: 0.35
     pitch: 1
     loop: 0
+  - id: Newspaper
+    clip: {fileID: 8300000, guid: c3525a6db73a7734a914d7b778510251, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
   sfxSource: {fileID: 807658035}
 --- !u!4 &535910127
 Transform:
