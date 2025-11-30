@@ -259,9 +259,9 @@ private void SimpleActivateDay2NPC()
     }
 
     if (!DecisionTracker.Instance.TryGetChoice(day2DecisionNPCId, out int choice))
-    {
+    { 
         Debug.LogWarning($"[ShopManager] No saved choice for id '{day2DecisionNPCId}'. Defaulting to choice = 0.");
-        choice = 0; // force something to show so it's obvious
+        choice = 1; // force something to show so it's obvious
     }
 
     Debug.Log($"[ShopManager] Decision for '{day2DecisionNPCId}' is choice = {choice}");

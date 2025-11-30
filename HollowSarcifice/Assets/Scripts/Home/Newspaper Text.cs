@@ -47,7 +47,7 @@ public class DayDisplay : MonoBehaviour
         {
             Header.text = "The Minsters, Cenavin, Takri and Brecci Come To Zaetia";
             BodyText.text = "They come to discuss the increasing deaths possibly linked to Solzae";
-            SubHeader.text = "Plab Council Deliberates Future of Zaetian Trade4";
+            SubHeader.text = "Plab Council Deliberates Future of Zaetian Trade";
             SubBody.text = "Plab ministers and board continue to discuss deal regarding Solzae refinement profits.";
         } else if (DayManager.Instance.currentDay == 4)
         {
