@@ -13,7 +13,9 @@ public class Cutscene : MonoBehaviour
 
     public TextMeshProUGUI textComponent;
     public string[] lines;
-    public Sprite[] slideshow;
+   // public Sprite[] slideshow;
+
+    public GameObject[] slideshow;
     public Image cutscene;
     public float textSpeed;
     public NPCStock shopCanvas;
@@ -45,11 +47,11 @@ public class Cutscene : MonoBehaviour
     void Update()
     {
         // Safely set slideshow image
-        if (cutscene != null && slideshow != null && slideshow.Length > 0)
-        {
-            if (slideshowIndex >= 0 && slideshowIndex < slideshow.Length)
-                cutscene.sprite = slideshow[slideshowIndex];
-        }
+        // if (cutscene != null && slideshow != null && slideshow.Length > 0)
+        // {
+        //     if (slideshowIndex >= 0 && slideshowIndex < slideshow.Length)
+        //         cutscene.sprite = slideshow[slideshowIndex];
+        // }
 
         if (textComponent == null || lines == null || lines.Length == 0)
             return;
@@ -83,6 +85,18 @@ public class Cutscene : MonoBehaviour
             }
         }
     }
+
+    void ShowCurrentSlide()
+{
+    if (slideshow == null || slideshow.Length == 0) return;
+
+    for (int i = 0; i < slideshow.Length; i++)
+    {
+        if (slideshow[i] != null)
+            slideshow[i].SetActive(i == slideshowIndex);
+    }
+}
+
 
     public void StartDialogue()
     {
@@ -125,12 +139,14 @@ public class Cutscene : MonoBehaviour
 
     void NextLine()
     {
-        if (textComponent == null || lines == null || lines.Length == 0)
-            return;
+        // if (textComponent == null || lines == null || lines.Length == 0)
+        //     return;
 
         if (index < lines.Length - 1)
         {
             index++;
+
+            int previousSlideIndex = slideshowIndex;
             
             // Safe slideshow swaps
             if (index == 2 && slideshow != null && slideshow.Length > 1)
@@ -139,7 +155,11 @@ public class Cutscene : MonoBehaviour
                 slideshowIndex = 2;
 
             textComponent.text = string.Empty;
-            PlayCurrentLineSound(); 
+            if (slideshowIndex != previousSlideIndex){
+                 ShowCurrentSlide();
+                 PlayCurrentLineSound(); 
+            }
+           
             StartCoroutine(TypeLine());
         }
         else
@@ -156,7 +176,8 @@ public class Cutscene : MonoBehaviour
     if (lineSoundSource == null || lineSoundClips == null || lineSoundClips.Length == 0)
         return;
 
-    int clipIndex = index % lineSoundClips.Length;
+  //  int clipIndex = index % lineSoundClips.Length;
+  int clipIndex = Mathf.Clamp(slideshowIndex, 0, lineSoundClips.Length -1);
     AudioClip clip = lineSoundClips[clipIndex];
 
     if(fadeRoutine !=null){
