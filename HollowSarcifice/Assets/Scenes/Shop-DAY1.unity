@@ -6770,8 +6770,8 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   - id: Newspaper
-    clip: {fileID: 8300000, guid: f9c515ce0ae8a35479d4558f18148c41, type: 3}
-    volume: 0.8
+    clip: {fileID: 8300000, guid: c3525a6db73a7734a914d7b778510251, type: 3}
+    volume: 1
     pitch: 1
     loop: 0
   sfxSource: {fileID: 679124250}
