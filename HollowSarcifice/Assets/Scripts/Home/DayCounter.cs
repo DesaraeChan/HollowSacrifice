@@ -36,6 +36,11 @@ public class DayManager : MonoBehaviour
         newsActive = true;
         Debug.Log("Day advanced to: " + currentDay);
 
+        //Clear stock
+        if (StockInventory.Instance != null){
+            StockInventory.Instance.ClearAllStock();
+        }
+
         FindFirstObjectByType<CutsceneStarter>(FindObjectsInactive.Include).restart();
         FindFirstObjectByType<ShowWindowImage>(FindObjectsInactive.Include).UpdateVisuals();
         FindFirstObjectByType<OpenMoneyMenu>(FindObjectsInactive.Include).CloseFinancial();;

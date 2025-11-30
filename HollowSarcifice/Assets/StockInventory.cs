@@ -54,6 +54,20 @@ public class StockInventory : MonoBehaviour
         }
     }
 
+    public void ClearAllStock()
+{
+    foreach (var entry in entries)
+    {
+        entry.quantity = 0;
+    }
+
+    // Optional: remove empty entries
+    entries.RemoveAll(e => e.quantity <= 0);
+
+    Debug.Log("[StockInventory] All stock cleared for new day.");
+}
+
+
     public List<StockEntry> GetAllWithQuantity()
     {
         // only return entries with strictly positive quantity
