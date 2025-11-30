@@ -115,7 +115,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: AskForItem
-    text: Solzae Soup + Drink ?
+    text: Solzae Soup ?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
