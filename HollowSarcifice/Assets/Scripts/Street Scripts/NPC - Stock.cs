@@ -35,7 +35,7 @@ public class NPCStock : MonoBehaviour
         if (Input.GetKeyDown(interactKey))
         {
             // FIRST Run the closeup dialogue
-            if (!closeup.DialogueDone && (DayManager.Instance.currentDay == 1 || DayManager.Instance.currentDay == 4))
+            if (!closeup.DialogueDone && ((DayManager.Instance.currentDay == 1 || DayManager.Instance.currentDay == 4) || closeup.npcId == "SickGuy"))
             {
                 // Show the closeup canvas
                 if (closeupCanvas) closeupCanvas.SetActive(true);

@@ -8,6 +8,7 @@ public class ShopSlotStock : MonoBehaviour
     public TMP_Text priceText;
     public Image itemImage;
      public Button buyButton;
+     public InventoryManager inv;
     
     [SerializeField] private ShopManagerStock shopManager;
     public int price;
@@ -31,6 +32,7 @@ public class ShopSlotStock : MonoBehaviour
     if (shopManager.TryBuyItem(itemSO, price))
     {
         buyButton.interactable = false;   
+        inv.UpdateMoneyUI();
     }
 }
 
