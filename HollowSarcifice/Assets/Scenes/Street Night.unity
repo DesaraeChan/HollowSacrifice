@@ -3244,6 +3244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550686504}
   - component: {fileID: 550686503}
+  - component: {fileID: 550686505}
   m_Layer: 0
   m_Name: VignettePulse
   m_TagString: Untagged
@@ -3283,6 +3284,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &550686505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 550686502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 114abde44e80f0941a282803f53f22bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SolzaeTrigger
+  vignettePulse: {fileID: 550686503}
+  vignettePulseSound: {fileID: 1828708238}
 --- !u!1 &561283222
 GameObject:
   m_ObjectHideFlags: 0
@@ -3953,7 +3968,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c9de7bf066fc145abc426b50e61ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
-  solzaeSoupCount: 0
+  solzaeSoupCount: 4
   solzaeGearCount: 0
   threshold: 4
   cutsceneTriggered: 0
