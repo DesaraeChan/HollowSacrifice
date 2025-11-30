@@ -47,7 +47,7 @@ public class ChangeScene : MonoBehaviour
     public void SceneOutside()
     {
         if(!DayManager.Instance.FinalSequence){
-            if(DayManager.Instance.currentDay == 4 && SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount > 10){
+            if(DayManager.Instance.currentDay == 4 && SaleTracker.Instance.solzaeSoupCount + SaleTracker.Instance.solzaeGearCount > 5){
                     StartCoroutine(_ChangeSceneDay4Shop());
             } else{
             if(!DayManager.Instance.Night){
