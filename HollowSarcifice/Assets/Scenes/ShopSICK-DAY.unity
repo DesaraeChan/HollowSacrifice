@@ -965,6 +965,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
   shop: {fileID: 46036534}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
@@ -1376,8 +1377,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2933,6 +2934,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
   shop: {fileID: 46036534}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
@@ -4537,6 +4539,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 2145516903}
   gameState: {fileID: 11400000, guid: 507a5efd702e0564f97cd3a5b0ff8ec2, type: 2}
   shop: {fileID: 46036534}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
@@ -5843,8 +5846,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6095,8 +6098,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6777,8 +6780,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
