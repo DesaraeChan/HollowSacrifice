@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour
 
     private Dictionary<string, SoundEntry> soundMap;
 
+    private bool sfxMuted = false;
+
     private void Awake()
     {
         if (Instance != null && Instance != this) { 
@@ -48,15 +50,38 @@ public class SoundManager : MonoBehaviour
         
     }
 
+     public void PauseAllSFX()
+    {
+        if (sfxSource != null && sfxSource.isPlaying)
+            sfxSource.Stop();
+    }
+
+    // public void ResumeAllSFX()
+    // {
+    //     if (sfxSource != null)
+    //         sfxSource.UnPause();
+    // }
+
     // Play a one-shot sound by id
     public void PlaySFX(string id)
     {
+        if (sfxMuted) return;
         if (!soundMap.TryGetValue(id, out var s)) return;
 
         sfxSource.pitch = s.pitch;
         sfxSource.PlayOneShot(s.clip, s.volume);
     }
 
+ public void SetSFXMuted(bool mute)
+    {
+        sfxMuted = mute;
+
+        // If we just muted, kill any currently playing SFX
+        if (mute && sfxSource != null)
+        {
+            sfxSource.Stop();
+        }
+    }
    
 
 }
