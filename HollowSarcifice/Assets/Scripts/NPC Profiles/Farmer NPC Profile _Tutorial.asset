@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad9f2676cd14c34aac7ca2d90f1474f, type: 3}
+  m_Name: Farmer NPC Profile _Tutorial
+  m_EditorClassIdentifier: Assembly-CSharp::NPCProfile
+  displayName: Farmer
+  type: 1
+  portraitSprite: {fileID: 0}
+  dialogue:
+  - nodeName: Dialogue 1
+    text: Hey there!
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 2
+  - nodeName: Dialogue 2
+    text: 'Nice to see that the shop''s open again. You taking over for your old
+      man?
+
+'
+    hasChoice: 1
+    choiceAText: Today is actually my first day.
+    choiceBText: I've got to keep the family business running.
+    choiceCText: What can I get for you?
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: Option A
+    nextIfB: Option B
+    nextIfC: Option C
+    goTo: Dialogue 4
+  - nodeName: Option C
+    text: 'Straight to business. You sure take after your father alright.
+
+
+
+
+
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 5
+  - nodeName: Option B
+    text: He's lucky to have such a hard working kid like you, I wish my son was
+      as diligent.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 5
+  - nodeName: Option A
+    text: 'Really? Well I won''t order anything too complicated then.
+
+
+
+
+'
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: Dialogue 5
+  - nodeName: Dialogue 5
+    text: I'm parched from working all day, I'd love a drink.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: AskForItem
+  - nodeName: AskForItem
+    text: Drink ?
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: 
+  - nodeName: Positive
+    text: 
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: Neutral
+    text: Thanks, and good luck with the rest of your sales today.
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  - nodeName: Negative
+    text: 
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
+    goTo: END
+  startingReputation: 0
+  typingSoundClips:
+  - {fileID: 8300000, guid: efa52c2653e78ec488828fe698aba0ce, type: 3}
+  - {fileID: 8300000, guid: 8b066263f586bd54fa3b6892d25eaebc, type: 3}
+  - {fileID: 8300000, guid: 45da36521f3cb5c43a44273d34f535d3, type: 3}
+  minPitch: 0.95
+  maxPitch: 1.24
+  frequencyLevel: 6
+  volume: 0.2
+  makePredictable: 1
+  stopAudioSource: 0
+  npcprefs:
+  - category: 7
+    repDelta: 0
+    nextNode: 
+  - category: 0
+    repDelta: 0
+    nextNode: 
+  - category: 4
+    repDelta: 0
+    nextNode: 
+  - category: 5
+    repDelta: 0
+    nextNode: 
+  - category: 9
+    repDelta: 0
+    nextNode: 
+  - category: 10
+    repDelta: 0
+    nextNode: 
