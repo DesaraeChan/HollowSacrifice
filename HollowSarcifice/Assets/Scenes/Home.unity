@@ -1248,7 +1248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83b234dc7e1d5449a254e5d6c41acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  currentDay: 1
+  currentDay: 4
   Night: 0
   unlockDay: 0
   alleyInteractions: 0
@@ -3463,8 +3463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c9de7bf066fc145abc426b50e61ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
-  solzaeSoupCount: 0
-  solzaeGearCount: 0
+  solzaeSoupCount: 6
+  solzaeGearCount: 6
   threshold: 4
   cutsceneTriggered: 0
 --- !u!4 &948917581
@@ -7151,6 +7151,7 @@ MonoBehaviour:
     tired you are.
   - Looking out the window the exhaustion from today suddenly hits you.
   - A lot has happened today. You feel distressed looking out in the darkness.
+  - The world feels like its crumbling around you.
   fogLines:
   - " It\u2019s so foggy you can\u2019t make out one thing from another."
   - "You can\u2019t see anything but the unsettling darkness and fog."

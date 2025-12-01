@@ -116,10 +116,15 @@ public void OnOutroComplete_ActivateNextOnly()
             );
              return;
                 }
-            else if(DayManager.Instance.currentDay == 4){sceneAfterLastCustomer = "Home";}
+            else if(DayManager.Instance.currentDay == 4){
+                sceneAfterLastCustomer = "Home";
+                DayManager.Instance.FinalSequence = true;
+                }
+            
             DayManager.Instance.unlockDay = false;
             playerStorage.initialValue = playerPosition;
             SceneManager.LoadScene(sceneAfterLastCustomer);
+            
         }
         else
         {

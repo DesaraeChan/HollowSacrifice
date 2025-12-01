@@ -80,7 +80,7 @@ public class CutsceneTextInjector : MonoBehaviour
         } else if(Family == 3)
         {
             familyLines.Add("Fortunately, your father returned from the war. You feel thankful everyday that he returned safely, with no injuries.");
-            familyLines.Add("Everyday you try to spend as much time with him with the fear that he might have to leave you with the possibility of never returning.");
+            familyLines.Add("You spend every day close to him, worried he may soon have to leave again.");
         }
 
         List<string> finalLines = new List<string>();

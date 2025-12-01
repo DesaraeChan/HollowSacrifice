@@ -4452,7 +4452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
   solzaeSoupCount: 4
-  solzaeGearCount: 0
+  solzaeGearCount: 4
   threshold: 4
   cutsceneTriggered: 0
 --- !u!114 &608189294

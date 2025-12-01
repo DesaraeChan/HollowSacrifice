@@ -2075,8 +2075,8 @@ MonoBehaviour:
     acid rain that pours incessantly.  '
   - "It lights the darkness, fertilizes the land, and adds a warm flavour to any
     dish it\u2019s sprinkled into."
-  - 'You were recently gifted a shop by your father who has left to fight in the
-    ongoing war against the Plab nation.   '
+  - You were recently gifted a shop from your father, who has left to fight in the
+    ongoing war against the Plab nation.
   - 'It is up to you to provide for your father and yourself in times of war. '
   slideshow:
   - {fileID: 346260117}
@@ -2126,6 +2126,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 0}
   gameState: {fileID: 0}
   shop: {fileID: 0}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral

@@ -1957,7 +1957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
   money: 33
   family: 0
-  sentToFamily: 0
+  sentToFamily: 1
 --- !u!4 &1607470118
 Transform:
   m_ObjectHideFlags: 0
