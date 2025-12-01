@@ -50,7 +50,7 @@ MonoBehaviour:
     choiceAText: There are no winners in wars like these.
     choiceBText: "I\u2019m just a shopkeeper. I can sell you items if you\u2019d
       like."
-    choiceCText: Yes you, Plabs scare me but, I still want a profit
+    choiceCText: Yes you, Plabs scare me but, I still want your business
     repDeltaA: -1
     repDeltaB: 0
     repDeltaC: 1

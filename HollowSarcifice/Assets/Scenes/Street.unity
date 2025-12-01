@@ -3372,15 +3372,13 @@ MonoBehaviour:
   textBox: {fileID: 846775400}
   charDelay: 0.03
   introLines:
-  - "Well then, I haven\u2019t seen you here before. I recognize every face that
-    passes by here.\n\n\n"
+  - "Hmm? I haven\u2019t seen you here before. I recognize every face that passes
+    by me."
   - "Ah you\u2019re taking over for your father? I haven\u2019t seen him around here
     in awhile. \n\n\n"
-  - 'You can buy your stock from me. I have a variety of shipments that come in daily,
-    and you can sell them as long as you have the means to pay for them.
-
-'
-  - "You won\u2019t find a better price anywhere else so keep coming back eh?\n\n\n"
+  - You can buy your stock from me. I have a variety of shipments that come in daily.
+  - You can choose what to sell as long as you have the means to pay for the stock.
+  - "You won\u2019t find a better price anywhere else so keep coming back, eh?\n"
   choicePanel: {fileID: 692966126}
   choiceAButton: {fileID: 1736978161}
   choiceBButton: {fileID: 155340174}
@@ -16088,15 +16086,18 @@ MonoBehaviour:
   textBox: {fileID: 510881885}
   charDelay: 0.03
   introLines:
-  - 'I think you know how it is out here. Cold. Wet. Acidic. '
+  - I think you know how it is out here. Cold, wet. Acidic...
   - "Do you have anything to spare? I\u2019d appreciate anything really, just trying
-    to get by like yourself.\n"
-  - "Why did I ask you over here?  \n"
-  - 'Haha, well you look like a kind person. You also look like you might have something
+    to get by like yourself."
+  - "You see my village doesn\u2019t exist no more. My village was shelled by never
+    ending artillery. It was like the world turned upside down. "
+  - "That\u2019s why I am here. I tried to find some work nearby but I got nothing.
+    \n\n"
+  - "This is my home now. Quite cozy, ain\u2019t it? "
+  - Haaa...
+  - 'Why did I ask you over here? '
+  - AHAHA well you look like a kind person. You also look like you might have something
     on you to help a guy out.
-
-
-'
   choicePanel: {fileID: 1411882432}
   choiceAButton: {fileID: 1303074583}
   choiceBButton: {fileID: 894055197}
@@ -16105,13 +16106,19 @@ MonoBehaviour:
   choiceALabel: Here take some change.
   choiceBLabel: Here, have some Solzae.
   afterChoiceA:
-  - 'Ah thank you! I knew you looked like a kind soul.
-
-'
+  - Ah thank you! I knew you had a kind soul.
   - I could buy a bowl of soup using this. Just like me mum used to make.
+  - Oh how I miss her cooking. Not even an angel could replicate her homemade cooking.
+  - "(The wanderer seems very deep in thought and focused on his mum\u2019s homemade
+    cooking so you decide to leave)"
   afterChoiceB:
-  - "Ah thank you, like I said anything helps really when you\u2019re out here."
+  - "Ah thank you, like I said anything helps when you\u2019re out here like me."
+  - 'Oh my. Is this Solzae? Just plain Solzae? How do you just have a piece of this
+    on you? '
+  - "Oh you run a shop you say? So that\u2019s your path in life. \nI knew you were
+    a kind soul to gift this to me. "
   - "I\u2019ll use this, and won\u2019t waste it AHARHA!"
+  - (You decide now would be a good time to leave)
   clickSkipsWhileTyping: 1
   hasChoices: 1
   typingSoundClips:

@@ -15,22 +15,19 @@ public class RiotInjector : MonoBehaviour
 
         if(DayManager.Instance.homeOrwork){ //work
            completeCutscene.Add(riotImage[0]);
-           endLines.Add("The miner that came to speak to you gets cut off by sudden glass shattering and yelling. The shop door swings open, while the windows fall down to pieces. You feel the ground shake beneath your feet.");
-           endLines.Add("Angry Zaetians fill your shop shouting \"RID OF SOLZAE, WE MUST DISPOSE OF IT. BRING LIFE TO ZAETIA!\". They begin scavenging your shop for any Solzae and throwing it to the ground and stomping on it. Amidst the chaos you get knocked over and trampled on by the rioters." );
-           endLines.Add("You try to find any way to get up off the ground but there isn’t any. Lying on the floor you feel some regret deciding to sell anything at the shop today. Behind the legs of those above you, you make out some guards getting pushed over outside your shop.");
-           endLines.Add("You feel a sudden shock of pain down by your knee, and suddenly your leg is overwhelmed with warmth spreading around the area. In the very far distance you hear multiple gunshots go off. The Zaetians cry out and start to panic and disperse from the area.");
-           endLines.Add("After quite awhile you are alone only hearing cries in the distance. When you’re finally able to get up off your back you realize your leg is bent sideways.");
+           endLines.Add("The miner is cut off by rioters, shouting, \"RID OF SOLZAE, WE MUST DISPOSE OF IT. BRING LIFE TO ZAETIA!\". The rioters trample into the shop breaking the windows and knocking the entrance door from its hinges.");
+           endLines.Add("They scavenge through the shop for anything that might contain Solzae and throw it to the ground. Amidst the chaos you get knocked onto the floor. ");
+           endLines.Add("Now on the floor, you feel regret that you came into the shop today. You can hear gunshots in the distance, and see guards getting pushed back outside your shop.");
+           endLines.Add("One of the rioter steps on your leg, sending immense pain throughout your body. Hearing the gunshots the Zaetian’s disperse from your shop. You’re left in pain and shock from the riot.");
           
           
         } else if (!DayManager.Instance.homeOrwork){ //home
             completeCutscene.Add(riotImage[1]);
            endLines.Add("Deciding to listen to the seller’s warnings you head back to your home.");
-           endLines.Add("There wasn’t really anything to do so you just sit and listen to the sounds coming from outside in the city.");
-        endLines.Add("You get up to look out your window hoping to hear some things more clearly. You hear a mix of angry cries, glass shattering, and general banging noises. From the near distance you can make out, \"DEATH TO SOLZAE!\" and \"LIFE TO ZAETIA!\"");
-        endLines.Add("From your window you can see a few other Zaetians laying against the walls of the streets. What isn’t clear if they’re like that because of the riot or because their illness has taken their strength where all they can do is lay until death takes them.");
-        endLines.Add("You decide to go sit back down, but when you turn around you hear gunshots suddenly fire.");
-        endLines.Add("After the sudden shock, you just sit on your bed and wait.");
-
+           endLines.Add("You decide to head back home and wait until it’s safe to go outside. You’re able to make out some sounds from outside your window.");
+        endLines.Add("You can hear people shouting, \"DEATH TO SOLZAE!\" and \"LIFE TO ZAETIA!\"");
+        endLines.Add("From your window you can see people laying on the streets. Some appear covered head to toe in yellow splotches. From the distance you hear multiple gunshots fire, and the panic that follows after.");
+        endLines.Add("You’re safe inside your house but left in shock from the riot.");
 
         }
 

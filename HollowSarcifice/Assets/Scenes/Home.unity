@@ -4988,10 +4988,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 72
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -6305,10 +6305,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 72
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7142,22 +7142,18 @@ MonoBehaviour:
   dialogueText: {fileID: 2089965527}
   textSpeed: 0.06
   dayLines:
-  - ' The world seems very quiet and looking out the window is somewhat calming to
-    you in the morning.'
-  - The outside world feels even quieter today than yesterday.
-  - Something feels different today; like the quietness is gone.
-  - "Looking at the buildings outside, you start to wonder if what you\u2019re doing
-    is right."
+  - The world is quiet. Looking out the window is calming to you in the morning.
+  - The world feels quieter today than yesterday. The quietness puts you at ease.
+  - The calmness that you felt looking out the window the other day has faded.
+  - The sky outside makes you ponder some previous decisions you made.
   nightLines:
-  - Looking out the window you start thinking about the wanderer you met outside;
-    hoping they stay warm.
-  - Looking outside, you feel the sudden exhaustion from the work you had done today.
-  - A lot has happened today and you feel a bit distressed looking out in the darkness.
+  - Today felt like a long day. Seeing the darkness outside makes you realize how
+    tired you are.
+  - Looking out the window the exhaustion from today suddenly hits you.
+  - A lot has happened today. You feel distressed looking out in the darkness.
   fogLines:
-  - "It\u2019s so foggy you can barely see anything but the things directly outside
-    your window."
-  - You can barely see a thing, and staring out the window you feel very unsettled
-    by the dark fog.
+  - " It\u2019s so foggy you can\u2019t make out one thing from another."
+  - "You can\u2019t see anything but the unsettling darkness and fog."
 --- !u!114 &1708479904
 MonoBehaviour:
   m_ObjectHideFlags: 0

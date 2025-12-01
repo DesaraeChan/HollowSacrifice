@@ -31,7 +31,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: Manual labour is essential but oh boy does it make a person hungry!
+    text: Manual labour is essential but oh boy does it make a man hungry!
     hasChoice: 1
     choiceAText: Why become a miner if you could take a job with less physical requirements?
     choiceBText: "People like you supply my shop. I\u2019m grateful for your hard
