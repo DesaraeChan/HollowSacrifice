@@ -111,7 +111,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: "This has got a Solzae smell to it. Ah it\u2019s fine thanks anyways."
+    text: This has got a Solzae smell to it. Maybe I can pick it out...
     hasChoice: 0
     choiceAText: 
     choiceBText: 

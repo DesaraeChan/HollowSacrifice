@@ -5,18 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RiotCutscene : MonoBehaviour
-
-
 {
     [SerializeField] private Animator characterAnimator;
+
     [Header("Scene Transition")]
     [SerializeField] private string nextSceneName;
-  
 
     public TextMeshProUGUI textComponent;
     public Image cutscene;
 
-    
     public string[] lines;
     public Sprite[] slideshow;
     public int[] imageSwap;
@@ -26,64 +23,88 @@ public class RiotCutscene : MonoBehaviour
     public bool inNPCZone = false;
     public bool allowSkip = true;
 
-     public bool DialogueDone { get; private set; } = false;
+    public bool DialogueDone { get; private set; } = false;
 
-//track where we are within the text
     private int index;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Coroutine typingRoutine;
+    private bool finishedTyping = false;
+
     void Start()
     {
-       textComponent.text = string.Empty;
-       StartDialogue();
-       if(slideshow.Length > 0) cutscene.sprite = slideshow[0];
-       //change this later to make it change if family is made
+        textComponent.text = string.Empty;
+        StartDialogue();
+
+        if (slideshow.Length > 0)
+            cutscene.sprite = slideshow[0];
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         if (Input.GetMouseButtonDown(0) && (!inNPCZone || allowSkip))
         {
-            if(textComponent.text == lines[index])
-            {
-                NextLine();
-            }else{
-                StopAllCoroutines();
-                textComponent.text = lines [index];
+            // -----------------------------------------
+            // CLICK BEHAVIOR
+            // -----------------------------------------
 
-                if (index >= lines.Length - 1 && textComponent.text == lines[index])
-{
-    EndTheCutscene();
-}
+            // If still typing → skip to full line
+            if (!finishedTyping)
+            {
+                if (typingRoutine != null)
+                {
+                    StopCoroutine(typingRoutine);
+                    typingRoutine = null;
+                }
+
+                textComponent.text = lines[index];
+                finishedTyping = true;
+                return;
             }
+
+            // If typing finished and this is the final line → END CUTSCENE
+            if (finishedTyping && index >= lines.Length - 1)
+            {
+                EndTheCutscene();
+                return;
+            }
+
+            // Otherwise → go to next line
+            NextLine();
         }
     }
 
-    public void StartDialogue(){
+    public void StartDialogue()
+    {
         StopAllCoroutines();
         DialogueDone = false;
         textComponent.text = string.Empty;
         index = 0;
-        StartCoroutine(TypeLine());
+
+        typingRoutine = StartCoroutine(TypeLine());  // <-- track routine
     }
 
-    IEnumerator TypeLine(){
-        //Type each character one by one
-        foreach (char c in lines [index].ToCharArray()){
+    IEnumerator TypeLine()
+    {
+        finishedTyping = false;
+        textComponent.text = "";
+
+        foreach (char c in lines[index].ToCharArray())
+        {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
-
         }
+
+        finishedTyping = true; 
     }
 
-    void EndTheCutscene(){
+    void EndTheCutscene()
+    {
         if (DialogueDone) return;
         DialogueDone = true;
+
         gameObject.SetActive(false);
 
-         if (!string.IsNullOrEmpty(nextSceneName))
+        if (!string.IsNullOrEmpty(nextSceneName))
         {
             DayManager.Instance.FinalSequence = true;
             DayManager.Instance.unlockDay = false;
@@ -91,18 +112,31 @@ public class RiotCutscene : MonoBehaviour
         }
     }
 
-    void NextLine(){
-        if(index <lines.Length -1){
+    void NextLine()
+    {
+        if (index < lines.Length - 1)
+        {
             index++;
-            textComponent.text = string.Empty;
-            StartCoroutine(TypeLine());
 
-        }else{
-            //close text box
-        gameObject.SetActive(false);
-          if (shopCanvas.gameObject) shopCanvas.gameObject.SetActive(true);
-        
-        
+            // Change image if index matches imageSwap[]
+            for (int i = 0; i < imageSwap.Length; i++)
+            {
+                if (index == imageSwap[i] && i < slideshow.Length)
+                {
+                    cutscene.sprite = slideshow[i];
+                    break;
+                }
+            }
+
+            textComponent.text = string.Empty;
+            typingRoutine = StartCoroutine(TypeLine());
+        }
+        else
+        {
+            // Reached end — close & show shop UI
+            gameObject.SetActive(false);
+            if (shopCanvas != null && shopCanvas.gameObject)
+                shopCanvas.gameObject.SetActive(true);
         }
     }
 }

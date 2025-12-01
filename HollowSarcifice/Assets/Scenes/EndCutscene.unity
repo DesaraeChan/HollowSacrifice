@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EndCutscene
   characterAnimator: {fileID: 0}
-  nextSceneName: 
+  nextSceneName: Menu Screen
   textComponent: {fileID: 1773173846}
   cutscene: {fileID: 2099009443}
   lines: []
@@ -1607,6 +1607,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 0}
   gameState: {fileID: 0}
   shop: {fileID: 0}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral

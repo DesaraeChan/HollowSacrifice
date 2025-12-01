@@ -49,9 +49,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
-    text: 'And not things that appear spontaneously...
-
-'
+    text: "And things that don\u2019t spontaneously appear..."
     hasChoice: 1
     choiceAText: Everything is made from our world. It all has the same origin.
     choiceBText: "I do think that\u2019s a good mindset, if you have the means to

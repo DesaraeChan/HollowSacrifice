@@ -112,11 +112,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Option A
-    text: 'Do you have the same breakfast everyday then? You seem like a simple person
-      with not a lot of complications.
-
-
-
+    text: 'Do you have the same breakfast everyday then? You seem like a simple person.
 
 
 

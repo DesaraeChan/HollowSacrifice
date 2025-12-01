@@ -98,8 +98,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: What the? Only one of these has the Solzae I requested. Nevermind i'll
-      take both items.
+    text: What the? Something is wrong here... Nevermind I'll take both items.
     hasChoice: 0
     choiceAText: 
     choiceBText: 

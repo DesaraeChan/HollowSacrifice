@@ -28,6 +28,19 @@ MonoBehaviour:
     nextIfA: 
     nextIfB: 
     nextIfC: 
+    goTo: Dialogue 2
+  - nodeName: Dialogue 2
+    text: 'I need to feed Mr. Cabbage. '
+    hasChoice: 0
+    choiceAText: 
+    choiceBText: 
+    choiceCText: 
+    repDeltaA: 0
+    repDeltaB: 0
+    repDeltaC: 0
+    nextIfA: 
+    nextIfB: 
+    nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
     text: "He\u2019s my pet. Pet bug. He is my world...\n"

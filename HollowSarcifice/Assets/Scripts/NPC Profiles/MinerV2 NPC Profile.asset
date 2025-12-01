@@ -36,7 +36,8 @@ MonoBehaviour:
     choiceAText: All we can do is just live our life, and support them.
     choiceBText: "Alright, well I think you should order some food if you\u2019re
       that hungry."
-    choiceCText: "I can\u2019t even begin to imagine what our soldiers are experiencing."
+    choiceCText: "I can\u2019t even begin to imagine what our soldiers are going
+      through."
     repDeltaA: 0
     repDeltaB: -1
     repDeltaC: 1
@@ -60,7 +61,7 @@ MonoBehaviour:
     goTo: Dialogue 3
   - nodeName: Option B
     text: Do you not concern yourself with our current situation? Do you read the
-      news? I think I'd  rather shop someplace else.
+      news? I think I'd rather shop someplace else.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -100,7 +101,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: Neutral
-    text: Why would you put Solzae in one of my items. Ay, whatever ill take them.
+    text: Ay, something is weird with my order... Whatever I'll take them.
     hasChoice: 0
     choiceAText: 
     choiceBText: 

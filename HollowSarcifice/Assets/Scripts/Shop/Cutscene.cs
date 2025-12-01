@@ -13,7 +13,6 @@ public class Cutscene : MonoBehaviour
 
     public TextMeshProUGUI textComponent;
     public string[] lines;
-   // public Sprite[] slideshow;
 
     public GameObject[] slideshow;
     public Image cutscene;
@@ -23,7 +22,6 @@ public class Cutscene : MonoBehaviour
     [SerializeField] private AudioSource lineSoundSource;
     [SerializeField] private AudioClip[] lineSoundClips;
 
-
     public bool inNPCZone = false;
     public bool allowSkip = true;
 
@@ -32,9 +30,10 @@ public class Cutscene : MonoBehaviour
     private int index;
     private int slideshowIndex;
 
-    private Coroutine typingRoutine;     // track typing only
-    private Coroutine fadeRoutine;       // track line sound fade only
-    
+    private Coroutine typingRoutine;
+    private Coroutine fadeRoutine;
+
+    private bool finishedTyping = false;  // <-- NEW
 
     void Start()
     {
@@ -46,57 +45,51 @@ public class Cutscene : MonoBehaviour
 
     void Update()
     {
-        // Safely set slideshow image
-        // if (cutscene != null && slideshow != null && slideshow.Length > 0)
-        // {
-        //     if (slideshowIndex >= 0 && slideshowIndex < slideshow.Length)
-        //         cutscene.sprite = slideshow[slideshowIndex];
-        // }
-
         if (textComponent == null || lines == null || lines.Length == 0)
             return;
 
         if (Input.GetMouseButtonDown(0) && (!inNPCZone || allowSkip))
         {
-             // If still typing, skip to end of line
-            if (typingRoutine != null)
-            {
-                StopCoroutine(typingRoutine);
-                typingRoutine = null;
-                textComponent.text = lines[index];
+            // ---------------------------------------
+            // CLICK LOGIC REWORKED
+            // ---------------------------------------
 
-                //StopLineSoundImmediately(); // stop cleanly on skip (no coroutines killed)
+            // If still typing → skip to full line
+            if (!finishedTyping)
+            {
+                if (typingRoutine != null)
+                {
+                    StopCoroutine(typingRoutine);
+                    typingRoutine = null;
+                }
+
+                textComponent.text = lines[index];
+                finishedTyping = true;
                 return;
             }
 
-            if (textComponent.text == lines[index])
+            // If typing finished and this is the last line → end cutscene
+            if (finishedTyping && index >= lines.Length - 1)
             {
-                NextLine();
+                EndCutscene();
+                return;
             }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
 
-                if (index >= lines.Length - 1)
-                {
-                    EndCutscene();
-                }
-            }
+            // Otherwise go to next line
+            NextLine();
         }
     }
 
     void ShowCurrentSlide()
-{
-    if (slideshow == null || slideshow.Length == 0) return;
-
-    for (int i = 0; i < slideshow.Length; i++)
     {
-        if (slideshow[i] != null)
-            slideshow[i].SetActive(i == slideshowIndex);
-    }
-}
+        if (slideshow == null || slideshow.Length == 0) return;
 
+        for (int i = 0; i < slideshow.Length; i++)
+        {
+            if (slideshow[i] != null)
+                slideshow[i].SetActive(i == slideshowIndex);
+        }
+    }
 
     public void StartDialogue()
     {
@@ -111,19 +104,21 @@ public class Cutscene : MonoBehaviour
 
         PlayCurrentLineSound();
 
-        StartCoroutine(TypeLine());
+        typingRoutine = StartCoroutine(TypeLine());  
     }
 
     IEnumerator TypeLine()
     {
-        if (textComponent == null || lines == null || lines.Length == 0)
-            yield break;
+        finishedTyping = false;  
+        textComponent.text = "";
 
         foreach (char c in lines[index])
         {
             textComponent.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+
+        finishedTyping = true;  
     }
 
     void EndCutscene()
@@ -139,28 +134,27 @@ public class Cutscene : MonoBehaviour
 
     void NextLine()
     {
-        // if (textComponent == null || lines == null || lines.Length == 0)
-        //     return;
-
         if (index < lines.Length - 1)
         {
             index++;
 
             int previousSlideIndex = slideshowIndex;
-            
-            // Safe slideshow swaps
+
             if (index == 2 && slideshow != null && slideshow.Length > 1)
                 slideshowIndex = 1;
             else if (index == 4 && slideshow != null && slideshow.Length > 2)
                 slideshowIndex = 2;
 
             textComponent.text = string.Empty;
-            if (slideshowIndex != previousSlideIndex){
-                 ShowCurrentSlide();
-                 PlayCurrentLineSound(); 
+            finishedTyping = false;
+
+            if (slideshowIndex != previousSlideIndex)
+            {
+                ShowCurrentSlide();
+                PlayCurrentLineSound();
             }
-           
-            StartCoroutine(TypeLine());
+
+            typingRoutine = StartCoroutine(TypeLine());  // <-- assign routine
         }
         else
         {
@@ -172,50 +166,43 @@ public class Cutscene : MonoBehaviour
     }
 
     void PlayCurrentLineSound()
-{
-    if (lineSoundSource == null || lineSoundClips == null || lineSoundClips.Length == 0)
-        return;
+    {
+        if (lineSoundSource == null || lineSoundClips == null || lineSoundClips.Length == 0)
+            return;
 
-  //  int clipIndex = index % lineSoundClips.Length;
-  int clipIndex = Mathf.Clamp(slideshowIndex, 0, lineSoundClips.Length -1);
-    AudioClip clip = lineSoundClips[clipIndex];
+        int clipIndex = Mathf.Clamp(slideshowIndex, 0, lineSoundClips.Length - 1);
+        AudioClip clip = lineSoundClips[clipIndex];
 
-    if(fadeRoutine !=null){
-        StopCoroutine(fadeRoutine);
-    }
+        if (fadeRoutine != null)
+            StopCoroutine(fadeRoutine);
 
         fadeRoutine = StartCoroutine(PlayLineSoundFaded(clip));
     }
 
-
-IEnumerator PlayLineSoundFaded(AudioClip clip)
-{
-    // quick fade out if something is playing
-    float fadeTime = 0.02f; // 20ms = enough to kill clicks
-    float startVol = lineSoundSource.volume;
-
-    if (lineSoundSource.isPlaying)
+    IEnumerator PlayLineSoundFaded(AudioClip clip)
     {
+        float fadeTime = 0.02f;
+        float startVol = lineSoundSource.volume;
+
+        if (lineSoundSource.isPlaying)
+        {
+            for (float t = 0; t < fadeTime; t += Time.deltaTime)
+            {
+                lineSoundSource.volume = Mathf.Lerp(startVol, 0f, t / fadeTime);
+                yield return null;
+            }
+            lineSoundSource.volume = 0f;
+            lineSoundSource.Stop();
+        }
+
+        lineSoundSource.PlayOneShot(clip);
+
         for (float t = 0; t < fadeTime; t += Time.deltaTime)
         {
-            lineSoundSource.volume = Mathf.Lerp(startVol, 0f, t / fadeTime);
+            lineSoundSource.volume = Mathf.Lerp(0f, startVol, t / fadeTime);
             yield return null;
         }
-        lineSoundSource.volume = 0f;
-        lineSoundSource.Stop();
+
+        lineSoundSource.volume = startVol;
     }
-
-    // play new tone
-    lineSoundSource.PlayOneShot(clip);
-
-    // quick fade in
-    for (float t = 0; t < fadeTime; t += Time.deltaTime)
-    {
-        lineSoundSource.volume = Mathf.Lerp(0f, startVol, t / fadeTime);
-        yield return null;
-    }
-    lineSoundSource.volume = startVol;
-}
-
-
 }

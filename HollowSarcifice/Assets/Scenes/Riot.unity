@@ -385,6 +385,7 @@ MonoBehaviour:
   mainDialogue: {fileID: 0}
   gameState: {fileID: 0}
   shop: {fileID: 0}
+  charm: {fileID: 0}
   positiveNode: Positive
   negativeNode: Negative
   neutralNode: Neutral
