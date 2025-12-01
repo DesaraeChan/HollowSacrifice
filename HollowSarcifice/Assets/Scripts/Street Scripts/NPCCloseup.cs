@@ -197,7 +197,7 @@ public class NPCCloseup : MonoBehaviour
         // Replace choice response lines safely
         afterChoiceA = new string[]
         {
-            "Right, I think the safest option for you would be to hole up at your home."
+            "Right, I think the safest option for you would be to hold up at your home."
         };
 
         afterChoiceB = new string[]
@@ -213,8 +213,11 @@ public class NPCCloseup : MonoBehaviour
         {
             "Oh, it’s you. You came back?",  "You left, why would you come back?",
             "...",
-            "Well, don’t be a stranger. Not like any of us have a choice to be here.",
-            "Atleast we get to look at a nice view.", "Do you ever wonder if your life could be better?", "I think about it everyday if I’m being honest with you."
+            "Well, don’t be a stranger. Not like any of us have a choice to be here.", 
+            "My face? It's the Solzae. It corrodes your insides and creates lesions all over the skin.", 
+            "I lost my job. my family. Everything because of my condition.",
+            "That is how all of us ended up here...",
+            "At least we get to look at the nice view.", "Do you ever wonder if your life could be better?", "I think about it everyday if I’m being honest with you."
         };
         } else if(npcId == "SickGuy" && DayManager.Instance.alleyInteractions == 2){
             introLines = new string[]
@@ -222,7 +225,8 @@ public class NPCCloseup : MonoBehaviour
             "I’m glad you’re back again. You’re now my favourite person to talk to.",
             "I’ve already talked a lot with everyone else in here.",
             "There’s not much else to do. Nothing really changes around here.",
-            "...", "You’d be surprised how much people have to say when they have nothing better to do.", "Thanks for coming by. I appreciate your company"
+            "...", "You’d be surprised how much people have to say when they have nothing better to do.", 
+            "Thanks for coming by. I appreciate your company"
         };
         } else if(npcId == "SickGuy" && DayManager.Instance.alleyInteractions > 2){
             introLines = new string[]

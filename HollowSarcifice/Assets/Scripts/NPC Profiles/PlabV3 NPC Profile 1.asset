@@ -34,7 +34,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: I know this war is affecting both of our peoples. I share sympathy towards
+    text: I know this war is affecting both of our homes. I share sympathy towards
       you and your people.
     hasChoice: 0
     choiceAText: 
@@ -48,11 +48,11 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 3
   - nodeName: Dialogue 3
-    text: I hope you know we will eventually gain the upper hand against Zaetia.
-      If you would...
+    text: I hope you would share the same mindset.
     hasChoice: 1
     choiceAText: I think your people have treated us like dirt.
-    choiceBText: "I would rather not share my opinion with you if that\u2019s alright."
+    choiceBText: " I don\u2019t want to share my opinion with you if that\u2019s
+      alright."
     choiceCText: Yes I know this war is affecting both sides greatly...
     repDeltaA: -1
     repDeltaB: 0
@@ -88,7 +88,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 4
   - nodeName: Option C
-    text: and with our victory, our nations will be stronger together.
+    text: We are both equally suffering the consequences of war. Only time will reveal
+      the greater consequences.
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -101,8 +102,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 4
   - nodeName: Dialogue 4
-    text: "I\u2019m quite thirsty and I haven\u2019t ate lunch. I want something
-      to drink and eat with Solzae included."
+    text: "I haven\u2019t ate lunch. I want something to eat with Solzae included.
+      I\u2019d also like an umbrella with Solzae for protection."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -115,7 +116,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: AskForItem
   - nodeName: AskForItem
-    text: Solzae Soup ?
+    text: Solzae Soup + Solzae Gear?
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -141,8 +142,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: END
   - nodeName: Negative
-    text: "This is missing Solzae. It doesn\u2019t quite make me feel warm and cozy
-      but it\u2019ll do.\n"
+    text: "This doesn\u2019t have Solzae but I\u2019ll take it."
     hasChoice: 0
     choiceAText: 
     choiceBText: 

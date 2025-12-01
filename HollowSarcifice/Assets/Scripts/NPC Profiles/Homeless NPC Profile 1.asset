@@ -18,7 +18,7 @@ MonoBehaviour:
   dialogue:
   - nodeName: Dialogue 1
     text: "Ah hello. I\u2019m glad I found your shop. Not that it was very far away
-      from where I was sitting, when I last saw you."
+      from where I was sitting."
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -31,8 +31,8 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: "Anyways, I wanted to thank you for the money you gave me. It really inspired
-      me. Maybe I could get back out into this world and do something.  \n"
+    text: 'Anyways, I wanted to thank you for the money you gave me. It really inspired
+      me. Maybe I could get back out there. Into this world and do something.  '
     hasChoice: 0
     choiceAText: 
     choiceBText: 

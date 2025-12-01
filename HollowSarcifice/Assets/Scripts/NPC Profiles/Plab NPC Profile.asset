@@ -30,7 +30,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 2
   - nodeName: Dialogue 2
-    text: "I\u2019m visiting and needed some supplies before heading home. \n"
+    text: "I\u2019m visiting Zaetia and needed some supplies before heading home. "
     hasChoice: 0
     choiceAText: 
     choiceBText: 
@@ -48,7 +48,7 @@ MonoBehaviour:
     hasChoice: 1
     choiceAText: "They\u2019d be wrong to think one\u2019s character is reflected
       in their appearance."
-    choiceBText: The other shopkeepers were right not to let you in.
+    choiceBText: The other shopkeepers were right not to sell to your kind.
     choiceCText: "It is up to the shopkeeper who they sell and don\u2019t sell to."
     repDeltaA: 1
     repDeltaB: -1
