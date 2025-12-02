@@ -102,7 +102,7 @@ MonoBehaviour:
     nextIfC: 
     goTo: Dialogue 4
   - nodeName: Dialogue 4
-    text: "I haven\u2019t ate lunch. I want something to eat with Solzae included.
+    text: "I haven\u2019t eaten lunch. I want something to eat with Solzae included.
       I\u2019d also like an umbrella with Solzae for protection."
     hasChoice: 0
     choiceAText: 

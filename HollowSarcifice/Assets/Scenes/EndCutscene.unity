@@ -251,13 +251,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c83b234dc7e1d5449a254e5d6c41acc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayManager
-  currentDay: 1
+  currentDay: 4
   Night: 0
   unlockDay: 0
   alleyInteractions: 0
   newsActive: 1
   homeOrwork: 0
-  FinalSequence: 0
+  FinalSequence: 1
 --- !u!4 &96785195
 Transform:
   m_ObjectHideFlags: 0
@@ -1799,8 +1799,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c9de7bf066fc145abc426b50e61ba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SaleTracker
-  solzaeSoupCount: 0
-  solzaeGearCount: 0
+  solzaeSoupCount: 8
+  solzaeGearCount: 8
   threshold: 4
   cutsceneTriggered: 0
 --- !u!4 &1542416021
@@ -1957,7 +1957,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoneyCounter
   money: 33
   family: 0
-  sentToFamily: 1
+  sentToFamily: 0
 --- !u!4 &1607470118
 Transform:
   m_ObjectHideFlags: 0
