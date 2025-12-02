@@ -16291,8 +16291,6 @@ MonoBehaviour:
   - Ah thank you! I knew you had a kind soul.
   - I could buy a bowl of soup using this. Just like me mum used to make.
   - Oh how I miss her cooking. Not even an angel could replicate her homemade cooking.
-  - "(The wanderer seems very deep in thought and focused on his mum\u2019s homemade
-    cooking so you decide to leave)"
   afterChoiceB:
   - "Ah thank you, like I said anything helps when you\u2019re out here like me."
   - 'Oh my. Is this Solzae? Just plain Solzae? How do you just have a piece of this
@@ -16300,7 +16298,6 @@ MonoBehaviour:
   - "Oh you run a shop you say? So that\u2019s your path in life. \nI knew you were
     a kind soul to gift this to me. "
   - "I\u2019ll use this, and won\u2019t waste it AHARHA!"
-  - (You decide now would be a good time to leave)
   clickSkipsWhileTyping: 1
   hasChoices: 1
   typingSoundClips:
